@@ -1,0 +1,176 @@
+{
+  "slug": "southwest-review",
+  "title": "Southwest Airlines & Final Exam Review",
+  "classNumber": 13,
+  "module": "C",
+  "keyQuestion": "How do we integrate operations strategy with all course concepts for the final exam?",
+  "caseName": "Southwest Airlines",
+  "prerequisites": ["ops-strategy", "queueing", "eoq", "newsvendor"],
+  "concepts": ["C11", "C12", "C30", "C31", "C50", "C51", "C53", "C54", "C60", "C61", "C64", "C65", "C67", "C40", "C41", "C42", "C70", "C73", "C46", "C47"],
+  "priority": "MEDIUM",
+  "overview": "This comprehensive review session covers Southwest Airlines' operations strategy and integrates all major course concepts for the final exam. Southwest exemplifies perfect alignment between operations and marketing strategy through interlocking tactics like point-to-point service, fast turnarounds, and standardized aircraft. We'll also work through quantitative problems in queueing, EOQ, and newsvendor while reviewing key principles from capacity analysis, factory physics, and supply chain management.",
+  "coreContent": [
+    {
+      "title": "Southwest Airlines Operations Strategy (CQDF Analysis)",
+      "conceptIds": ["C11", "C12"],
+      "content": "For Southwest's traditional model, analyze their operations objectives:\n\nObjective | Define | Rank | Measure\nCost | Lowest cost | 1 | Cost per passenger; cost per flight; fuel costs; staffing costs\nQuality | Standard / low | 3 | Clean planes; no meals; no frills; fun\nDelivery | Frequent flights; on time; we get you there; ease to change flights | 2 | On time percent; flights per day between cities; price for a customer to change flights\nFlexibility | Low flexibility; no first class; no meals or frills | 4 | Number of options for flight services and seats\n\nInterlocking Ops Strategy/Tactics: Point-to-point Service, Fast Turn Time, Low Cost Operations, High Demand, Smaller Airports, Boarding Process, Ticketing Process, Slow Growth, All 737 Aircraft, Low Prices, No Meals, SWA Culture",
+      "keyInsight": "Alignment of operations and marketing strategy is critical to a successful business strategy. The best operations strategies are supported through many individual elements (levers/tactics) that are consistent with the objectives (C,Q,D,F)"
+    },
+    {
+      "title": "Southwest's Operational Efficiency Analysis",
+      "conceptIds": ["C11"],
+      "content": "A Simple Quick-Turn Analysis:\nAssume | Minutes\n | SW | Industry Ave\nAir Time | 115 | 115\nTurn Time | 25 | 60\nTotal | 140 | 175\nPercent Increase | 25% |\n\nConclusion: Competitors need 25% more planes\nPlanes: Southwest 539 Boeing 737s vs Competitor 674 Boeing 737s\nCost of planes: $8,085,000,000 vs $10,110,000,000 ($60M/plane)\nAnnual cost: $808,500,000 (10% cost of capital)\n\nA Simple Meal Cost Analysis:\nMeals: Cost per meal $10.00\nSeats: 137, Load factor: 0.712, Full seats: 97.5\nMeal cost per flight: $975\nFlights per day: 3300, Percent with meals: 0.333\nMeal cost per day: $1,071,911\nAnnual: $391,247,521",
+      "keyInsight": "While each element may have value, competitors cannot achieve parity by simply copying individual elements – the whole is more than the sum of the parts"
+    },
+    {
+      "title": "Final Exam Review: Queueing Problems",
+      "conceptIds": ["C30", "C31"],
+      "content": "Better Buzz Coffee Problem:\nTwo students measured service times: average 3.3 minutes, standard deviation 4.8 minutes\nTwo other students measured time between arrivals: average 4.0 minutes, standard deviation 3.2 minutes\nOnly one server working during this time\n\nBased on this information:\n1. What would be the average time in line?\n2. What would be the average number of customers in line?\n3. What would the average waiting time in line be if Better Buzz added a second server?\n\nSolution approach:\nρ = M/A = 3.3/4.0 = 0.825\nCa = σa/A = 3.2/4.0 = 0.8, Ca² = 0.64\nCs = σs/M = 4.8/3.3 = 1.45, Cs² = 2.11\nW = M × [ρ/(1-ρ)] × [(Ca² + Cs²)/2]\nW = 3.3 × [0.825/(1-0.825)] × [(0.64 + 2.11)/2]\nW = 3.3 × 4.71 × 1.375 = 21.4 minutes",
+      "keyInsight": "Waiting time increases dramatically as utilization gets very high. Variability in either arrivals or service times magnifies the effects of utilization on waiting times"
+    },
+    {
+      "title": "Final Exam Review: EOQ Problems",
+      "conceptIds": ["C50", "C51", "C53", "C54"],
+      "content": "Shovel Retailer Problem:\nA large retailer pays $45.20 per unit, fixed cost for placing an order is $19.50, capital cost is 17%, physical holding costs negligible, annual demand is 22,500 units\n\n1. Determine the optimal order quantity: EOQ = √(2SD/H) = √(2×19.50×22,500/(45.20×0.17)) = √(877,500/7.684) = √114,205 = 338 units\n2. Total annual relevant cost: TC = S(D/Q) + H(Q/2) = 19.50×(22,500/338) + 7.684×(338/2) = $1,298 + $1,296 = $2,594\n3. Current order quantity is 500 units. Savings = TC(500) - TC(338) = $2,635 - $2,594 = $41\n4. Merger impact: Combined demand = 45,000 units. New EOQ = √(2×19.50×45,000/7.684) = 478 units. Combined TC = $3,670. Separate TC = 2×$2,594 = $5,188. Savings = 29.2%",
+      "keyInsight": "EOQ scales by √n for n locations consolidated, creating square-root savings. Consolidating demand creates efficiency gains"
+    },
+    {
+      "title": "Final Exam Review: Newsvendor Problems",
+      "conceptIds": ["C60", "C61", "C64", "C65", "C67"],
+      "content": "Soccer World Cup Book Problem:\nBookstore must order in advance. Mean demand = 180 units, standard deviation = 65. Buy for $23, sell for $50, discount price = $10\n\n1. How many should they buy?\nCo = Cost - Salvage = 23 - 10 = $13\nCu = Price - Cost = 50 - 23 = $27\npc = Cu/(Cu + Co) = 27/(27 + 13) = 0.675\nQ* = NORM.INV(0.675, 180, 65) = 210 units\n\n2. Probability of running out = 1 - service level = 1 - 0.675 = 32.5%\n\n3. For Q = 190: Service level = NORM.DIST(190, 180, 65, TRUE) = 56%\n\n4. Service Level Curve: As you approach 100% service, it becomes increasingly difficult to increase service further due to the shape of the normal distribution. The curve is convex - steeper at high service levels",
+      "keyInsight": "As service level approaches 100%, order quantity increases exponentially. This explains why 100% service is rarely economical"
+    },
+    {
+      "title": "Supply Chain Management Review",
+      "conceptIds": ["C40", "C41", "C42", "C70", "C73"],
+      "content": "Bullwhip Effect (Functional/Replenishment Products like eBeer):\nProblem: Information distortion and order variability grows as you move up supply chain\nCauses: Over-reaction to backlogs, neglecting inventory position, lack of communication/coordination, delay times\nSolutions: Share information internally (S&OP), externally (CPFR), share decision rights (VMI)\n\nInnovative/Style Products (Sport Obermeyer):\nChallenges: Long lead times, competitive/trend uncertainty, short product life cycles, global production\nStrategies: Use information to quantify risk, forecast distributions not just means, use newsvendor model, reduce risk with early order information, use flexibility/redundancy, increase reactive capacity, hedge with common components and pre-positioned inventories",
+      "keyInsight": "Different product/supply characteristics require different supply chain strategies. Functional products need efficient supply chains; innovative products need responsive supply chains"
+    },
+    {
+      "title": "Supply Chain Risk Management Framework",
+      "conceptIds": ["C46", "C47"],
+      "content": "Managing Supply Chain Risks:\nAnticipatory Strategies (buy options): Information & Planning (scenario planning, real-time risk monitoring), Supply Chain Process Adjustments (strategic inventory, directed buy agreements), Supply Chain Structure Design (footprint restructuring, multi-region sourcing, strategic partnerships, vertical integration)\n\nReactive Adaptations (exercise options): Shifts in production/procurement volumes, collaborative adaptation of sources/logistics/technologies, priority allocations\n\nSpecific Strategies: Use inventory buffers (safety stock), time buffers (safety time), information sharing (S&OP, CPFR, VMI), flexibility/redundancy (reactive capacity), currency hedging",
+      "keyInsight": "Two-stage approach: anticipatory strategies create options for later use, reactive adaptations exercise those options when needed"
+    },
+    {
+      "title": "Operations Principles Summary",
+      "conceptIds": ["C01", "C08", "C20", "C23"],
+      "content": "Three things that hurt you in operations:\n1. Setups - capacity may depend on order size, find ways to speed up setup times, set up offline, specialized setup personnel\n2. Bottlenecks - system performance is determined by limiting resource, bottlenecks may move as order size changes, doubling bottleneck capacity may not double system capacity\n3. Uncertainty & Variability - variability decreases capacity, creates need for WIP management to balance throughput time vs capacity\n\n...but proper actions mitigate this pain:\n- Tools: Capacity Analysis, Setup Reduction, Little's Law, WIP management, Queueing formulas, EOQ model, Newsvendor model\n- Insights: Focused operations exploit power of rigid processes, rebalancing resources extracts value, managing customer perceptions matters",
+      "keyInsight": "The three pain points appear throughout all operations contexts - process analysis, factory physics, queueing, inventory management, and supply chain design"
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Queueing (Single Server)",
+      "formula": "W = M × [ρ/(1-ρ)] × [(Ca² + Cs²)/2]",
+      "variables": {
+        "W": "Average waiting time in queue",
+        "M": "Average processing time",
+        "ρ": "Utilization = M/A",
+        "Ca": "Coefficient of variation of arrivals = σa/A",
+        "Cs": "Coefficient of variation of service = σs/M"
+      },
+      "workedExample": "Better Buzz: W = 3.3 × [0.825/(1-0.825)] × [(0.64+2.11)/2] = 21.4 minutes"
+    },
+    {
+      "name": "Queueing (Multiple Servers)",
+      "formula": "W = (M/n) × [ρ^(√(2(n+1))-1)/(1-ρ)] × [(Ca² + Cs²)/2]",
+      "variables": {
+        "n": "Number of servers",
+        "ρ": "Utilization = M/(n×A)"
+      },
+      "workedExample": "For n=2 servers: exponent = √(2(2+1))-1 = √6-1 = 1.45"
+    },
+    {
+      "name": "Economic Order Quantity",
+      "formula": "EOQ = √(2SD/H)",
+      "variables": {
+        "D": "Annual demand",
+        "S": "Fixed ordering cost",
+        "H": "Holding cost = ic + h"
+      },
+      "workedExample": "Shovel: EOQ = √(2×19.50×22,500/7.684) = 338 units"
+    },
+    {
+      "name": "EOQ Consolidation Effect",
+      "formula": "Combined EOQ = √(2S(D1+D2+...)/H)",
+      "variables": {
+        "D1+D2+...": "Sum of demands from all locations"
+      },
+      "workedExample": "Two stores: New EOQ = √(2×19.50×45,000/7.684) = 478 vs 2×338 = 676"
+    },
+    {
+      "name": "Newsvendor Optimal Quantity",
+      "formula": "Q* = NORM.INV(pc, μ, σ)",
+      "variables": {
+        "pc": "Critical fractile = Cu/(Cu+Co)",
+        "Cu": "Underage cost = Price - Cost",
+        "Co": "Overage cost = Cost - Salvage"
+      },
+      "workedExample": "Books: pc = 27/40 = 0.675, Q* = NORM.INV(0.675, 180, 65) = 210"
+    },
+    {
+      "name": "Little's Law",
+      "formula": "WIP = Throughput Rate × Throughput Time",
+      "variables": {
+        "WIP": "Work in process (average number in system)",
+        "Throughput Rate": "Flow rate through system",
+        "Throughput Time": "Time to complete one job"
+      },
+      "workedExample": "Grohe Lux: Before WIP=7500, TPT=4.3, Rate=1744. After WIP=1200, TPT=1, Rate=1200"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "Better Buzz Coffee has average service time 3.3 minutes (σ=4.8) and average time between arrivals 4.0 minutes (σ=3.2) with one server. What is the average waiting time in line?",
+      "solution": "ρ = 3.3/4.0 = 0.825, Ca² = (3.2/4.0)² = 0.64, Cs² = (4.8/3.3)² = 2.11. W = 3.3 × [0.825/0.175] × [(0.64+2.11)/2] = 3.3 × 4.71 × 1.375 = 21.4 minutes",
+      "source": "Final Exam Review After Class Handouts",
+      "conceptIds": ["C30", "C32", "C33"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2",
+      "question": "A retailer pays $45.20 per shovel, ordering cost $19.50, capital cost 17%, annual demand 22,500. Find EOQ and savings vs current Q=500.",
+      "solution": "H = 45.20×0.17 = 7.684. EOQ = √(2×19.50×22,500/7.684) = 338 units. TC(EOQ) = $2,594, TC(500) = $2,635. Savings = $41",
+      "source": "Final Exam Review After Class Handouts", 
+      "conceptIds": ["C50", "C51", "C53"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "Bookstore: books cost $23, sell $50, discount $10. Mean demand 180, σ=65. How many to order?",
+      "solution": "Co = 23-10 = $13, Cu = 50-23 = $27, pc = 27/40 = 0.675. Q* = NORM.INV(0.675, 180, 65) = 210 units",
+      "source": "Final Exam Review After Class Handouts",
+      "conceptIds": ["C60", "C61"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p4",
+      "question": "Analyze Southwest's CQDF priorities and explain how they align with operational tactics.",
+      "solution": "Cost #1 (lowest cost carrier), Delivery #2 (frequent flights, on-time), Quality #3 (standard/no frills), Flexibility #4 (limited options). Tactics: point-to-point service, fast turns, all 737s, no meals, smaller airports - all support cost leadership while maintaining acceptable delivery.",
+      "source": "Southwest After Class Handouts + Final Exam Review",
+      "conceptIds": ["C11", "C12"],
+      "type": "qualitative"
+    }
+  ],
+  "keyInsights": [
+    "Three things that hurt you in operations: Setups, Bottlenecks, Uncertainty & Variability ...but proper actions mitigate this pain",
+    "Alignment of operations and marketing strategy is critical to a successful business strategy",
+    "The best operations strategies are supported through many individual elements that are consistent with objectives",
+    "Competitors cannot achieve parity by copying individual elements – the whole is more than the sum of the parts",
+    "Waiting time increases dramatically as utilization gets very high",
+    "Variability in arrivals or service times magnifies utilization effects on waiting",
+    "EOQ scales by √n for consolidated operations, creating square-root savings",
+    "As service level approaches 100%, order quantity increases exponentially",
+    "Different product characteristics require different supply chain strategies",
+    "Functional products need efficient supply chains; innovative products need responsive supply chains",
+    "Information sharing reduces bullwhip effect in supply chains",
+    "Supply chain risk management requires both anticipatory strategies and reactive adaptations"
+  ],
+  "connections": {
+    "relatedLectures": ["ops-strategy", "processes-1-kristens", "processes-2-beleza", "factory-physics", "queueing", "eoq", "newsvendor", "supply-chain-strategy", "beer-game-bullwhip", "supply-chain-risk"],
+    "examAppearances": ["FinalExam"],
+    "excelTemplate": "All templates (capacity, queueing, EOQ, newsvendor)"
+  }
+}

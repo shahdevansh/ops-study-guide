@@ -1,0 +1,76 @@
+{
+  "slug": "ops-strategy",
+  "title": "Operations Strategy",
+  "classNumber": 1,
+  "module": "A",
+  "keyQuestion": "What is the role of operations in the business?",
+  "caseName": "McDonald's vs. Burger King",
+  "prerequisites": [],
+  "concepts": ["C11", "C12"],
+  "priority": "MEDIUM",
+  "overview": "Operations strategy defines how your company transforms inputs into outputs to create competitive advantage. Think of it like choosing your restaurant's personality - will you be McDonald's (fast and cheap) or a fancy steakhouse (slow and expensive)? The framework has three levels: Mission (your purpose), Operations Objectives using CQDF (Cost, Quality, Delivery, Flexibility - ranked in order of importance), and Management Levers (the tools you use to achieve your goals). You can't be world-class at everything, so you must choose what matters most and align all your operations decisions around those priorities.",
+  "coreContent": [
+    {
+      "title": "Operations Strategy Framework",
+      "conceptIds": ["C11", "C12"],
+      "content": "A strategy is a well coordinated set of objectives, policies and plans aimed at securing a long-term competitive advantage. It provides vision for the organization. Operations Strategy has three levels: (1) Mission - States a purpose for operations and priority among objectives. It specifies the primary task which must be achieved for operations to succeed. (2) Operations Objectives - Cost, Quality, Delivery, Flexibility. Define carefully, Measurable, Rank ordered. (3) Management Levers - Facilities Location and Focus, Vertical Integration, Supply Chain Management, Cost Management, Quality Management, New Products/New Services, Inventory Management, Production Planning & Scheduling, Capacity Management, Process & Technology, HR and People Management.",
+      "keyInsight": "The mission sets the general direction for operations, the objectives provide measurable targets or goals, and the management levers are the tools you use to achieve the goals."
+    },
+    {
+      "title": "CQDF Framework - Operations Objectives",
+      "conceptIds": ["C11"],
+      "content": "Cost - Low cost, competitive cost, or premium pricing strategy. Quality for Physical Goods: Performance (primary product characteristics), Conformance (meeting specifications), Reliability (frequency of field failures), Durability (length of product lifetime), Features ('bells and whistles'), Serviceability (speed, courtesy of repair), Aesthetics, Perceived Quality. Quality for Services: Tangibles (physical facilities, equipment, appearance), Reliability (dependable and accurate service), Responsiveness (willingness to help promptly), Assurance (knowledge and trust), Empathy (caring, individualized attention). Delivery: Speed (rapid delivery) and Reliability (on-time delivery). Flexibility: Volume (seasonal fluctuations), New Product/Service Introduction (speed/frequency), Product/Service Mix (range of offerings).",
+      "keyInsight": "All objectives must be defined carefully, have measurable targets, and be rank ordered. You cannot excel at all four simultaneously."
+    },
+    {
+      "title": "Winners vs Qualifiers & the 3 C's",
+      "conceptIds": ["C11"],
+      "content": "Qualifier: Must have to enter market. Winner: Feature that leads the customer to choose your product or service. Consider the '3 C's' when ranking objectives: Customers (what do they want?), Competitors (what are they doing?), Capabilities (what can you do well?).",
+      "keyInsight": "Focus your operations on order winners, not just order qualifiers. Understand what customers actually value, not what you think they should value."
+    },
+    {
+      "title": "McDonald's vs. Burger King Analysis",
+      "conceptIds": ["C11"],
+      "content": "Traditional McDonald's: Cost #1 (standardized processes, economies of scale), Quality #2 (conformance - every burger identical), Delivery #3 (fast service through assembly line), Flexibility #4 (limited menu, rigid processes). Traditional Burger King: Quality #1 (taste, 'flame-grilled'), Flexibility #2 ('Have it your way' customization), Delivery #3 (made-to-order takes longer), Cost #4 (customization costs more). McDonald's 'Made for You' shift required changing operations objectives ranking and management levers.",
+      "keyInsight": "Different CQDF rankings require fundamentally different operational approaches. McDonald's had to redesign their entire system when they shifted from assembly-line to made-to-order."
+    },
+    {
+      "title": "Southwest Airlines Case Study",
+      "conceptIds": ["C11", "C12"],
+      "content": "Southwest's Interlocking Operations Strategy: Point-to-point service, Fast turn time (25 min vs 60 min industry average), Low cost operations, High aircraft utilization, All Boeing 737 aircraft, Smaller airports, Simplified boarding process, No meals, Southwest culture. CQDF Ranking: Quality #1 (reliable, safe service), Delivery #2 (on-time performance, frequent flights), Cost #3 (low prices), Flexibility #4 (limited routes, one aircraft type).",
+      "keyInsight": "The best operations strategies are supported through many individual elements (levers/tactics) that are consistent with the objectives. Competitors cannot achieve parity by simply copying individual elements – the whole is more than the sum of the parts."
+    }
+  ],
+  "formulas": [],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "A Simple Quick-Turn Analysis for Southwest Airlines. Assume: Air Time = 115 minutes (same for SW and Industry Average), Turn Time = 25 minutes (SW) vs 60 minutes (Industry Ave). Calculate: Total time, Percent increase for competitors, Number of planes needed if Southwest has 539 Boeing 737s, and Annual cost difference at 10% cost of capital with planes costing $60M each.",
+      "solution": "Total time: SW = 115 + 25 = 140 minutes, Industry = 115 + 60 = 175 minutes. Percent increase = 175/140 = 25% more time. Competitors need 25% more planes: 674 vs 539. Southwest: 539 × $60M = $32.34B in planes. Competitor: 674 × $60M = $40.44B in planes. Difference = $8.1B. Annual cost difference = $8.1B × 10% = $810M per year.",
+      "source": "Southwest After Class Handouts Haas 2026.json",
+      "conceptIds": ["C11", "C12"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2",
+      "question": "Complete a CQDF analysis for McDonald's traditional system and Burger King traditional system. For each company, rank the four objectives (1-4) and define what each means for that company.",
+      "solution": "McDonald's: Cost #1 (standardized processes, economies of scale, lowest cost per burger), Quality #2 (conformance quality - every Big Mac identical), Delivery #3 (fast service under 60 seconds), Flexibility #4 (limited menu variations). Burger King: Quality #1 (taste quality, flame-grilled superiority), Flexibility #2 (customization, 'Have it your way'), Delivery #3 (made-to-order, slower than McDonald's), Cost #4 (customization increases costs).",
+      "source": "Operations Strategy After Class Handouts Haas 2026.json",
+      "conceptIds": ["C11"],
+      "type": "qualitative"
+    }
+  ],
+  "keyInsights": [
+    "A strategy is a well coordinated set of objectives, policies and plans aimed at securing a long-term competitive advantage",
+    "Operations objectives must be defined carefully, measurable, and rank ordered",
+    "You cannot excel at all four CQDF dimensions simultaneously - you must choose priorities",
+    "Consider the 3 C's when ranking objectives: Customers, Competitors, Capabilities",
+    "The best operations strategies are supported through many individual elements that are consistent with the objectives",
+    "Competitors cannot achieve parity by copying individual elements - the whole is more than the sum of the parts"
+  ],
+  "connections": {
+    "relatedLectures": ["processes-1-kristens", "processes-2-beleza"],
+    "examAppearances": ["Midterm", "FinalReview"],
+    "excelTemplate": null
+  }
+}

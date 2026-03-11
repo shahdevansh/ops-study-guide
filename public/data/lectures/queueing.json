@@ -1,0 +1,121 @@
+{
+  "slug": "queueing",
+  "title": "Queueing Theory",
+  "classNumber": 5,
+  "module": "B",
+  "keyQuestion": "How do we design service systems to balance capacity costs with customer waiting times?",
+  "caseName": "Hanover Post Office & Starbucks Service Times",
+  "prerequisites": ["factory-physics"],
+  "concepts": ["C30", "C31", "C32", "C33", "C34", "C35", "C36"],
+  "priority": "HIGH",
+  "overview": "Queueing theory quantifies the relationship between utilization, variability, and waiting times in service systems. The Pollaczek-Khinchine formula reveals why emergency services run at low utilization (for responsiveness) while McDonald's runs at high utilization (for efficiency). Two key insights: waiting times explode exponentially as utilization approaches 100%, and variability in arrivals or service magnifies these effects dramatically. Understanding these mathematical relationships helps you design systems that balance cost (server capacity) with service (customer wait times).",
+  "coreContent": [
+    {
+      "title": "Basic Queueing Model",
+      "conceptIds": ["C30", "C34"],
+      "content": "Modeling a Simple Queue: Average arrival rate (Units/Time) = 1/A = λ, Average service rate (Units/Time) = 1/M = μ, where A = Average time between arrivals, M = Average service time. Utilization ρ = M/A = λ/μ = time busy / time available = flow rate / capacity. Assume arrival rate < service rate, else the queue explodes. Little's Law applies: L = λW (customers in queue), WIP = λ(W+M) (total customers in system).",
+      "keyInsight": "Queueing systems must have arrival rate less than service rate, otherwise queues grow without bound and the system becomes unstable."
+    },
+    {
+      "title": "Pollaczek-Khinchine Formula (Single Server)",
+      "conceptIds": ["C30", "C32", "C33"],
+      "content": "A useful approximation for the average time W that a customer spends waiting in line (not including service time) is: W = M × [ρ/(1-ρ)] × [(Ca² + Cs²)/2], where Ca = coefficient of variation of time between arrivals = sa/A, Cs = coefficient of variation of service times = ss/M, ρ = utilization = M/A. The average total throughput time = (Wait + Service) = W + M. The formula has two key components: Utilization Effect [ρ/(1-ρ)] and Variance Effect [(Ca² + Cs²)/2].",
+      "keyInsight": "Waiting time increases dramatically as utilization gets very high. Variability in either arrivals or service times magnifies the effects of utilization on waiting times."
+    },
+    {
+      "title": "Utilization Effect",
+      "conceptIds": ["C32"],
+      "content": "The utilization effect ρ/(1-ρ) shows exponential growth in waiting as utilization approaches 100%. Examples: At ρ = 0.5 (50% utilization): effect = 0.5/0.5 = 1, At ρ = 0.9 (90% utilization): effect = 0.9/0.1 = 9, At ρ = 0.95 (95% utilization): effect = 0.95/0.05 = 19. This explains why emergency services intentionally run at low utilization for responsiveness, while cost-focused operations like McDonald's run at higher utilization for efficiency.",
+      "keyInsight": "The utilization effect creates a 'hockey stick' curve - small increases in utilization near 100% cause dramatic increases in waiting time."
+    },
+    {
+      "title": "Variance Effect",
+      "conceptIds": ["C33", "C34"],
+      "content": "The variance effect (Ca² + Cs²)/2 shows that unpredictability makes everything worse. Ca = σa/A (coefficient of variation for arrivals), Cs = σs/M (coefficient of variation for service). If customers arrive randomly (high Ca) or service times vary a lot (high Cs), waiting times increase. Management actions: Appointments reduce Ca (arrival variability), Training reduces Cs (service variability). A system with no variability (Ca = Cs = 0) has no waiting at all - only the utilization effect matters.",
+      "keyInsight": "Variability always makes waiting worse. Both arrival and service variability matter. Coefficient of variation standardizes variability measurement across different systems."
+    },
+    {
+      "title": "Multi-Server Queueing",
+      "conceptIds": ["C31"],
+      "content": "For n servers, the waiting time formula becomes: W = (M/n) × [ρ^(√(2(n+1))-1)/(1-ρ)] × [(Ca² + Cs²)/2]. Example: Online retailer help desk with customers arriving every 2 minutes (A=2, sa=2), 3 employees (n=3), service time 4 minutes (M=4, ss=2). Ca = 2/2 = 1, Cs = 2/4 = 0.5, ρ = 4/2 = 2, but per server ρ = 2/3 = 0.67. This gives W ≈ 1.5 minutes wait time.",
+      "keyInsight": "Adding servers provides more than proportional improvement due to pooling effect that reduces overall variability impact. Must consider cost of additional servers vs. waiting cost reduction."
+    },
+    {
+      "title": "Psychology of Waiting",
+      "conceptIds": ["C35"],
+      "content": "Eight principles for managing customer perception of wait times: 1) Unoccupied time feels longer than occupied time (Action: mirrors by elevators, menus while waiting), 2) Pre-process waits feel longer than in-process waits (Action: triage systems, greeting customers), 3) Anxiety makes waits seem longer (Action: explain delays), 4) Uncertain waits feel longer than known waits (Action: post expected wait times), 5) Unexplained waits feel longer than explained waits (Action: announce reasons for delays), 6) Unfair waits feel longer than equitable waits (Action: number systems), 7) The more valuable the service, the longer customers will wait (Action: express lanes), 8) Solo waits feel longer than group waits.",
+      "keyInsight": "Customer perceptions can be managed - how long people think they waited matters more than actual time in many service contexts."
+    },
+    {
+      "title": "Operations Triangle",
+      "conceptIds": ["C36"],
+      "content": "The Operations Triangle shows you can't have everything. Tradeoff between Cost, Delivery, Flexibility — and 'bad stuff' (queues, WIP, wait times) sits in the middle as the price you pay. Emphasizing Cost and/or Flexibility means Sacrificing Delivery (longer waits). Emphasizing Delivery and/or Cost means Sacrificing Flexibility (limited options). Emphasizing Delivery and/or Flexibility means Sacrificing Cost (more expensive). Southwest Airlines chose fast delivery and low cost, accepting limited flexibility.",
+      "keyInsight": "Cannot optimize all three dimensions simultaneously. Must choose two priorities and accept constraints on the third. Bad stuff (queues, inventory, waste) is the price of the tradeoff."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Single Server Waiting Time (P-K Formula)",
+      "formula": "W = M × [ρ/(1-ρ)] × [(Ca² + Cs²)/2]",
+      "variables": {"W": "Average wait time in queue", "M": "Average service time", "ρ": "Utilization = M/A", "Ca": "Coeff. of variation arrivals = sa/A", "Cs": "Coeff. of variation service = ss/M"},
+      "workedExample": "Post Office: M=1.75, A=2.16, ρ=0.81, Ca=1.04, Cs=1.07. W = 1.75 × [0.81/0.19] × [(1.04² + 1.07²)/2] = 1.75 × 4.26 × 1.11 = 8.3 minutes"
+    },
+    {
+      "name": "Multi-Server Waiting Time",
+      "formula": "W = (M/n) × [ρ^(√(2(n+1))-1)/(1-ρ)] × [(Ca² + Cs²)/2]",
+      "variables": {"W": "Average wait time", "M": "Average service time", "n": "Number of servers", "ρ": "Per-server utilization"}, 
+      "workedExample": "Help desk: 3 servers, M=4 min, A=2 min, so ρ per server = (4/2)/3 = 0.67. With Ca=1, Cs=0.5, gives W ≈ 1.5 minutes"
+    },
+    {
+      "name": "Utilization Formula",
+      "formula": "ρ = M/A = λ/μ",
+      "variables": {"ρ": "Utilization (0 to 1)", "M": "Average service time", "A": "Average inter-arrival time", "λ": "Arrival rate", "μ": "Service rate"},
+      "workedExample": "If service takes 2 minutes and customers arrive every 3 minutes: ρ = 2/3 = 0.67 or 67% utilization"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "FAA thumb-print reader analysis: Currently customers arrive every 3 minutes (std dev 3), service takes 2.5 minutes (std dev 2.5). With thumb-print, service becomes 2.75 minutes (std dev 2.512). Calculate average total time with and without thumb-print step.",
+      "solution": "Without thumb-print: M=2.5, A=3, ρ=0.833, Ca=1, Cs=1. W = 2.5 × [0.833/0.167] × [2/2] = 12.5 min. Total = 12.5 + 2.5 = 15 min. With thumb-print: M=2.75, ρ=0.917, Cs=0.913. W = 2.75 × [0.917/0.083] × [(1² + 0.913²)/2] = 27.7 min. Total = 30.5 min. Major impact from small service time increase!",
+      "source": "Queueing Practice Problems and Solutions.json",
+      "conceptIds": ["C30", "C32", "C33"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2", 
+      "question": "Bank with 2 systems: ATM (routine transactions, 1 min service, no variability) gets customers every 2 minutes. Human teller (non-routine, 5 min service, 3 min std dev) gets customers every 8 minutes. Calculate waiting times at each.",
+      "solution": "ATM: M=1, A=2, ρ=0.5, Ca=0.5, Cs=0 (no variability). W = 1 × [0.5/0.5] × [0.25/2] = 0.125 minutes. Human teller: M=5, A=8, ρ=0.625, Ca=0.5, Cs=0.6. W = 5 × [0.625/0.375] × [(0.5² + 0.6²)/2] = 2.54 minutes. ATM much faster due to no service variability!",
+      "source": "Queueing Practice Problems and Solutions.json", 
+      "conceptIds": ["C30", "C33"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "Starbucks service goal: Customers arrive 0.25/min (std dev 5.2 min), service takes 2.2 min (std dev 4 min). Calculate current waiting time and total time. If service drops to 2 min, what service std dev achieves 4-min total time?",
+      "solution": "Current: A = 1/0.25 = 4 min, M = 2.2 min, ρ = 0.55, Ca = 5.2/4 = 1.3, Cs = 4/2.2 = 1.82. W = 2.2 × [0.55/0.45] × [(1.3² + 1.82²)/2] = 6.7 min. Total = 8.9 min. For 4-min total with M=2: Need W=2. Using trial and error in formula, service std dev ≈ 1.1 minutes achieves this goal.",
+      "source": "Queueing Practice Problems and Solutions.json",
+      "conceptIds": ["C30", "C33"],
+      "type": "quantitative"
+    }
+  ],
+  "keyInsights": [
+    "Three things that hurt you in operations: Setups, Bottlenecks, Uncertainty & Variability",
+    "Waiting time increases dramatically as utilization gets very high",
+    "Variability in either arrivals or service times magnifies the effects of utilization on waiting times",
+    "Customer perceptions can be managed",
+    "Increase the number of servers to reduce waiting times",
+    "Decrease variability in arrivals (e.g. with an appointment system)",
+    "Decrease variability in service times (e.g. by better training, fewer options, specialization)", 
+    "Adding servers provides more than proportional improvement due to pooling effect",
+    "Operations Triangle: Cannot optimize all three dimensions (Cost, Delivery, Flexibility) simultaneously",
+    "Unoccupied time feels longer than occupied time",
+    "Uncertain waits feel longer than known waits",
+    "Unfair waits feel longer than equitable waits"
+  ],
+  "connections": {
+    "relatedLectures": ["factory-physics", "processes-1-kristens"],
+    "examAppearances": ["CC2", "FinalReview"],
+    "excelTemplate": "queueing-formulas.xlsx"
+  }
+}

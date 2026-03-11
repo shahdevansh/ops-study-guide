@@ -1,0 +1,105 @@
+{
+  "slug": "processes-2-beleza",
+  "title": "Processes II — Beleza Natural",
+  "classNumber": 3,
+  "module": "A",
+  "keyQuestion": "How do we balance resources across a production system to extract value from underutilized resources?",
+  "caseName": "Beleza Natural",
+  "prerequisites": ["processes-1-kristens"],
+  "concepts": ["C10", "C13", "C14"],
+  "priority": "HIGH",
+  "overview": "Beleza Natural revolutionized the beauty salon industry by applying focused operations strategy - delivering one standardized service (Afro-textured hair treatment) through a rigid, assembly-line process instead of the traditional flexible salon approach. This lecture shows how product-process alignment creates competitive advantage, how to rebalance resources to extract value from underutilized capacity, and why focused operations can achieve both low cost and high quality. The key insight: you can't be everything to everyone, but you can be the absolute best at one thing.",
+  "coreContent": [
+    {
+      "title": "Product-Process Matrix",
+      "conceptIds": ["C10", "C14"],
+      "content": "Traditional salons operate as job shops: flexible processes (high unit cost) serving high product variety and low volume. Beleza Natural positioned itself differently: rigid, well-defined processes (low unit cost) serving standardized products and high volume. Product-Process Matrix shows the natural fit between: Standardized product + High volume → Rigid, well-defined process (e.g., production line). High product variety + Low volume → Flexible process (e.g., job shop). Examples: McDonald's vs. full-service restaurant, Shouldice Hospital vs. general hospital, JetBlue vs. full-service airline.",
+      "keyInsight": "Rigid, well-defined processes enable operational efficiencies. Customers prefer a more customized product and are willing to pay a premium price, but focused operations can achieve low cost through specialization."
+    },
+    {
+      "title": "Focused Operations Model",
+      "conceptIds": ["C14"],
+      "content": "Focused business/operational model: standardized product + rigid, well-defined processes. Strengths: low cost, competitive differentiation. Limitations: focused model places limits on change/evolution, market diversification. Beleza focuses exclusively on Afro-textured hair treatments using a standardized 5-step process: Reception → Division → Super Relaxing → Hydration → Hair Style. Each step has specialized workers and equipment.",
+      "keyInsight": "Focused operational model exploits power of rigid, well-defined processes to deliver a narrow product offering at low cost. Innovation in how services/products are delivered creates value and enables new business models."
+    },
+    {
+      "title": "Beleza Capacity Analysis - Saturday",
+      "conceptIds": ["C01", "C02", "C13"],
+      "content": "Saturday demand: 513 customers/day ÷ 12 hours = 42.75 customers/hour. Process steps and capacities: Reception (2 workers, 2 min/customer): 60 cust/hr, Division (8 workers, 12.5 min/customer): 38.4 cust/hr, Super Relaxing (18 workers, 40 min/customer): 27 cust/hr, Hydration (4 workers, 8 min/customer): 30 cust/hr, Hair Style (9 workers, 14 min/customer): 39 cust/hr. Bottleneck: Super Relaxing at 27 cust/hr. Flow rate = min(42.75 demand, 27 capacity) = 27 cust/hr.",
+      "keyInsight": "System performance is determined by the limiting resource (bottleneck capacity). The bottleneck is Super Relaxing, limiting the entire salon to 27 customers per hour despite having 41 total workers."
+    },
+    {
+      "title": "Resource Rebalancing Analysis",
+      "conceptIds": ["C13"],
+      "content": "Current Saturday utilizations: Reception 45%, Division 70%, Super Relaxing 100%, Hydration 90%, Hair Style 70%. Average labor utilization: 78.6%. Improvement option 1 - Add one SR worker: Increases capacity to 28.5 cust/hr, flow rate per week increases from 1820 to 1856, but still bottlenecked at SR. Improvement option 2 - Shift workers to SR: Move 1 from Reception and 1 from Hair Style to SR (20 SR workers total). New capacity: 30 cust/hr, weekly flow rate increases to 1892, average labor utilization improves to 81.7%.",
+      "keyInsight": "Rebalancing resources across a production system to (roughly) equalize utilization levels extracts value from previously underutilized resources. More balanced production system achieves higher throughput."
+    },
+    {
+      "title": "Bottleneck Management Principles",
+      "conceptIds": ["C01", "C13"],
+      "content": "Doubling capacity of bottleneck resource will not necessarily double system capacity (because the bottleneck may shift). In Beleza, adding workers to SR eventually shifts the bottleneck to another station. The goal is to balance the system so no single resource is dramatically underutilized while another is overloaded. Weekly analysis shows different bottlenecks for different days of the week due to varying demand patterns.",
+      "keyInsight": "Bottlenecks may move as capacity changes. There may be more than one bottleneck. Focus improvement efforts on the current bottleneck, but prepare for bottleneck shifting."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Resource Capacity Formula",
+      "formula": "Capacity = (Number of Workers × 60) / Activity Time per Customer",
+      "variables": {"Capacity": "Customers per hour", "Number of Workers": "Workers at this station", "Activity Time": "Minutes per customer"},
+      "workedExample": "Division: (8 workers × 60 min/hr) ÷ 12.5 min/customer = 38.4 customers/hr"
+    },
+    {
+      "name": "Cycle Time Formula",
+      "formula": "Cycle Time = Activity Time per Customer / Number of Workers",
+      "variables": {"Cycle Time": "Minutes between successive completions", "Activity Time": "Minutes per customer for one worker", "Number of Workers": "Workers at this station"},
+      "workedExample": "Division: 12.5 min/customer ÷ 8 workers = 1.56 minutes cycle time"
+    },
+    {
+      "name": "Utilization Formula",
+      "formula": "Utilization = Flow Rate / Station Capacity",
+      "variables": {"Utilization": "Percentage of capacity used", "Flow Rate": "Actual system throughput", "Station Capacity": "Maximum capacity of this station"},
+      "workedExample": "Division utilization = 27 cust/hr (flow rate) ÷ 38.4 cust/hr (capacity) = 70%"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "For Beleza Natural on Saturday, calculate the process capacity and identify the bottleneck. Given: Reception (2 workers, 2 min), Division (8 workers, 12.5 min), Super Relaxing (18 workers, 40 min), Hydration (4 workers, 8 min), Hair Style (9 workers, 14 min).",
+      "solution": "Capacities: Reception = 2×60/2 = 60 cust/hr, Division = 8×60/12.5 = 38.4 cust/hr, Super Relaxing = 18×60/40 = 27 cust/hr, Hydration = 4×60/8 = 30 cust/hr, Hair Style = 9×60/14 = 39 cust/hr. Bottleneck = Super Relaxing (minimum capacity). Process capacity = 27 cust/hr.",
+      "source": "Beleza Natural After Class Handouts Haas 2026.json",
+      "conceptIds": ["C01", "C02"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2",
+      "question": "If Beleza shifts 1 worker from Reception and 1 worker from Hair Style to Super Relaxing, calculate the new process capacity and utilizations for Saturday demand of 42.75 cust/hr.",
+      "solution": "New configuration: Reception (1 worker), Division (8 workers), Super Relaxing (20 workers), Hydration (4 workers), Hair Style (8 workers). New capacities: Reception = 30 cust/hr, Division = 38.4 cust/hr, Super Relaxing = 30 cust/hr, Hydration = 30 cust/hr, Hair Style = 34 cust/hr. New bottleneck = 30 cust/hr (multiple stations). New utilizations: Reception 100%, Division 78%, Super Relaxing 100%, Hydration 100%, Hair Style 88%.",
+      "source": "Beleza Natural After Class Handouts Haas 2026.json",
+      "conceptIds": ["C13", "C04"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "Explain why Beleza Natural's focused operations strategy creates competitive advantage over traditional salons.",
+      "solution": "Beleza uses a focused operations model: standardized product (one type of hair treatment) with rigid, well-defined processes (5-step assembly line). This achieves: 1) Low cost through specialization and efficiency, 2) Consistent quality through standardization, 3) High volume throughput, 4) Competitive differentiation in serving Afro-textured hair market. Traditional salons use flexible processes for high variety but suffer from higher costs and lower efficiency. Product-process alignment creates sustainable advantage.",
+      "source": "Beleza Natural After Class Handouts Haas 2026.json",
+      "conceptIds": ["C10", "C14"],
+      "type": "qualitative"
+    }
+  ],
+  "keyInsights": [
+    "Three things that hurt you in operations: Setups, Bottlenecks, Uncertainty & Variability",
+    "Doubling capacity of bottleneck resource will not necessarily double system capacity (because the bottleneck may shift)",
+    "Rebalancing resources across a production system to (roughly) equalize utilization levels extracts value from previously underutilized resources",
+    "Focused operational model exploits power of rigid, well-defined processes to deliver a narrow product offering at low cost",
+    "Innovation in how services/products are delivered creates value and enables new business models",
+    "Operational innovation can lead to business model innovation and significant financial gains",
+    "Product – Process alignment is powerful",
+    "Importance of human contact (culture, employee attitudes) in service delivery"
+  ],
+  "connections": {
+    "relatedLectures": ["processes-1-kristens", "ops-strategy"],
+    "examAppearances": ["FinalReview"],
+    "excelTemplate": "beleza-capacity.xlsx"
+  }
+}

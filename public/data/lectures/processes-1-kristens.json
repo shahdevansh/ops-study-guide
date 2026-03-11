@@ -1,0 +1,111 @@
+{
+  "slug": "processes-1-kristens",
+  "title": "Processes I — Kristen's Cookies",
+  "classNumber": 2,
+  "module": "A",
+  "keyQuestion": "How do we identify and analyze bottlenecks in business processes?",
+  "caseName": "Kristen's Cookie Company",
+  "prerequisites": [],
+  "concepts": ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C13"],
+  "priority": "HIGH",
+  "overview": "Process analysis reveals the hidden constraints in every business operation. Using Kristen's Cookie Company, you'll learn to map workflows, identify bottlenecks (the slowest step that limits everything else), and calculate capacity. Think of it like finding the narrowest lane on a highway that causes all the traffic jams. The oven that bakes for 10 minutes becomes your constraint, not the mixing that takes 6 minutes. Setups (like cleaning between batches) and bottleneck shifting (when improvements move the constraint to a different step) add complexity that real managers must navigate every day.",
+  "coreContent": [
+    {
+      "title": "Process Flow Diagrams",
+      "conceptIds": ["C05", "C07"],
+      "content": "A process flow diagram is a graphical representation of work flow in a business process. For Kristen's Cookies: Take Order (1 min/order, You) → Mix (6 min/batch, You) → Spoon (2 min/doz, Roommate) → Bake (10 min/doz, Oven) → Cool (2 min/doz, natural) → Pack (1 min/order, You) → Pay (5 min, You). Throughput Time (also called Flow Time or Turn-Around Time): The time required to complete a given job—from the time it enters the system until it leaves. Leadtime: The time between the placement and fulfillment of the order.",
+      "keyInsight": "Drawing the process flow diagram is the first step in any process analysis - it reveals the sequence of activities and helps identify potential bottlenecks."
+    },
+    {
+      "title": "Cycle Time and Capacity",
+      "conceptIds": ["C02", "C06"],
+      "content": "Cycle Time (time/unit, min/dozen): The time between successive completions of a batch. The cycle time for the system is the same as the cycle time of the slowest stage (the one that takes the longest time). Throughput Rate (units/time, dozen/hr) = Capacity: Throughput rate = 1/(cycle time). Throughput rate is the rate at which work gets done. The maximum possible throughput rate is the capacity of the system. Can be defined for an individual stage of processing or for the entire system.",
+      "keyInsight": "System capacity equals the capacity of the bottleneck resource - not the sum of all resources."
+    },
+    {
+      "title": "Bottleneck Analysis",
+      "conceptIds": ["C01", "C13"],
+      "content": "A bottleneck is what limits the processing activity. The bottleneck of the entire process is the stage with the longest cycle time (or least capacity). Limited resources like labor, tools, and capital can also be bottlenecks. In Kristen's Cookies with one oven: For 1 dozen orders - You: 8 min/doz capacity = 7.5 doz/hr, Oven: 10 min/doz capacity = 6 doz/hr, Roommate: 4 min/doz capacity = 15 doz/hr. The oven is the bottleneck at 6 doz/hr.",
+      "keyInsight": "Bottlenecks may move as order size changes. Doubling capacity of bottleneck resource will not necessarily double system capacity because the bottleneck may shift."
+    },
+    {
+      "title": "Setup Effects on Capacity",
+      "conceptIds": ["C08"],
+      "content": "Setup time is the time needed to prepare a machine, person, or system for a new task, from the end of the last batch to the start of the first good piece of the next batch. Setups can include cleaning, tool changes, adjustments, programming, and test runs. Different types of processes: No setups – capacity does not depend on order size. Uncapacitated setups – capacity increases, at a decreasing rate, as batch size increases. Capacitated setups – capacity may increase or decrease with increasing batch size, depending on the size of the 'mixing bowl' (the resource with the capacity constraint).",
+      "keyInsight": "Setups create economies of scale - larger batches spread the setup time across more units, improving capacity."
+    },
+    {
+      "title": "Flow Rate and Utilization",
+      "conceptIds": ["C03", "C04"],
+      "content": "Flow Rate = min(Demand Rate, Process Capacity). If demand exceeds capacity, you're capacity-constrained. If capacity exceeds demand, you're demand-constrained. Utilization = Flow Rate / Capacity = Time Busy / Time Available. For Kristen's Cookies, if demand is 60 doz/hr but oven capacity is only 6 doz/hr, flow rate = 6 doz/hr. Utilization of You (mixing) = 6 doz/hr ÷ 7.5 doz/hr = 80%.",
+      "keyInsight": "Non-bottleneck resources will have utilization less than 100%. Only the bottleneck determines the flow rate of the entire system."
+    },
+    {
+      "title": "Capacity Analysis Tool",
+      "conceptIds": ["C09"],
+      "content": "Tool: Capacity Analysis. Idea: Determine capacity of each resource in isolation. Resource with least capacity (oven in Kristen's Cookies) constrains system. Steps: 1) Calculate processing time per unit for each resource, 2) Convert to capacity (units per hour), 3) Identify bottleneck (lowest capacity), 4) Calculate flow rate and utilizations, 5) Analyze impact of changes (adding resources, changing batch sizes).",
+      "keyInsight": "Capacity analysis is the foundation for all process improvement decisions - it shows where to focus your efforts for maximum impact."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Capacity Formula",
+      "formula": "Capacity = 1 / Cycle Time",
+      "variables": {"Capacity": "Units per hour", "Cycle Time": "Hours per unit"},
+      "workedExample": "Oven cycle time = 10 min/dozen = 0.167 hr/dozen. Capacity = 1 ÷ 0.167 = 6 dozen/hour"
+    },
+    {
+      "name": "Flow Rate Formula", 
+      "formula": "Flow Rate = min(Demand Rate, Process Capacity)",
+      "variables": {"Flow Rate": "Actual production rate", "Demand Rate": "Customer demand rate", "Process Capacity": "Maximum production capability"},
+      "workedExample": "If demand = 8 dozen/hr and process capacity = 6 dozen/hr, then flow rate = 6 dozen/hr"
+    },
+    {
+      "name": "Utilization Formula",
+      "formula": "Utilization = Flow Rate / Capacity",
+      "variables": {"Utilization": "Percentage of time resource is busy", "Flow Rate": "Actual production rate", "Capacity": "Maximum capability of resource"},
+      "workedExample": "Mixing capacity = 7.5 dozen/hr, Flow rate = 6 dozen/hr, Utilization = 6/7.5 = 80%"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "For Kristen's Cookie Company with one oven, calculate the throughput time for an order of one dozen cookies. Show the Gantt chart timing.",
+      "solution": "Take Order (0-1 min, You), Mix (1-7 min, You), Spoon (7-9 min, Roommate), Bake (9-19 min, Oven), Cool (19-21 min, natural), Pack (21-22 min, You), Pay (22-27 min, You). Total throughput time = 27 minutes for one dozen cookies.",
+      "source": "Kristen's Cookie Company After Class Handouts Haas 2026.json",
+      "conceptIds": ["C05", "C07"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2",
+      "question": "Power Toys Inc. produces toy trucks on a 9-station assembly line. Station processing times: 1(72s), 2(80s), 3(90s), 4(68s), 5(70s), 6(60s), 7(95s), 8(58s), 9(80s). What is the bottleneck and system capacity? If demand is 60 trucks/hour, what is the utilization of Station 2?",
+      "solution": "Bottleneck is Station 7 with 95 seconds. Capacity = 3600 sec/hr ÷ 95 sec/unit = 37.9 trucks/hr. Flow rate = min(60, 37.9) = 37.9 trucks/hr. Station 2 capacity = 3600 ÷ 80 = 45 trucks/hr. Utilization of Station 2 = 37.9 ÷ 45 = 84.2%.",
+      "source": "Capacity Analysis After Class Practice Problems and Solutions.json",
+      "conceptIds": ["C01", "C02", "C03", "C04"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "A machine has a 110-minute setup time and 8 minutes processing per unit. Compare the capacity for batch sizes of 40 units vs 100 units.",
+      "solution": "Batch size 40: Total time = 110 + (8 × 40) = 430 minutes. Capacity = 40 units ÷ 430 minutes × 60 min/hr = 5.58 units/hr. Batch size 100: Total time = 110 + (8 × 100) = 910 minutes. Capacity = 100 units ÷ 910 minutes × 60 min/hr = 6.59 units/hr. Larger batches spread setup cost across more units, increasing capacity.",
+      "source": "Capacity Analysis After Class Practice Problems and Solutions.json",
+      "conceptIds": ["C08", "C02"],
+      "type": "quantitative"
+    }
+  ],
+  "keyInsights": [
+    "Three things that hurt you in operations: Setups, Bottlenecks, Uncertainty & Variability",
+    "System performance is determined by the limiting resource (bottleneck capacity)",
+    "Capacity may depend on order size (or batch size) due to setups",
+    "Doubling capacity of bottleneck resource will not necessarily double system capacity",
+    "Bottlenecks may move as order size changes",
+    "There may be more than one bottleneck",
+    "Tool: Capacity Analysis - Determine capacity of each resource in isolation",
+    "Tool: Setup Reduction - Find ways to speed up setup times, set up offline, specialized setup personnel"
+  ],
+  "connections": {
+    "relatedLectures": ["ops-strategy", "processes-2-beleza", "factory-physics"],
+    "examAppearances": ["CC1", "Midterm"],
+    "excelTemplate": "capacity-analysis.xlsx"
+  }
+}

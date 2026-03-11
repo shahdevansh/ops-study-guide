@@ -1,0 +1,33 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* KaTeX CSS for formula rendering */
+@import 'katex/dist/katex.min.css';
+
+/* Custom styles */
+@layer components {
+  .input-cell {
+    @apply bg-yellow-50 dark:bg-yellow-900/20 border-yellow-300 dark:border-yellow-600;
+  }
+  
+  .output-cell {
+    @apply bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-600;
+  }
+  
+  .concept-tag {
+    @apply px-2 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer;
+  }
+  
+  .formula-block {
+    @apply p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm border;
+  }
+  
+  .insight-box {
+    @apply p-4 border-l-4 border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20;
+  }
+  
+  .practice-toggle {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}

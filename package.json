@@ -1,0 +1,40 @@
+{
+  "name": "ops-study-guide",
+  "version": "1.0.0",
+  "description": "MBA 204 Operations Study Guide - Interactive learning platform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@types/katex": "^0.16.7",
+    "@types/node": "^22.10.8",
+    "@types/react": "^19.0.13",
+    "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "^15.2.3",
+    "framer-motion": "^11.15.0",
+    "katex": "^0.16.15",
+    "next": "^15.2.3",
+    "postcss": "^8.5.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-katex": "^3.0.1",
+    "recharts": "^2.14.1",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "mba",
+    "operations",
+    "study-guide",
+    "next.js"
+  ],
+  "author": "Strive",
+  "license": "MIT"
+}

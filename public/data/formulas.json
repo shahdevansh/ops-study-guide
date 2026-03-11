@@ -1,0 +1,450 @@
+{
+  "capacityAnalysis": {
+    "title": "Capacity Analysis – No Variability", 
+    "formulas": [
+      {
+        "name": "Bottleneck Identification",
+        "formula": "Bottleneck = stage with minimum capacity",
+        "variables": {
+          "capacity": "Units per time for each stage"
+        },
+        "description": "The bottleneck is the stage (resource) with the minimum capacity"
+      },
+      {
+        "name": "Process Capacity",
+        "formula": "Process capacity = Bottleneck capacity",
+        "variables": {},
+        "description": "Overall system capacity equals the bottleneck capacity"
+      },
+      {
+        "name": "Flow Rate",
+        "formula": "Flow rate = min(demand rate, process capacity)",
+        "variables": {
+          "demand_rate": "Customer demand (units/time)",
+          "process_capacity": "Maximum system capacity (units/time)"
+        },
+        "description": "System operates at the lower of demand or capacity"
+      },
+      {
+        "name": "Utilization",
+        "formula": "Utilization = Flow rate / Capacity",
+        "variables": {
+          "flow_rate": "Actual production rate",
+          "capacity": "Maximum possible rate"
+        },
+        "description": "Percentage of time a resource is busy"
+      },
+      {
+        "name": "Cycle Time",
+        "formula": "Cycle time = 1 / Capacity",
+        "variables": {
+          "capacity": "Throughput rate (units/time)"
+        },
+        "description": "Time between successive completions"
+      },
+      {
+        "name": "Throughput Rate",
+        "formula": "Throughput rate = 1 / Cycle time",
+        "variables": {
+          "cycle_time": "Time between completions (time/unit)"
+        },
+        "description": "Rate at which work gets done"
+      }
+    ]
+  },
+  "factoryPhysics": {
+    "title": "Factory Physics and Queueing",
+    "formulas": [
+      {
+        "name": "Little's Law",
+        "formula": "WIP = Throughput rate × Throughput time",
+        "variables": {
+          "WIP": "Work in process (units)",
+          "throughput_rate": "Flow rate through system (units/time)",
+          "throughput_time": "Total time in system (time/unit)"
+        },
+        "description": "Fundamental relationship between flow rate, time, and inventory"
+      },
+      {
+        "name": "Queue Length",
+        "formula": "L = λW",
+        "variables": {
+          "L": "Average number in queue",
+          "λ": "Average arrival rate (customers/time)",
+          "W": "Average wait time in queue"
+        },
+        "description": "Little's Law applied to queue only"
+      },
+      {
+        "name": "System Inventory",
+        "formula": "WIP = λ(W + M)",
+        "variables": {
+          "WIP": "Average number in system",
+          "λ": "Average arrival rate",
+          "W": "Average wait time in queue",
+          "M": "Average processing time"
+        },
+        "description": "Little's Law applied to entire system"
+      },
+      {
+        "name": "Utilization (Queueing)",
+        "formula": "ρ = M/A = λ/μ",
+        "variables": {
+          "ρ": "Utilization",
+          "M": "Average processing time",
+          "A": "Average time between arrivals",
+          "λ": "Arrival rate",
+          "μ": "Service rate"
+        },
+        "description": "Server utilization in queueing systems"
+      }
+    ]
+  },
+  "queueingSingleServer": {
+    "title": "Queueing – One Server",
+    "formulas": [
+      {
+        "name": "Waiting Time",
+        "formula": "W = M × (ρ/(1-ρ)) × ((Ca² + Cs²)/2)",
+        "variables": {
+          "W": "Average waiting time in queue (min)",
+          "M": "Average processing time (min)",
+          "ρ": "Utilization = M/A",
+          "Ca": "Coefficient of variation of interarrival times",
+          "Cs": "Coefficient of variation of processing times"
+        },
+        "description": "P-K formula for single server waiting time"
+      },
+      {
+        "name": "Total Time",
+        "formula": "Total time = W + M",
+        "variables": {
+          "W": "Waiting time in queue",
+          "M": "Processing time"
+        },
+        "description": "Total time in system"
+      },
+      {
+        "name": "Queue Length",
+        "formula": "L = λW",
+        "variables": {
+          "L": "Average number in queue",
+          "λ": "Arrival rate = 1/A",
+          "W": "Average waiting time"
+        },
+        "description": "Average number waiting in line"
+      },
+      {
+        "name": "System Inventory",
+        "formula": "WIP = λ(W + M)",
+        "variables": {
+          "WIP": "Average number in system",
+          "λ": "Arrival rate",
+          "W": "Waiting time",
+          "M": "Processing time"
+        },
+        "description": "Average number in line and being served"
+      },
+      {
+        "name": "Utilization",
+        "formula": "ρ = M/A",
+        "variables": {
+          "ρ": "Utilization",
+          "M": "Average processing time",
+          "A": "Average time between arrivals"
+        },
+        "description": "Fraction of time server is busy"
+      },
+      {
+        "name": "Utilization Effect",
+        "formula": "Utilization Effect = ρ/(1-ρ)",
+        "variables": {
+          "ρ": "Utilization"
+        },
+        "description": "Magnification factor due to utilization"
+      },
+      {
+        "name": "Coefficient of Variation (Arrivals)",
+        "formula": "Ca = σa/A",
+        "variables": {
+          "Ca": "Coefficient of variation for arrivals",
+          "σa": "Standard deviation of interarrival times",
+          "A": "Average time between arrivals"
+        },
+        "description": "Relative variability of arrivals"
+      },
+      {
+        "name": "Coefficient of Variation (Service)",
+        "formula": "Cs = σs/M",
+        "variables": {
+          "Cs": "Coefficient of variation for service",
+          "σs": "Standard deviation of processing times",
+          "M": "Average processing time"
+        },
+        "description": "Relative variability of service times"
+      },
+      {
+        "name": "Variance Effect",
+        "formula": "Variance Effect = (Ca² + Cs²)/2",
+        "variables": {
+          "Ca": "Coefficient of variation for arrivals",
+          "Cs": "Coefficient of variation for service"
+        },
+        "description": "Magnification factor due to variability"
+      }
+    ]
+  },
+  "queueingMultiServer": {
+    "title": "Queueing – n servers",
+    "formulas": [
+      {
+        "name": "Waiting Time (Multi-server)",
+        "formula": "W = (M/n) × (ρ^(√(2(n+1))-1)/(1-ρ)) × ((Ca² + Cs²)/2)",
+        "variables": {
+          "W": "Average waiting time (min)",
+          "M": "Average processing time per server",
+          "n": "Number of servers",
+          "ρ": "System utilization = M/(n×A)",
+          "Ca": "Coefficient of variation of arrivals",
+          "Cs": "Coefficient of variation of service"
+        },
+        "description": "P-K formula for multi-server systems"
+      },
+      {
+        "name": "System Utilization",
+        "formula": "ρ = M/(n × A)",
+        "variables": {
+          "ρ": "System utilization",
+          "M": "Average processing time",
+          "n": "Number of servers", 
+          "A": "Average time between arrivals"
+        },
+        "description": "Utilization across all servers"
+      },
+      {
+        "name": "Average Processing Time (All Servers)",
+        "formula": "Average processing time = M/n",
+        "variables": {
+          "M": "Processing time per server",
+          "n": "Number of servers"
+        },
+        "description": "Effective processing rate with multiple servers"
+      },
+      {
+        "name": "Utilization Effect Exponent",
+        "formula": "Exponent = √(2(n+1)) - 1",
+        "variables": {
+          "n": "Number of servers"
+        },
+        "description": "Exponent for multi-server utilization effect"
+      },
+      {
+        "name": "Utilization Effect (Multi-server)",
+        "formula": "Utilization Effect = ρ^(√(2(n+1))-1)/(1-ρ)",
+        "variables": {
+          "ρ": "System utilization",
+          "n": "Number of servers"
+        },
+        "description": "Multi-server utilization magnification factor"
+      }
+    ]
+  },
+  "eoq": {
+    "title": "Inventory Management - Repetitive Decisions",
+    "formulas": [
+      {
+        "name": "Total Relevant Cost (Current Q)",
+        "formula": "TC = S(D/Q) + H(Q/2)",
+        "variables": {
+          "TC": "Total relevant cost per year ($)",
+          "S": "Fixed cost of placing an order ($)",
+          "D": "Demand per year (units)",
+          "Q": "Order quantity (units)",
+          "H": "Holding cost per unit per year ($/unit/year)"
+        },
+        "description": "Annual cost of ordering and holding inventory"
+      },
+      {
+        "name": "Holding Cost",
+        "formula": "H = ic + h",
+        "variables": {
+          "H": "Total holding cost per unit per year",
+          "i": "Cost of capital per year (%)",
+          "c": "Unit cost ($)",
+          "h": "Physical holding cost per unit per year ($)"
+        },
+        "description": "Total annual cost to hold one unit in inventory"
+      },
+      {
+        "name": "Economic Order Quantity",
+        "formula": "EOQ = √(2SD/H)",
+        "variables": {
+          "EOQ": "Optimal order quantity (units)",
+          "S": "Fixed ordering cost ($)",
+          "D": "Annual demand (units)",
+          "H": "Holding cost per unit per year ($/unit/year)"
+        },
+        "description": "Order quantity that minimizes total relevant cost"
+      },
+      {
+        "name": "Total Cost at EOQ",
+        "formula": "TC(EOQ) = √(2SDH)",
+        "variables": {
+          "TC": "Total relevant cost at EOQ",
+          "S": "Fixed ordering cost",
+          "D": "Annual demand", 
+          "H": "Holding cost per unit per year"
+        },
+        "description": "Minimum possible total relevant cost"
+      },
+      {
+        "name": "Procurement Cost (EOQ)",
+        "formula": "Procurement cost = S(D/EOQ)",
+        "variables": {
+          "S": "Fixed ordering cost",
+          "D": "Annual demand",
+          "EOQ": "Economic order quantity"
+        },
+        "description": "Annual ordering cost at EOQ"
+      },
+      {
+        "name": "Holding Cost (EOQ)",
+        "formula": "Holding cost = H(EOQ/2)",
+        "variables": {
+          "H": "Holding cost per unit per year",
+          "EOQ": "Economic order quantity"
+        },
+        "description": "Annual holding cost at EOQ"
+      },
+      {
+        "name": "Percent Savings",
+        "formula": "% Savings = ((TC(Q) - TC(EOQ))/TC(Q)) × 100%",
+        "variables": {
+          "TC(Q)": "Total cost using current order quantity",
+          "TC(EOQ)": "Total cost using EOQ"
+        },
+        "description": "Percentage cost reduction from using EOQ"
+      }
+    ]
+  },
+  "newsvendor": {
+    "title": "Inventory Model – One-time Decision – Newsvendor",
+    "formulas": [
+      {
+        "name": "Overage Cost",
+        "formula": "Co = Cost - Salvage Value",
+        "variables": {
+          "Co": "Overage (excess) cost per unit ($)",
+          "Cost": "Purchase cost per unit ($)",
+          "Salvage_Value": "Recovery value per unsold unit ($)"
+        },
+        "description": "Loss per unit ordered but not sold"
+      },
+      {
+        "name": "Underage Cost", 
+        "formula": "Cu = Price - Cost",
+        "variables": {
+          "Cu": "Underage (shortage) cost per unit ($)",
+          "Price": "Selling price per unit ($)",
+          "Cost": "Purchase cost per unit ($)"
+        },
+        "description": "Lost profit per unit of unmet demand"
+      },
+      {
+        "name": "Critical Fractile",
+        "formula": "pc = Cu/(Cu + Co)",
+        "variables": {
+          "pc": "Critical fractile",
+          "Cu": "Underage cost",
+          "Co": "Overage cost"
+        },
+        "description": "Optimal service level that balances overage and underage costs"
+      },
+      {
+        "name": "Optimal Order Quantity",
+        "formula": "Q* = NORM.INV(pc, μ, σ)",
+        "variables": {
+          "Q*": "Optimal order quantity",
+          "pc": "Critical fractile",
+          "μ": "Mean demand",
+          "σ": "Standard deviation of demand"
+        },
+        "description": "Order quantity that maximizes expected profit"
+      },
+      {
+        "name": "Optimal Order Quantity (z-score)",
+        "formula": "Q* = μ + z*σ",
+        "variables": {
+          "Q*": "Optimal order quantity",
+          "μ": "Mean demand",
+          "z*": "Critical z-score = NORM.S.INV(pc)",
+          "σ": "Standard deviation of demand"
+        },
+        "description": "Alternative formula using z-score"
+      },
+      {
+        "name": "Service Level for Given Q",
+        "formula": "Service Level = NORM.DIST(Q, μ, σ, TRUE)",
+        "variables": {
+          "Q": "Order quantity",
+          "μ": "Mean demand",
+          "σ": "Standard deviation of demand"
+        },
+        "description": "Probability that demand ≤ Q"
+      },
+      {
+        "name": "Z-score Calculation",
+        "formula": "z = (Q - μ)/σ",
+        "variables": {
+          "z": "Z-score",
+          "Q": "Order quantity",
+          "μ": "Mean demand",
+          "σ": "Standard deviation of demand"
+        },
+        "description": "Standardized distance from mean"
+      }
+    ]
+  },
+  "newsvendorPerformance": {
+    "title": "Newsvendor Performance Measures",
+    "formulas": [
+      {
+        "name": "In-Stock Probability",
+        "formula": "P(demand ≤ Q) = NORM.DIST(Q, μ, σ, TRUE)",
+        "variables": {
+          "Q": "Order quantity",
+          "μ": "Mean demand",
+          "σ": "Standard deviation of demand"
+        },
+        "description": "Probability that all demand is satisfied (service level)"
+      },
+      {
+        "name": "Service Level at Q*",
+        "formula": "Service Level = pc",
+        "variables": {
+          "pc": "Critical fractile"
+        },
+        "description": "At optimal order quantity, service level equals critical fractile"
+      },
+      {
+        "name": "Out-of-Stock Probability",
+        "formula": "P(stockout) = 1 - P(demand ≤ Q)",
+        "variables": {
+          "P(demand ≤ Q)": "In-stock probability"
+        },
+        "description": "Probability of running out of inventory"
+      },
+      {
+        "name": "Target Service Level Order Quantity",
+        "formula": "Q = NORM.INV(target service level, μ, σ)",
+        "variables": {
+          "Q": "Required order quantity",
+          "target_service_level": "Desired in-stock probability",
+          "μ": "Mean demand",
+          "σ": "Standard deviation of demand"
+        },
+        "description": "Order quantity needed to achieve target service level"
+      }
+    ]
+  }
+}

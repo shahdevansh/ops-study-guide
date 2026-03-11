@@ -1,0 +1,117 @@
+{
+  "slug": "beer-game-bullwhip",
+  "title": "Beer Game & Bullwhip Effect",
+  "classNumber": 8,
+  "module": "C",
+  "keyQuestion": "Why does order variability amplify as we move up the supply chain from consumers to suppliers?",
+  "caseName": "eBeer Game Simulation",
+  "prerequisites": ["processes-1-kristens", "queueing"],
+  "concepts": ["C40", "C41", "C42", "C43", "C44", "C45"],
+  "priority": "HIGH",
+  "overview": "The bullwhip effect shows how small changes in consumer demand can create massive swings in orders upstream in the supply chain. Like the telephone game but with orders - a 10% demand increase at retail becomes a 40% order increase at the manufacturer. Through the eBeer game simulation, you'll experience firsthand how reasonable local decisions create system-wide chaos, and learn the information sharing and coordination strategies that can tame the bullwhip.",
+  "coreContent": [
+    {
+      "title": "The Bullwhip Effect Phenomenon", 
+      "conceptIds": ["C40"],
+      "content": "Bullwhip Effect: Order variability increases as move up the supply chain from consumers to suppliers. Demand information is distorted; upstream decision makers do not see true picture of demand. Information distortion and the bullwhip effect. In the Beer Game, typical inventory evolution shows massive swings - inventory levels can reach 50,000 units at the factory while staying relatively stable at retail.",
+      "keyInsight": "Order variability amplifies moving up supply chain from consumer. Small demand changes create huge upstream swings."
+    },
+    {
+      "title": "Real-World Examples",
+      "conceptIds": ["C40"],
+      "content": "COVID Toilet Paper: April 2020 - 'Americans Have Too Much Toilet Paper. Finally, Sales Slow.' April 2021 - 'Tissue sales fall to below prepandemic levels as consumers work through their stockpiles.' Chip Shortage to Glut: 'Once-Thin Chip Inventories Swell as Gadget Sales Falter. The world is now awash in chips. The oversupply marks a sharp turnaround from a global shortage during two years of supercharged demand.'",
+      "keyInsight": "The bullwhip effect is evident in many industries and can generate significant costs"
+    },
+    {
+      "title": "Four Root Causes of Bullwhip",
+      "conceptIds": ["C41"],
+      "content": "1. Over-reaction to backlogs, lack of communication, lack of coordination, delay times for information and delivery of materials, neglecting to order based on inventory position. 2. Price variations - 'High-low' pricing ('trade promotion') encourages 'forward buying,' leading to higher variability in orders. 3. Rationing – shortage gaming: to secure a better allocation, retailers inflate their orders, i.e., order more than they need (place 'phantom orders'). 4. Unrestricted orders.",
+      "keyInsight": "Four main causes: Over-reactive ordering, trade promotions and forward buying, shortage gaming, and lack of information sharing"
+    },
+    {
+      "title": "Information Sharing Solutions - Internal",
+      "conceptIds": ["C43"],
+      "content": "Sales & Operations Planning (S&OP): Share information about promotions, capacity, inventory, production plans. Weekly meetings with Sales, Operations, Finance, Supply Chain. Share information internally - weekly cross-functional meetings. Like having a family meeting every week where parents (sales and operations) share what they know and plan together.",
+      "keyInsight": "S&OP enables internal coordination between sales and operations through regular cross-functional meetings"
+    },
+    {
+      "title": "Information Sharing Solutions - External",
+      "conceptIds": ["C44"],
+      "content": "Coordinated Planning, Forecasting and Replenishment (CPFR): Share information about promotions, capacity, inventory, production plans with supply chain partners. Plans that differ by more than, say, 10% require email or meeting to resolve. Like S&OP but between companies. Walmart and Procter & Gamble sit down together and share forecasts.",
+      "keyInsight": "CPFR extends S&OP principles across company boundaries for external coordination"
+    },
+    {
+      "title": "Vendor Managed Inventory",
+      "conceptIds": ["C45"],
+      "content": "Vendor Managed Inventory (VMI): Same as CPFR, but the vendor is responsible to replenish inventory on customer's shelves. Customer shares daily or weekly sales information with supplier. Like having your grocery supplier stock your pantry directly. Instead of you deciding when to order more cereal, the cereal company monitors your pantry and automatically delivers more when you're getting low.",
+      "keyInsight": "VMI eliminates customer ordering decisions entirely - supplier takes responsibility for inventory levels"
+    },
+    {
+      "title": "Complete Counter-Strategy Framework",
+      "conceptIds": ["C42"],
+      "content": "Counter-Strategies: Share demand information, Orders based on inventory position, Vendor managed inventory, Coordinated planning, forecasting, replenishment, Coordinate and communicate in advance, Every day low pricing, Discount based on sell-through instead of sell-into, Limit order sizes, Limit percent increase in orders, Penalize canceled orders, Restructure allocation rules – loyalty, historical sales.",
+      "keyInsight": "Information sharing, VMI, EDLP, limit order sizes, penalize cancellations attack each cause of bullwhip directly"
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Bullwhip Amplification",
+      "formula": "Variability increases exponentially up the supply chain",
+      "variables": {
+        "Consumer demand": "Base level variability",
+        "Retailer orders": "Amplified variability", 
+        "Distributor orders": "Further amplified",
+        "Factory orders": "Maximum amplification"
+      },
+      "workedExample": "10% demand increase → 15% retailer orders → 25% distributor orders → 40% factory orders"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "In the eBeer game, you are playing the role of Retailer. Consumer demand has been steady at 4 units per week for several weeks. Suddenly, demand jumps to 8 units in Week 5. Your current inventory is 6 units, you have 4 units on order arriving this week, and your target inventory is 12 units. How many units should you order from your Distributor?",
+      "solution": "Current position: Inventory 6 + Arriving 4 = 10 units. After serving demand of 8: 10 - 8 = 2 units remaining. To reach target of 12 units: need 12 - 2 = 10 more units. Should order 10 units. However, most players over-react and order more, thinking demand will stay high or continue increasing.",
+      "source": "eBeer Game simulation experience",
+      "conceptIds": ["C40", "C41"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2",
+      "question": "A grocery chain runs a 'buy 2 get 1 free' promotion on Campbell's soup during Week 1. Normal weekly demand is 100 cases. During the promotion week, demand jumps to 300 cases. What will likely happen to the retailer's orders to Campbell's, and why is this problematic?",
+      "solution": "The retailer will likely order heavily during the promotion week to restock, then order very little (maybe zero) for the next 2-3 weeks as customers consume their stockpiled soup. Campbell's sees huge order variability (300, then 0, 0, 50...) even though underlying consumption is steady at 100/week. This creates bullwhip - Campbell's may over-produce thinking demand has increased, then face excess inventory.",
+      "source": "eBeer Game Debrief After Class Handouts Haas 2026.json",
+      "conceptIds": ["C40", "C41"],
+      "type": "conceptual"
+    },
+    {
+      "id": "p3",
+      "question": "A manufacturer historically allocates scarce product to retailers based on their order quantities during shortage periods. Retailer A normally orders 100 units but expects a shortage next quarter. What is the likely outcome, and how could the allocation rule be improved?",
+      "solution": "Retailer A will likely inflate their order to 200-300 units hoping to receive at least 100 units after allocation. Other retailers do the same (shortage gaming). The manufacturer sees artificially high 'demand' of 200-300 per retailer and may over-invest in capacity. Better allocation rules: base allocation on historical sales patterns, customer loyalty, or sell-through rates rather than order size during shortages.",
+      "source": "eBeer Game Debrief After Class Handouts Haas 2026.json",
+      "conceptIds": ["C41", "C42"],
+      "type": "conceptual"
+    },
+    {
+      "id": "p4",
+      "question": "Compare two scenarios: (1) Traditional ordering where each retailer independently orders from distributor, vs (2) VMI where distributor manages all retailer inventory using shared POS data. How would VMI reduce bullwhip?",
+      "solution": "Traditional: Each retailer sees local demand spike, panics, over-orders. Distributor sees massive aggregate orders and thinks total market demand spiked. VMI: Distributor sees real POS data showing actual consumer demand stayed steady. No panic ordering, no phantom demand signal. VMI eliminates the retailer's ordering decision entirely, breaking the amplification chain.",
+      "source": "eBeer Game Debrief After Class Handouts Haas 2026.json",
+      "conceptIds": ["C42", "C45"],
+      "type": "conceptual"
+    }
+  ],
+  "keyInsights": [
+    "Demand information is distorted; upstream decision makers do not see true picture of demand",
+    "Information sharing (of sell-through data, forecasts) and coordination (on stocking, replenishment, promotions) mitigate bullwhip", 
+    "The Bullwhip effect is evident in many industries and can generate significant costs",
+    "Benefits of coordination look obvious, but implementation is difficult",
+    "Coordination requires buy-in from multiple functions and multiple firms",
+    "Technologies and communication can mitigate the bullwhip effect",
+    "Even rational, well-intentioned local decisions can create system-wide problems"
+  ],
+  "connections": {
+    "relatedLectures": ["supply-chain-risk", "supply-chain-strategy"],
+    "examAppearances": ["FinalReview"], 
+    "excelTemplate": "bullwhip-simulation.xlsx"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "title": "Final Exam Review Session Notes",
+  "source": "granola-final-review.txt + final-exam-instructions-2026.txt",
+  "examFormat": {
+    "date": "Wed Mar 11, 2026, 8:00-11:00 AM",
+    "format": "Digital, Excel-based",
+    "materials": "Open notes from this course offering only",
+    "restrictions": "Closed internet, no AI, no materials from other courses",
+    "submission": "Excel template with designated tabs",
+    "partialCredit": "Show work in Excel, handwritten scan, or Word",
+    "locations": {
+      "Blue": "N470 Chou",
+      "Gold": "N570 Chou", 
+      "Oski": "F320 Koret",
+      "Axe": "C220 Cheit"
+    }
+  },
+  "topicSummaries": [
+    {
+      "topic": "Core Quantitative Models (4 Templates Needed)",
+      "content": "Capacity Management & Queuing: Single server M, ρ (utilization), coefficient of variation for arrivals/service. Multi-server: More complex formula but reduces to single server when n=1. Utilization = time busy ÷ total time available. Little's Law: WIP = flow rate × throughput time.\n\nEconomic Order Quantity (EOQ): Repeated ordering decisions, minimizes inventory costs. Formula: √(2DS/H) where D=demand, S=setup cost, H=holding cost. Holding cost = interest rate × unit cost + physical holding cost. At optimal EOQ: procurement cost = holding cost.\n\nNews Vendor Model: One-shot decisions, maximizes revenue. Critical fractile = Cu/(Cu + Co) where Cu=underage cost, Co=overage cost. Use NORM.INV function with critical fractile, mean, standard deviation.\n\nFactory Physics: Bottleneck = stage with least capacity. Cycle time = reciprocal of capacity. Flow rate = minimum of demand and capacity.",
+      "conceptIds": ["C30", "C31", "C50", "C60", "C09"]
+    },
+    {
+      "topic": "Three Main Pain Points",
+      "content": "Setups - reduce through training, standardization, parallelization. Bottlenecks - can shift as order sizes change, may have multiple. Uncertainty/variability - drives need for buffering vs. 100% utilization.",
+      "conceptIds": ["C08", "C01", "C22"]
+    },
+    {
+      "topic": "Utilization Trade-offs", 
+      "content": "100% utilization feels efficient but creates vulnerability. Emergency services (fire, medical) intentionally run low utilization. High utilization + variability = dramatic waiting time increases.",
+      "conceptIds": ["C04", "C32"]
+    },
+    {
+      "topic": "Queuing Management Strategies",
+      "content": "Improve Performance: Increase servers/parallelization, decrease arrival/service time variability, appointments reduce arrival variability, training/standardization reduces service variability.\n\nManage Perceptions: Set proper expectations (DMV example), mirrors near elevators reduce perceived wait time, single line feeding multiple servers feels fairer.",
+      "conceptIds": ["C30", "C31", "C35"]
+    },
+    {
+      "topic": "Inventory Management Applications",
+      "content": "EOQ vs News Vendor Decision Factors: EOQ for repeated orders, basic/non-seasonal items, given cost of capital. News Vendor for one-time orders, seasonal items, given salvage value.\n\nPractice Problem Results: Hat retailer EOQ: 169 units per order (monthly demand 100, setup $50). Seasonal hat News Vendor: 1,041 units (55.6% service level). Annual vs monthly calculations yield same EOQ results.",
+      "conceptIds": ["C50", "C60"]
+    },
+    {
+      "topic": "Supply Chain Effects",
+      "content": "Bullwhip Effect: Small demand changes create outsized upstream variations. Caused by reactive ordering, poor communication, promotions. Solutions: information sharing, better forecasting, limit order increases.\n\nShortage Gaming: Customers over-order when expecting partial fulfillment. Counter with order increase limits, cancellation penalties.",
+      "conceptIds": ["C40", "C41", "C42"]
+    },
+    {
+      "topic": "Qualitative Framework Areas",
+      "content": "Operation Strategy (Class 1): Cost, quality, delivery, flexibility matrix alignment. McDonald's vs Burger King operational differences.\n\nProduct-Process Matrix (Class 3): Volume/variety vs flexibility positioning. General Hospital vs Narayana Heart Hospital examples.\n\nSupply Chain Management (Classes 7, 8, 10): Efficient vs responsive supply chain matching. Uncertainty framework and customization strategies.\n\nRisk Management (Class 6): Anticipatory strategies vs reactive adaptations. COVID brewery-to-sanitizer pivot example.",
+      "conceptIds": ["C11", "C10", "C70", "C46"]
+    }
+  ],
+  "studyTips": [
+    "Templates strongly recommended for quantitative problems",
+    "Can bring hard copy or soft copy notes (no AI during exam)",
+    "Download exam, turn off WiFi after download", 
+    "Excel submission required with answers in designated cells",
+    "Showing work is essential since partial credit only awarded when reasoning is clearly demonstrated",
+    "Work can be directly in Excel, scanning handwritten work, or copy-pasting from Word",
+    "You may use any materials from current course offering only",
+    "Prepare reference materials in advance",
+    "Practice with all four template types: capacity, queueing, EOQ, newsvendor",
+    "Focus on second-half topics: queueing, EOQ, newsvendor, supply chain strategies",
+    "Understand the three pain points and how they appear across all topics",
+    "Know when to use EOQ vs newsvendor based on problem characteristics"
+  ]
+}

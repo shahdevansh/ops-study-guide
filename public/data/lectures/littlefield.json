@@ -1,0 +1,124 @@
+{
+  "slug": "littlefield",
+  "title": "Littlefield Simulation",
+  "classNumber": 11,
+  "module": "C",
+  "keyQuestion": "How do we apply operations concepts in a dynamic, realistic simulation?",
+  "caseName": "Littlefield Laboratories",
+  "prerequisites": ["processes-1-kristens", "factory-physics", "eoq"],
+  "concepts": ["C01", "C08", "C09", "C23"],
+  "priority": "LOW",
+  "overview": "Littlefield Labs is a hands-on simulation where you manage a medical testing laboratory for about 4 days of real time (representing 104 simulated days). You'll make decisions about machine capacity, inventory management, customer contracts, and pricing while trying to maximize cash at the end. It's like running a real business where you apply everything you've learned: capacity analysis to find bottlenecks, EOQ for inventory decisions, and Factory Physics to understand the WIP-throughput tradeoff.",
+  "coreContent": [
+    {
+      "title": "Simulation Overview and Objectives",
+      "conceptIds": ["C09"],
+      "content": "Littlefield Laboratories (LL) is a state-of-the-art, highly automated lab that receives medical samples from customers consisting of regional hospitals and clinics. The lab performs a capital-intensive test on each sample and transmits the results back to its customer.\n\nThe testing process consists of four steps carried out at three stations named sample preparing, testing and centrifuging. Step 1 at Sample Preparation, Step 2 at Testing, Step 3 at Centrifuge, Step 4 back at Testing.\n\nGOAL: maximize cash position at the end of simulation",
+      "keyInsight": "Real-time decision making under uncertainty requires continuous monitoring and adjustment of operational parameters"
+    },
+    {
+      "title": "Capacity Management",
+      "conceptIds": ["C01", "C09"],
+      "content": "Machine / Station | Average time Step 1, 2, 3 | Average time Step 4 | Total time / station | No. of m/c | Average service time per job | Average Service Rate\nSample Preparation | 5.3 | 0 | 5.3 | 3 | 1.77 | 0.566\nTesting | 0.5 | 1.4 | 1.9 | 1 | 1.90 | 0.526\nCentrifuge | 1.8 | 0 | 1.8 | 1 | 1.80 | 0.556\n\nInitial # of machines: Sample preparing (3), Testing (1), Centrifuge (1)\nPurchase cost: $90,000, $80,000, $100,000 respectively\nOrder lead time: 5 days for all machines\n\nNeed to monitor long-run average utilization when considering machine purchases. With variability in order arrivals and processing times and an emphasis on delivery, you need average utilizations well below 100%.",
+      "keyInsight": "Capacity management requires monitoring both long-run average utilization and short-run peak utilization and queue lengths"
+    },
+    {
+      "title": "Inventory Management (EOQ Application)",
+      "conceptIds": ["C01"],
+      "content": "Each job requires a test kit which is stored at the materials buffer. A job cannot be processed unless there is a test kit available.\nCost per kit = $600\nFixed ordering cost = $1000\nOrder lead time = 4 days\n\nReorder Quantity calculation:\nD = 12.2(365) = 4,460 customer orders per year\nS = $1000 per order\ni = 0.10 per year  \nc = $600 per order\nEOQ = SQRT(2*1000*4460/(600*0.10)) = 386 orders\n\nReorder Point calculation:\nLeadtime = 4 days (exactly)\nD ≈ 12.2 orders per day (on average)\nσD ≈ 3.4 orders per day\nAverage demand over leadtime = 49 orders\nSt. dev. of demand over leadtime = SQRT(4)*3.4 = 6.7 orders\nReorder point = 49 + 2*6.7 = 62 orders",
+      "keyInsight": "EOQ and reorder point calculations from theory apply directly to real inventory management decisions"
+    },
+    {
+      "title": "Revenue and Contract Management",
+      "conceptIds": ["C01"],
+      "content": "Revenue based on lead time performance:\nContract 1: $750 revenue, 7 days quoted LT, 14 days max LT\nContract 2: $1000 revenue, 1 day quoted LT, 3 days max LT  \nContract 3: $1250 revenue, 0.5 day quoted LT, 1 day max LT\n\nYou collect full revenue if an order is finished within quoted LT. Otherwise revenue decreases linearly from full price to $0 when an order's LT exceeds maximum LT.\n\nCapacity management and marketing strategies must be aligned. A busy factory (high utilization) is efficient but drives up leadtimes – must balance factory productivity with customer needs.",
+      "keyInsight": "Higher revenue contracts require shorter lead times, which demand lower utilization and more capacity investment"
+    },
+    {
+      "title": "End Game Strategy (Newsvendor Application)",
+      "conceptIds": ["C01"],
+      "content": "The 'End Game': One approach:\nPlace a large order right before you lose control\nThen, set reorder quantity so high that another order will not be placed because you cannot afford it\n\nHow big should the final large order be?\nAverage demand over 50 days = 611 orders\nSt. dev. of demand over 50 days = SQRT(50)*3.4 = 23.8 orders\nCost of underage = lost contribution = $1250-$600 = $650 per order\nCost of overage = purchase cost = $600 per order\npc = 0.52\nQ* = NORM.INV(0.52, 611, 23.8) = 612 orders (cost = $367K)\n\nAnother approach: switch to a 'JIT' system to minimize the amount of inventory that you might get 'stuck' with at the end",
+      "keyInsight": "End game requires newsvendor thinking - balancing the cost of too much inventory vs. lost sales"
+    },
+    {
+      "title": "Variability and Factory Physics",
+      "conceptIds": ["C23"],
+      "content": "Factory physics matters:\nA busy factory (high utilization) is efficient but drives up leadtimes – must balance factory productivity with customer needs\n\nVariability in operations hurts more than it helps\n\nMachine purchases based on long-run behavior\nContract management based on short-run behavior\n\nReaction time matters - need to monitor queues and utilization continuously and react quickly to changes",
+      "keyInsight": "Variability creates the fundamental tension between efficiency (high utilization) and responsiveness (short lead times)"
+    }
+  ],
+  "formulas": [
+    {
+      "name": "EOQ for Littlefield",
+      "formula": "EOQ = √(2SD/Hc) = √(2SD/ic)",
+      "variables": {
+        "D": "Annual demand (4,460 orders/year)",
+        "S": "Fixed ordering cost ($1,000)",
+        "i": "Interest rate (10% per year)", 
+        "c": "Cost per kit ($600)"
+      },
+      "workedExample": "EOQ = √(2×1000×4460/(600×0.10)) = √(8,920,000/60) = √148,667 = 386 orders"
+    },
+    {
+      "name": "Reorder Point",
+      "formula": "ROP = μLT + z×σLT",
+      "variables": {
+        "μLT": "Mean demand during lead time",
+        "σLT": "Standard deviation of demand during lead time = √LT × σdaily",
+        "z": "Safety factor (e.g., 2 for ~97.5% service level)"
+      },
+      "workedExample": "ROP = 49 + 2×6.7 = 62 orders"
+    },
+    {
+      "name": "Capacity per Machine",
+      "formula": "Capacity = 1/Service_Time (jobs per hour)",
+      "variables": {
+        "Service_Time": "Processing time per job at the station"
+      },
+      "workedExample": "Sample Prep: 1/1.77 = 0.566 jobs/hour per machine"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "Given the Littlefield parameters, what is the bottleneck station at the start of the simulation?",
+      "solution": "Testing station has the lowest service rate at 0.526 jobs/hour with only 1 machine, making it the initial bottleneck.",
+      "source": "Littlefield Debrief Slides After Class Handouts",
+      "conceptIds": ["C01", "C09"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2",
+      "question": "Calculate the optimal EOQ and reorder point for Littlefield's inventory system.",
+      "solution": "EOQ = √(2×1000×4460/(600×0.10)) = 386 orders. ROP = 49 + 2×6.7 = 62 orders (assuming 2 std dev safety stock).",
+      "source": "Littlefield Debrief Slides After Class Handouts", 
+      "conceptIds": ["C01"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "What is the end-game optimal order quantity using newsvendor logic?",
+      "solution": "Cu = $650, Co = $600, pc = 650/1250 = 0.52. Q* = NORM.INV(0.52, 611, 23.8) = 612 orders",
+      "source": "Littlefield Debrief Slides After Class Handouts",
+      "conceptIds": ["C01"],
+      "type": "quantitative"
+    }
+  ],
+  "keyInsights": [
+    "Capacity Analysis (Beleza-type calculations)",
+    "Reaction time matters",
+    "Machine purchases based on long-run behavior",
+    "Contract management based on short-run behavior", 
+    "Factory physics matters",
+    "Capacity management and marketing strategies must be aligned",
+    "A busy factory (high utilization) is efficient but drives up leadtimes – must balance factory productivity with customer needs",
+    "Variability in operations hurts more than it helps",
+    "Managing raw materials requires balancing holding costs and order placement costs – EOQ thinking",
+    "End game, and reorder point, are gambles between too much and too little – possible applications of Newsvendor thinking"
+  ],
+  "connections": {
+    "relatedLectures": ["processes-1-kristens", "processes-2-beleza", "factory-physics", "eoq", "newsvendor"],
+    "examAppearances": [],
+    "excelTemplate": null
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "slug": "brightside",
+  "title": "BrightSide Produce",
+  "classNumber": 12,
+  "module": "C",
+  "keyQuestion": "How do we allocate limited supply fairly across customers?",
+  "caseName": "BrightSide Produce",
+  "prerequisites": ["newsvendor"],
+  "concepts": ["C60", "C64", "C65", "C68"],
+  "priority": "HIGH",
+  "overview": "BrightSide Produce tackles 'food deserts' - neighborhoods where fresh, healthy food is hard to find. This case shows newsvendor in action with a twist: fresh produce has zero salvage value (if it doesn't sell, it's worthless), and with limited supply, you must allocate inventory fairly across stores. Instead of maximizing profit, BrightSide aims for equal service levels - meaning bigger stores get proportionally more inventory, but all stores have the same probability of having what customers want.",
+  "coreContent": [
+    {
+      "title": "Newsvendor with Zero Salvage Value",
+      "conceptIds": ["C68"],
+      "content": "Structure of newsvendor model\nZero salvage value\nCo = Cost - Salvage Value = Cost - 0 = Cost\nCu = Price - Cost\npc = Cu/(Cu + Co) = (Price - Cost)/Price = profit margin percentage\n\nFor fresh produce that spoils if unsold, the overage cost equals the full purchase cost since there's no salvage value.",
+      "keyInsight": "With zero salvage value, the critical fractile equals the profit margin percentage, making the decision cleaner but more sensitive to cost structure"
+    },
+    {
+      "title": "Service Level Analysis",
+      "conceptIds": ["C64", "C65"],
+      "content": "Current Order Quantities & Service Levels\n=NORM.DIST(Q, μ, σ, TRUE)\n\nOptimal order quantities and service levels using newsvendor model\n\nOrder Quantities – 95% Service\nNORM.INV(0.95, 210.35, 37.32) = 272\n\nComparison between current vs. optimal order quantities shows the tradeoff between availability, accessibility, affordability vs financial sustainability.",
+      "keyInsight": "Service level can be calculated using NORM.DIST and target quantities using NORM.INV for any desired service level"
+    },
+    {
+      "title": "Allocating Limited Inventory",
+      "conceptIds": ["C68"],
+      "content": "Allocation of limited inventory\nAvailable inventory = 165 units\nTotal optimal demand = 258 units\n\nAllocate by Scaling Down:\nTJ's: 20 * (165 / 258) = 12.79\nService levels at these scaled quantities: NORM.DIST(12.79, 14.9, 3.8, TRUE) = 0.29\n\nCommon Service Level Approach:\nUsing Goal Seek to Allocate Limited Inventory - find order quantities that sum to available inventory by varying a common service level across all stores.",
+      "keyInsight": "When inventory is limited, equal service levels across stores is more equitable than proportional scaling, though it requires optimization tools like Goal Seek"
+    },
+    {
+      "title": "Food Deserts and Social Impact",
+      "conceptIds": ["C68"],
+      "content": "Food deserts are a major issue for underserved communities.\nAvailability, accessibility, affordability vs Financial sustainability\n\nBrightSide's model addresses limited healthy food access through produce distribution to underserved areas.\n\nBrainstorm solutions for food deserts and BrightSide operations improvements.",
+      "keyInsight": "Operations decisions have social impact - balancing financial sustainability with community service requires careful analysis of costs and benefits"
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Critical Fractile with Zero Salvage",
+      "formula": "pc = Cu/(Cu + Co) = (Price - Cost)/Price",
+      "variables": {
+        "pc": "Critical fractile / optimal service level",
+        "Cu": "Underage cost = Price - Cost", 
+        "Co": "Overage cost = Cost (when salvage = 0)",
+        "Price": "Selling price per unit",
+        "Cost": "Purchase cost per unit"
+      },
+      "workedExample": "If avocados cost $1.50 and sell for $2.00: pc = ($2.00 - $1.50)/$2.00 = 0.25 = 25%"
+    },
+    {
+      "name": "Service Level Calculation",
+      "formula": "Service Level = NORM.DIST(Q, μ, σ, TRUE)",
+      "variables": {
+        "Q": "Order quantity",
+        "μ": "Mean demand",
+        "σ": "Standard deviation of demand"
+      },
+      "workedExample": "For Q=13, μ=14.9, σ=3.8: Service Level = NORM.DIST(13, 14.9, 3.8, TRUE) = 31%"
+    },
+    {
+      "name": "Target Order Quantity",
+      "formula": "Q = NORM.INV(target_service_level, μ, σ)",
+      "variables": {
+        "target_service_level": "Desired service level (e.g., 0.95 for 95%)",
+        "μ": "Mean demand", 
+        "σ": "Standard deviation of demand"
+      },
+      "workedExample": "For 95% service: Q = NORM.INV(0.95, 210.35, 37.32) = 272"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "What are BrightSide's optimal order quantities and service levels for each of the 11 items given in Table 1 using the newsvendor model? Assume demand is normally distributed for all items.",
+      "solution": "Use newsvendor formula: Q* = NORM.INV(pc, μ, σ) where pc = (Price - Cost)/Price. Calculate for each of the 11 products using their specific μ, σ, price, and cost data.",
+      "source": "Concept Check #4 BrightSide Produce Haas 2026",
+      "conceptIds": ["C60", "C68"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2", 
+      "question": "What are the service levels for BrightSide's current order quantities?",
+      "solution": "Use NORM.DIST(current_Q, μ, σ, TRUE) for each product to calculate the service level achieved by current ordering policy.",
+      "source": "Concept Check #4 BrightSide Produce Haas 2026",
+      "conceptIds": ["C64", "C65"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "What order quantities would BrightSide need to use if it wanted to achieve a target service level of 95% for all products?",
+      "solution": "Use NORM.INV(0.95, μ, σ) for each product. Example: For avocados with μ=210.35, σ=37.32: Q = NORM.INV(0.95, 210.35, 37.32) = 272",
+      "source": "Concept Check #4 BrightSide Produce Haas 2026",
+      "conceptIds": ["C64", "C65"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p4",
+      "question": "How should BrightSide allocate limited inventory of 165 units when total optimal demand is 258 units?",
+      "solution": "Two approaches: (1) Scale down proportionally: each store gets (165/258) of optimal quantity, or (2) Use Goal Seek to find common service level that results in total orders = 165 units.",
+      "source": "BrightSide Produce After Class Handouts",
+      "conceptIds": ["C68"],
+      "type": "quantitative"
+    }
+  ],
+  "keyInsights": [
+    "Food deserts are a major issue for underserved communities",
+    "Zero salvage value makes newsvendor analysis cleaner but more sensitive to cost structure",
+    "Availability, accessibility, affordability vs Financial sustainability",
+    "Equal service levels across stores is more equitable than equal absolute quantities",
+    "Operations decisions have social impact beyond financial metrics",
+    "Goal Seek can optimize allocation when inventory is constrained"
+  ],
+  "connections": {
+    "relatedLectures": ["newsvendor"],
+    "examAppearances": ["CC4"],
+    "excelTemplate": "newsvendor"
+  }
+}

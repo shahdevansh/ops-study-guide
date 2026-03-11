@@ -1,0 +1,120 @@
+{
+  "slug": "factory-physics",
+  "title": "Factory Physics",
+  "classNumber": 4,
+  "module": "B",
+  "keyQuestion": "How do we balance the tradeoff between throughput time and capacity when variability is present?",
+  "caseName": "Pharmaceutical Manufacturing & Dumbo at Disneyland",
+  "prerequisites": ["processes-1-kristens"],
+  "concepts": ["C20", "C21", "C22", "C23", "C24"],
+  "priority": "HIGH",
+  "overview": "Factory Physics reveals the fundamental relationships governing all production systems when variability is present. Little's Law (WIP = Throughput Rate × Throughput Time) is the central equation that connects inventory, flow, and time in any system - from assembly lines to email inboxes to Disneyland rides. The key insight: variability degrades performance, forcing you to choose between holding more inventory (WIP) or accepting reduced throughput. This 'Buffer or Suffer' principle explains why perfect efficiency (zero inventory) and perfect service (instant flow) can't coexist in the real world.",
+  "coreContent": [
+    {
+      "title": "Little's Law",
+      "conceptIds": ["C20"],
+      "content": "There is a fundamental relationship between WIP, throughput rate, and throughput time known as Little's Law: WIP = (throughput rate) × (throughput time). You can draw a box around any process, or part of a process, or just about anything, and apply Little's Law to whatever is inside the box. Example: At General Motors' Oklahoma City assembly plant, a new car rolls off the assembly line every 50 seconds (72 cars per hour), with a single car taking about 28.5 hours to progress through the assembly process. WIP = 72 cars/hr × 28.5 hours = 2,052 automobiles in various states of completion on the assembly line at any time.",
+      "keyInsight": "Universal law that applies to any stable system. If you know any two variables, you can calculate the third."
+    },
+    {
+      "title": "Visualizing Little's Law",
+      "conceptIds": ["C20", "C21"],
+      "content": "Imagine a pipe: Water flows out at 10 gal./minute, Water takes 2 minutes to move through the pipe. Amount of water in the pipe = 10 gal./minute × 2 minutes = 20 gal. Dumbo at Disneyland example: Ride seats 26 people per ride, 1 cycle = 3 minutes (2 min ride + 1 min loading/unloading), Throughput rate = 26 riders / 3 min = 8.67 riders/min. If WIP = 520 riders in line, then Throughput time = 520 / 8.67 = 60 minutes wait time.",
+      "keyInsight": "Little's Law works everywhere - manufacturing, services, theme parks, email systems. The 'pipe' analogy makes the relationship intuitive."
+    },
+    {
+      "title": "Variability Effects",
+      "conceptIds": ["C22"],
+      "content": "Simple Assembly Line example: Each station has an average cycle time of 1 hour, but this time varies from 0.5 to 1.5 hours. No WIP is held between the stations. Key Factory Physics Lesson: Variability decreases throughput rate. Even though each station averages 1 hour, the system throughput will be less than 1 unit per hour due to blocking and starving effects between stations.",
+      "keyInsight": "Variability always degrades system performance. Even if average processing times are identical, systems with more variability perform worse."
+    },
+    {
+      "title": "WIP-Throughput Tradeoff",
+      "conceptIds": ["C23"],
+      "content": "How does throughput rate behave as we increase WIP? More WIP increases throughput rate -- to a point. The bottleneck defines the maximum throughput rate for the system. How does throughput time behave as we increase WIP? More WIP increases throughput time. This creates a fundamental tradeoff: You can increase throughput rate by adding WIP, but this increases throughput time. You must choose your operating point based on strategic priorities.",
+      "keyInsight": "More WIP increases throughput rate – up to the bottleneck rate. More WIP increases throughput time. You cannot optimize both simultaneously."
+    },
+    {
+      "title": "Buffer or Suffer Principle",
+      "conceptIds": ["C24"],
+      "content": "WIP management requires balancing the tradeoff between throughput time and capacity (throughput rate). The fundamental principle: You must hold WIP buffer or accept reduced throughput. There is no free lunch - you cannot achieve both perfect efficiency (zero inventory) and perfect service (instant throughput) simultaneously. This explains why Toyota's lean manufacturing works (controlled buffers) and why just-in-time requires excellent coordination.",
+      "keyInsight": "Buffer or Suffer - you cannot eliminate all waste without sacrificing performance. This trade-off is fundamental to all operations."
+    },
+    {
+      "title": "Factory Physics Applications",
+      "conceptIds": ["C20", "C21"],
+      "content": "Frank's Factory Example: Lead times average 5 weeks, demand is 2,000 units/week. Using Little's Law: WIP = 5 weeks × 2,000 units/week = 10,000 units. Drug Store Example: Selling 240 boxes/month, keeping 80 boxes average inventory. Time in stock = 80 boxes ÷ 240 boxes/month = 0.33 months = 10 days. Email Example: Receive 25 emails/day requiring response, 75 emails in inbox. Response time = 75 emails ÷ 25 emails/day = 3 days average.",
+      "keyInsight": "Little's Law applies to manufacturing, retail inventory, service processes, and information systems. The principles are universal."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Little's Law",
+      "formula": "WIP = Throughput Rate × Throughput Time",
+      "variables": {"WIP": "Work in Process (units in system)", "Throughput Rate": "Units completed per time period", "Throughput Time": "Time units spend in system"},
+      "workedExample": "GM Assembly: WIP = 72 cars/hr × 28.5 hours = 2,052 cars in process"
+    },
+    {
+      "name": "Throughput Time Calculation",
+      "formula": "Throughput Time = WIP / Throughput Rate",
+      "variables": {"Throughput Time": "Time per unit in system", "WIP": "Average inventory in system", "Throughput Rate": "Output rate"},
+      "workedExample": "Drug store: 80 boxes ÷ 240 boxes/month = 0.33 months per box"
+    },
+    {
+      "name": "Throughput Rate Calculation",
+      "formula": "Throughput Rate = WIP / Throughput Time",
+      "variables": {"Throughput Rate": "Output rate", "WIP": "Average inventory", "Throughput Time": "Average time per unit"},
+      "workedExample": "Factory: 10,000 units ÷ 5 weeks = 2,000 units/week"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "Frank's factory has lead times averaging 5 weeks and demand of 2,000 units/week. Pat estimates 12-13k units WIP, Marcia estimates 10k units, and a machine operator estimates 5k units. Whom should Frank believe, and why?",
+      "solution": "Frank should believe Marcia. Using Little's Law: WIP = Throughput Time × Throughput Rate = 5 weeks × 2,000 units/week = 10,000 units. Little's Law provides the mathematically correct answer based on the given flow rate and lead time.",
+      "source": "Factory Physics Practice Problems and Solutions.json",
+      "conceptIds": ["C20"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2",
+      "question": "About 220 customers enter a department store per hour, and customers stay 45 minutes on average. What is the average number of customers in the store?",
+      "solution": "Throughput Rate = 220 customers/hour, Throughput Time = 45 minutes = 0.75 hours. WIP = 220 cust/hr × 0.75 hours = 165 customers. On average, there are 165 customers in the store.",
+      "source": "Factory Physics Practice Problems and Solutions.json",
+      "conceptIds": ["C20", "C21"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "You receive 25 emails per day requiring response, with 75 emails in your inbox on average. How long on average does it take you to respond to an email?",
+      "solution": "Throughput Rate = 25 emails/day, WIP = 75 emails. Throughput Time = WIP/Throughput Rate = 75 emails ÷ 25 emails/day = 3 days. On average it takes you three days to respond to an email that requires response.",
+      "source": "Factory Physics Practice Problems and Solutions.json",
+      "conceptIds": ["C20"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p4",
+      "question": "Dumbo ride at Disneyland: seats 26 people per ride, 2-minute ride + 1-minute loading/unloading = 3-minute cycle. If 520 passengers are in line, what wait time should Disney post?",
+      "solution": "Throughput Rate = 26 riders ÷ 3 min = 8.67 riders/min. WIP = 520 riders in line. Throughput Time = 520 ÷ 8.67 = 60 minutes. Disney should post a 60-minute wait time.",
+      "source": "Factory Physics After Class Handouts Haas 2026.json",
+      "conceptIds": ["C20"],
+      "type": "quantitative"
+    }
+  ],
+  "keyInsights": [
+    "Three things that hurt you in operations: Setups, Bottlenecks, Uncertainty & Variability",
+    "The bottleneck defines the maximum throughput rate of the system",
+    "More WIP increases throughput rate – up to the bottleneck rate",
+    "More WIP increases throughput time",
+    "WIP = (Throughput rate) × (Throughput time) - Little's Law",
+    "Variability decreases capacity (or throughput rate)",
+    "WIP management to balance the tradeoff between throughput time and capacity",
+    "Buffer or Suffer - you must hold WIP buffer or accept reduced throughput",
+    "Little's Law is universal - applies to any stable system with flow"
+  ],
+  "connections": {
+    "relatedLectures": ["processes-1-kristens", "queueing"],
+    "examAppearances": ["CC2", "Midterm", "FinalReview"],
+    "excelTemplate": "littles-law.xlsx"
+  }
+}

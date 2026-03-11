@@ -1,0 +1,157 @@
+{
+  "slug": "newsvendor",
+  "title": "Newsvendor Model",
+  "classNumber": 10,
+  "module": "C",
+  "keyQuestion": "How much should we stock when demand is uncertain and we have only one chance to order?",
+  "caseName": "Tuxedo Manufacturing, Printer Distribution, Ski Parkas",
+  "prerequisites": ["processes-1-kristens"],
+  "concepts": ["C60", "C61", "C62", "C63", "C64", "C65", "C66", "C67", "C69"],
+  "priority": "HIGH",
+  "overview": "The newsvendor model solves the classic 'too much vs. too little' problem when you have only one chance to order before a selling season. Think of a newspaper vendor who must decide how many papers to buy each morning - buy too few and lose sales, buy too many and throw away unsold papers. This same logic applies to fashion retailers, seasonal products, and any situation where you're betting on uncertain demand with limited salvage value for leftovers.",
+  "coreContent": [
+    {
+      "title": "The Newsvendor Problem Setup",
+      "conceptIds": ["C60"],
+      "content": "One product and one selling season. One ordering opportunity. Consider a newsboy who orders and sells newspapers. Order too much: leftover newspapers are recycled or discarded. Order too few: all newspapers are sold and he loses sales. Ordering decisions must be made before the selling season starts. Demand is unknown. Objective: choose an order quantity to maximize expected profit.",
+      "keyInsight": "Newsvendor model applies to settings where there is a single order/production decision, demand is uncertain, and there is a 'too much-too little challenge'"
+    },
+    {
+      "title": "Critical Fractile - The Heart of the Model",
+      "conceptIds": ["C61", "C62", "C63"],
+      "content": "Let cu = Underage Cost (cost of ordering too little), co = Overage Cost (cost of ordering too much). The vendor will only want to buy an additional unit if the expected incremental contribution is positive: (1 – p(n)) cu – p(n) co ≥ 0. This gives us the Critical Fractile: pc = cu/(cu + co). Overage cost co is typically Cost - Salvage Value. Underage cost cu is typically Price - Cost.",
+      "keyInsight": "The critical fractile is the probability that demand is less than or equal to the optimal stocking level. At Q*, the service level equals the critical fractile."
+    },
+    {
+      "title": "Normal Distribution Application",
+      "conceptIds": ["C65", "C64"],
+      "content": "Since demand is normally distributed: Q* = NORM.INV(critical fractile, mean, std dev) = NORM.INV(pc, μ, σ). Alternatively: z* = NORM.S.INV(critical fractile) and Q* = μ + z*σ. Service level = P(demand ≤ Q) = NORM.DIST(Q, μ, σ, TRUE). At Q*, service level = pc.",
+      "keyInsight": "Excel functions handle the normal distribution calculations. You can work with either Q directly or convert to z-scores for table lookup."
+    },
+    {
+      "title": "Postponement and the Vanilla Box Strategy",
+      "conceptIds": ["C66"],
+      "content": "Now suppose that there are five models of printer that are sold in different countries. How many total units would need to be held if they hold one standard type of 'vanilla box' and 'localize' the printers only after demand occurs? Standard deviation of demand for five models = SQRT(5) * 4000 = 8,944.27. This assumes demand across printers is independent. Variance of demand for five models = 16,000,000 * 5 = 80,000,000.",
+      "keyInsight": "Delayed customization can reduce inventory significantly. σ_total = σ × √n for n variants. Combined uncertainty is less than sum of individual uncertainties."
+    },
+    {
+      "title": "Service Level Curve Shape",
+      "conceptIds": ["C67"],
+      "content": "As service level approaches 100%, order quantity increases exponentially (convex curve). Going from 90% to 95% service might require 20% more inventory, but going from 95% to 99% might require 100% more inventory! The curve gets steeper and steeper, like climbing a cliff.",
+      "keyInsight": "This explains why 100% service is rarely economical. Even Amazon doesn't promise 100% availability."
+    },
+    {
+      "title": "Revenue Management Application",
+      "conceptIds": ["C69"],
+      "content": "Revenue Management – Newsvendor Applied to Airlines. Low fare: Discounted price for restricted advance-purchase ticket – targeting leisure travelers. Demand for low-fare tickets is abundant. High fare: Regular price for unrestricted ticket – targeting business travelers. Demand for high-fare tickets is normally distributed (mean, std dev). Most high-fare demand occurs only within a few days of the actual flight. Maximize expected revenues by controlling the number of low-fare seats you sell.",
+      "keyInsight": "Newsvendor logic applies to capacity allocation: balancing low-margin early sales vs. high-margin late sales."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Critical Fractile",
+      "formula": "pc = Cu/(Cu + Co)",
+      "variables": {
+        "pc": "Critical fractile (optimal service level)",
+        "Cu": "Underage cost = Price - Cost",
+        "Co": "Overage cost = Cost - Salvage Value"
+      },
+      "workedExample": "Tuxedo example: Price=$750, Cost=$400, Salvage=$200. Co = 400-200 = 200. Cu = 750-400 = 350. pc = 350/(350+200) = 0.6364"
+    },
+    {
+      "name": "Optimal Order Quantity",
+      "formula": "Q* = NORM.INV(pc, μ, σ)",
+      "variables": {
+        "Q*": "Optimal order quantity",
+        "pc": "Critical fractile",
+        "μ": "Mean demand",
+        "σ": "Standard deviation of demand"
+      },
+      "workedExample": "Tuxedo example: Q* = NORM.INV(0.6364, 500, 175) = 561 units"
+    },
+    {
+      "name": "Alternative Z-Score Method",
+      "formula": "z* = NORM.S.INV(pc); Q* = μ + z*σ",
+      "variables": {
+        "z*": "Standard normal deviate",
+        "pc": "Critical fractile"
+      },
+      "workedExample": "Tuxedo example: z* = NORM.S.INV(0.6364) = 0.35; Q* = 500 + (0.35)(175) = 561"
+    },
+    {
+      "name": "Service Level",
+      "formula": "Service Level = NORM.DIST(Q, μ, σ, TRUE)",
+      "variables": {
+        "Q": "Order quantity",
+        "μ": "Mean demand",
+        "σ": "Standard deviation of demand"
+      },
+      "workedExample": "At Q*, service level equals critical fractile. For any other Q, calculate using NORM.DIST function."
+    },
+    {
+      "name": "Postponement Standard Deviation",
+      "formula": "σ_total = σ × √n",
+      "variables": {
+        "σ_total": "Standard deviation of combined demand",
+        "σ": "Standard deviation of individual variant",
+        "n": "Number of variants"
+      },
+      "workedExample": "5 printer models: σ_total = 4000 × √5 = 8,944.27 (much less than 5 × 4000 = 20,000)"
+    }
+  ],
+  "practiceProblems": [
+    {
+      "id": "p1",
+      "question": "Demand for a new tuxedo for the high school prom season is uncertain, and the selling season will be extremely brief. Manufacturing is done in advance of the season so that the tuxes are all available at the start of the season. Marketing managers determine demand for a given size is normally distributed with a mean of 500 units and standard deviation of 175 units. Cost to produce is $400. Planned selling price is $750. Units left over at the end of the season can be sold for $200. How many tuxes should they produce?",
+      "solution": "Price = $750, Cost = $400, Salvage value = $200, Average demand = 500 units, Standard deviation = 175 units. Overage cost: co = 400 – 200 = 200. Underage cost: cu = 750 – 400 = 350. Critical Fractile = pc = cu/(cu+co) = 350 / (350+200) = 0.6364. Q* = NORM.INV(0.6364, 500, 175) = 561 units.",
+      "source": "Newsvendor Haas After Class Handouts 2026.json",
+      "conceptIds": ["C60", "C61", "C62", "C63"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p2", 
+      "question": "For the tuxedo problem, what if the standard deviation of demand were 250 instead of 175? Would the optimal order quantity increase, decrease, or stay the same?",
+      "solution": "The critical fractile stays the same (0.64) since it only depends on costs, not demand variability. But Q* = NORM.INV(0.64, 500, 250) = 587 units. So Q* increases when variability increases, even though the critical fractile is unchanged.",
+      "source": "Newsvendor Haas After Class Handouts 2026.json",
+      "conceptIds": ["C60", "C65"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p3",
+      "question": "Demand for a new computer printer is uncertain, but the selling season will be extremely brief. Manufacturing is done in advance so that the printers are all available at the start of the season. Marketing managers determine demand is normally distributed with a mean of 10,000 units and standard deviation of 4,000 units. Cost to produce is $625. Planned selling price is $1000. Units left over at the end of the season can be sold for $450. How many printers should they produce?",
+      "solution": "Overage cost, co = cost - salvage value = $625 - $450 = $175. Underage cost, cu = price - cost = $1000 - $625 = $375. Critical fractile, pc = cu / (cu + co) = 375/(375+175) = 0.68. Q* = NORM.INV(0.68, 10000, 4000) = 11,891 units.",
+      "source": "Newsvendor Haas After Class Handouts 2026.json",
+      "conceptIds": ["C60", "C61", "C62", "C63"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p4",
+      "question": "A ski parka company makes Product A with the following data: Unit Cost $110.00, Selling Price $153.00, Discount Price to Jobber $88.00, Mean Demand 1017.00, Standard Deviation 388.00. What is the optimal order quantity and service level?",
+      "solution": "Overage cost: Co = 110.00 - 88.00 = $22.00. Underage cost: Cu = 153.00 - 110.00 = $43.00. Critical Fractile = 43.00/(43.00+22.00) = 0.662. Optimal Q* = NORM.INV(0.662, 1017, 388) = 1178.7 units. Service Level at Q* = 66.2%.",
+      "source": "Supplemental Newsvendor Problem Solutions Haas 2026.json",
+      "conceptIds": ["C60", "C61", "C62", "C63", "C64"],
+      "type": "quantitative"
+    },
+    {
+      "id": "p5",
+      "question": "For the ski parka company, if they wanted to achieve a 90% service level for Product A, what order quantity should they use?",
+      "solution": "To achieve 90% service level: Q = NORM.INV(0.90, 1017, 388) = 1,514 units. Note this is different from the optimal Q* which maximizes expected profit.",
+      "source": "Supplemental Newsvendor Problem Solutions Haas 2026.json", 
+      "conceptIds": ["C64", "C65"],
+      "type": "quantitative"
+    }
+  ],
+  "keyInsights": [
+    "At the order quantity that maximizes expected profit, the probability that demand is less than the order quantity equals the critical ratio",
+    "Higher profit margins lead to higher critical fractiles and more aggressive stocking",
+    "Variability in demand increases optimal order quantity for a given critical fractile",
+    "Delayed customization can reduce inventory significantly through risk pooling",
+    "100% service levels are extremely expensive and rarely economical",
+    "The model applies beyond newspapers: fashion, seasonal products, capacity allocation, and any one-shot decision under uncertainty"
+  ],
+  "connections": {
+    "relatedLectures": ["eoq", "supply-chain-strategy", "brightside"],
+    "examAppearances": ["CC4", "FinalReview"],
+    "excelTemplate": "newsvendor.xlsx"
+  }
+}

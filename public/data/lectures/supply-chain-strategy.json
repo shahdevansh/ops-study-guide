@@ -1,0 +1,61 @@
+{
+  "slug": "supply-chain-strategy",
+  "title": "Supply Chain Strategy",
+  "classNumber": 10,
+  "module": "C",
+  "keyQuestion": "How do we match our supply chain strategy to our products?",
+  "caseName": "Sport Obermeyer",
+  "prerequisites": ["newsvendor"],
+  "concepts": ["C70", "C71", "C72", "C73"],
+  "priority": "HIGH",
+  "overview": "Ever wondered why Walmart's supply chain is so different from Zara's? This lecture explains the Fisher Matrix - a simple framework that shows why functional products (like pasta or toilet paper) need efficient supply chains focused on low cost, while innovative products (like fashion or new electronics) need responsive supply chains that can react quickly to what's hot. We'll use Sport Obermeyer's ski jacket business to see how companies cope with uncertain demand through better forecasting, early sales data, and dual response strategies that combine both efficiency and flexibility.",
+  "coreContent": [
+    {
+      "title": "The Fisher Matrix: Matching Products with Supply Chains",
+      "conceptIds": ["C70"],
+      "content": "Matching Products with Supply Chains\n | Functional / Replenishment Products | Innovative / Style  Products\nEfficient Supply Chain | Match | Mismatch\nResponsive Supply Chain | Mismatch | Match\nExcess capacity & inventory\nLong lead times",
+      "keyInsight": "Align your supply chain strategy with the type of products you are selling. Functional / Replenishment products => Efficient supply chain. Innovative / style goods => Responsive supply chain."
+    },
+    {
+      "title": "Efficient vs. Responsive Supply Chains",
+      "conceptIds": ["C71"],
+      "content": "Efficient Supply Chain: Match with Functional Products (Barilla Pasta, eBeer). Coordinate internally (S&OP) and with supply chain partners (CPFR and VMI).\n\nResponsive Supply Chain: Match with Innovative Products (Sport Obermeyer). Use of information: Quantify risk (Newsvendor model), Reduce risk (Early order information). Use of flexibility / redundancy: Avoid risk (Reactive capacity), Hedge against residual risk (Common components and postponement).",
+      "keyInsight": "Different product/supply characteristics require different supply chain strategies"
+    },
+    {
+      "title": "Dual Response Strategy",
+      "conceptIds": ["C72"],
+      "content": "Dual Response: Risk-based Deployment\nStable Factory. Tuned for stable production — ultra-low cost, but inflexible.\nVariable Factory. Tuned for variable production — highly flexible, but at a premium price.\nSource: Dr. Hau Lee, Stanford University",
+      "keyInsight": "Dual response supply chains can achieve both efficiency and responsiveness. Mixed strategies can provide both efficiency and flexibility (LL Bean)"
+    },
+    {
+      "title": "Sport Obermeyer Strategies",
+      "conceptIds": ["C73"],
+      "content": "Obermeyer: Reduce Risk – Increase Return\nForecast distribution of demand\nAssess overage and underage costs\nDetermine appropriate initial production quantities\nRead early demand indicators\nUpdate demand forecast\nDetermine final production quantities\n\nObermeyer Forecasting\nPrevious Method: Wally Obermeyer drives the point forecast\nCurrent Method: Forecast independently → variance information\nAverage the individuals' forecasts to get the mean for the newsvendor model\nStandard deviation of individual forecasts * 2 to get σ for the newsvendor model",
+      "keyInsight": "Improve forecast accuracy using early order information and independent forecasting to reduce demand uncertainty"
+    },
+    {
+      "title": "Coping with Supply Chain Risk",
+      "conceptIds": ["C73"],
+      "content": "Coping with Supply Chain Risk\nUse of information\nQuantify risk\nForecast distributions, not just means\nMake intelligent gambles with Newsvendor model\nReduce risk\nImprove forecast accuracy – use early order information\nUse of flexibility / redundancy\nAvoid risk\nIncrease reactive capacity\nHedge against residual risk\nCommon components and pre-positioned inventories",
+      "keyInsight": "Use information to quantify and reduce risk, while building flexibility to avoid and hedge against residual risk"
+    }
+  ],
+  "formulas": [],
+  "practiceProblems": [],
+  "keyInsights": [
+    "Three things that hurt you in operations: Setups, Bottlenecks, Uncertainty & Variability …but proper actions mitigate this pain",
+    "Align your supply chain strategy with the type of products you are selling",
+    "Functional / Replenishment products => Efficient supply chain",
+    "Innovative / style goods => Responsive supply chain", 
+    "Dual response supply chains can achieve both efficiency and responsiveness",
+    "Different product/supply characteristics require different supply chain strategies",
+    "Forecast distributions, not just means",
+    "Use early order information to improve forecast accuracy"
+  ],
+  "connections": {
+    "relatedLectures": ["newsvendor", "beer-game-bullwhip", "supply-chain-risk"],
+    "examAppearances": ["FinalReview"],
+    "excelTemplate": null
+  }
+}

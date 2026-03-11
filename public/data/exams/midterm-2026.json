@@ -1,0 +1,56 @@
+{
+  "examTitle": "MBA 204 Operations Midterm 2026",
+  "examDate": "March 2026", 
+  "format": "In-class exam with calculations and strategy analysis",
+  "source": "midterm-solutions-box.txt",
+  "questions": [
+    {
+      "questionId": "1",
+      "type": "quantitative",
+      "topic": "Factory Physics / Capacity Analysis",
+      "conceptIds": ["C01", "C09", "C13", "C20", "C21"],
+      "questionText": "Factory Physics Problem: Station A | Station B | Station C | Station D | Whole Process | Total Batch Size\n\nSetup time [min]: 1 | 1 | 5 | 3 | 50 | 85\nProcessing time per unit [min]: 0.8 | 4 | 6.8 | 3\nNumber of workers: 1 | 1 | 1 | 1 | 4\n\nCalculate capacities, identify bottleneck, determine flow rate and utilizations for both the original batch size and a different batch size scenario.",
+      "solutionText": "Original Scenario:\nTotal time per batch [min]: 13 | 11 | 15 | 13 | 61 | 45 | 52 | 7\nCapacity [batches/hour]: 0.41\nCapacity [units/hour]: 8.28\nProcess capacity [units/hr]: 8.28 (limited by bottleneck)\nDemand rate [units/hr]: 6.00\nFlow rate [units/hr]: 6.00 (demand-constrained)\nUtilization: varies by station\n\nKey Solution Points:\n1. Capacities for each activity are calculated in batches per hour and units per hour.\n2. Station D is the bottleneck.\n3. The capacity of the facility equals the capacity of the bottleneck.\n4. The flow rate is 6 units/hr - demand-constrained.\n5. Utilizations are calculated for each station.\n\nWith Different Batch Size:\nTotal time per batch [min]: 12 | 37 | 56 | 81 | 15 | 38 | 1\nCapacity [batches/hour]: 0.49 | 0.80 | 0.88 | 0.52 | 0.49\nCapacity [units/hour]: 4.88\nProcess capacity [units/hr]: 4.88\nDemand rate [units/hr]: 6.00\nFlow rate [units/hr]: 4.88 (capacity-constrained)\n\n7. Station A is the bottleneck.\n8. The flow rate equals the capacity of the bottleneck (Station A).\n9. Station C utilization is calculated.\n10. Smaller batch size means more setup time, and therefore time lost. So the facility capacity decreases.\n11. Optimal batch size is about 12 or 13 units (using Goal Seek or trial and error).",
+      "keyInsights": [
+        "Bottleneck shifts when batch sizes change",
+        "Smaller batch sizes increase setup frequency and reduce effective capacity", 
+        "System can be either demand-constrained or capacity-constrained",
+        "Bottleneck identification drives capacity analysis"
+      ]
+    },
+    {
+      "questionId": "2", 
+      "type": "qualitative",
+      "topic": "Operations Strategy (CQDF)",
+      "conceptIds": ["C11", "C12"],
+      "questionText": "Operations Strategy Question for AA company:\n\nObjective Definition – How does AA define each objective?\nMeasurements – How does, or could, AA measure the objective?\nRank – How would you rank each objective for AA\n\nPart 2: AA is considering a shift to a completely different business model with high customization and low volume. Analyze the implications.",
+      "solutionText": "CQDF Analysis for AA:\n\nCost: Competitive with other manufacturers. $/unit\nRank: 3 = just competitive.\n\nQuality: Very high. Reputation. Never ship defective product. Probably # of defects. # of defects shipped. Quality right the first time.\nRank: 1 = higher than delivery, due to never ship defectives.\n\nDelivery: Very tight windows; quarterly reports on late deliveries. Make-to-stock. # and % of late deliveries. % meet window targets.\nRank: 2 = key issue now; 2nd relative to Quality.\n\nFlexibility: Number of SKUs; low frequency of new product introduction. 200 SKUs – not high in this industry\nRank: 4 = could be higher than cost, but this is better.\n\nPart 2 Major Points:\n• This would be a completely different business and operational model. Different operations objectives with the new proposal. Flexibility would be now #1 or 2, along with quality. More customization; many new products, rather than a more standardized, high volume product line.\n\n• Production in Costa Rica is high volume, not low volume. Different place on the product-process matrix. They would be shifting from a Beleza-type model to a traditional salon type model. Although that may lead to higher margins, it's completely different on the \"right side of the board\" because they have changed the \"left side of the board.\"\n\n• Current low production is in US, but that facility will close. Other key points:\n• There is no way to introduce new products in Costa Rica; current new product development is in the US and they would close that facility.\n• Abandon current customers. Different sales team and sales cycle.",
+      "keyInsights": [
+        "Must define, rank, and measure each CQDF dimension",
+        "AA prioritizes Quality #1, Delivery #2, Cost #3, Flexibility #4", 
+        "Changing business model requires completely different operational priorities",
+        "Product-process matrix alignment is critical - can't have high volume AND high customization"
+      ]
+    },
+    {
+      "questionId": "3",
+      "type": "quantitative", 
+      "topic": "Little's Law / Factory Physics",
+      "conceptIds": ["C20", "C21", "C23", "C24"],
+      "questionText": "Grohe Lux Problem:\n\nBefore implementation:\nWIP: 7500\nThroughput time: 4.3\nThroughput Rate: 1744\n\nAfter implementation:\nWIP: 1200 \nThroughput time: 1\nThroughput Rate: 1200\n\nPart 2: Explain the relationship between WIP reduction and the observed changes in throughput time and throughput rate.",
+      "solutionText": "Given data:\n                Before    After\nWIP             7500      1200\nThroughput time 4.3       1\nThroughput Rate 1744      1200\n\nPart 2 Analysis:\nRecall the graphs from the Factory Physics class. Reducing WIP reduces throughput time, which is what they observed. However, it also reduces throughput rate, which means that they are not able to sell as many products and thus lose revenue. \"Buffer or Suffer.\" \n\nIt can help to draw the curves and see how they are nonlinear, with stronger effects at certain levels of WIP.\n\nThis demonstrates the fundamental tradeoff in Factory Physics: you can optimize for throughput time (customer experience) OR throughput rate (revenue), but not both simultaneously. Lower WIP means faster flow but less total output.",
+      "keyInsights": [
+        "WIP reduction improves throughput time but can reduce throughput rate",
+        "\"Buffer or Suffer\" - fundamental tradeoff in Factory Physics", 
+        "Cannot optimize both throughput time and throughput rate simultaneously",
+        "Factory Physics curves show nonlinear relationships between WIP, time, and rate"
+      ]
+    }
+  ],
+  "examSummary": {
+    "quantitativeTopics": ["Factory Physics", "Capacity Analysis", "Little's Law"],
+    "qualitativeTopics": ["Operations Strategy", "CQDF Analysis", "Product-Process Matrix"],
+    "keyFormulas": ["Little's Law: WIP = Throughput Rate × Throughput Time", "Utilization = Flow Rate / Capacity", "Process Capacity = Bottleneck Capacity"],
+    "strategicConcepts": ["Buffer or Suffer", "Bottleneck Shifting", "CQDF Priority Ranking"]
+  }
+}

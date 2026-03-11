@@ -1,0 +1,115 @@
+{
+  "examTitle": "MBA 204 Operations Final Exam Review",
+  "examDate": "Final Exam Preparation",
+  "format": "Comprehensive review covering quantitative problems and strategic insights",
+  "source": "Final Exam Review After Class Handouts Haas 2026",
+  "structure": {
+    "quantitativeProblems": ["Queueing", "EOQ", "Newsvendor"],
+    "strategicInsights": ["Operations Strategy (CQDF)", "Supply Chain Management", "Risk Management"]
+  },
+  "questions": [
+    {
+      "questionId": "Q1",
+      "type": "quantitative",
+      "topic": "Queueing (Single and Multi-Server)",
+      "conceptIds": ["C30", "C31", "C32", "C33", "C34"],
+      "questionText": "Better Buzz Coffee Problem:\n\nSome students frustrated by long lines at Better Buzz Coffee took measurements during busy periods. From many service times collected, they found:\n- Average service time: 3.3 minutes\n- Standard deviation of service time: 4.8 minutes\n- Average time between arrivals: 4.0 minutes  \n- Standard deviation of interarrival time: 3.2 minutes\n- Only one server working during this time\n\nBased on this information:\na) What would be the average time in line?\nb) What would be the average number of customers in line?\nc) What would the average waiting time in line be if Better Buzz added a second server?",
+      "solutionText": "Given data:\n- M = 3.3 minutes (average service time)\n- σs = 4.8 minutes (std dev of service time)\n- A = 4.0 minutes (average interarrival time)\n- σa = 3.2 minutes (std dev of interarrival time)\n- n = 1 server (initially)\n\nCalculations:\n1. Utilization: ρ = M/A = 3.3/4.0 = 0.825\n2. Coefficient of variation for arrivals: Ca = σa/A = 3.2/4.0 = 0.8\n3. Coefficient of variation for service: Cs = σs/M = 4.8/3.3 = 1.45\n4. Variance effect: (Ca² + Cs²)/2 = (0.8² + 1.45²)/2 = (0.64 + 2.10)/2 = 1.37\n5. Utilization effect: ρ/(1-ρ) = 0.825/(1-0.825) = 0.825/0.175 = 4.71\n\na) Average waiting time: W = M × (ρ/(1-ρ)) × ((Ca² + Cs²)/2)\n   W = 3.3 × 4.71 × 1.37 = 21.3 minutes\n\nb) Average number in line: L = λW = (1/A) × W = (1/4.0) × 21.3 = 5.3 customers\n\nc) With 2 servers:\n   - System utilization: ρ = M/(n×A) = 3.3/(2×4.0) = 0.41\n   - Exponent: √(2(n+1)) - 1 = √(2×3) - 1 = √6 - 1 = 1.45\n   - Multi-server utilization effect: ρ^1.45/(1-ρ) = 0.41^1.45/0.59 = 0.32/0.59 = 0.54\n   - Waiting time: W = (M/n) × Util Effect × Variance Effect\n   - W = (3.3/2) × 0.54 × 1.37 = 1.22 minutes\n\nDramatic improvement from adding second server: 21.3 min → 1.22 min",
+      "keyInsights": [
+        "High utilization (82.5%) creates long waiting times",
+        "Variability in both arrivals and service magnifies delays", 
+        "Adding second server provides more than proportional improvement",
+        "Multi-server systems leverage pooling effects"
+      ]
+    },
+    {
+      "questionId": "Q2",
+      "type": "quantitative",
+      "topic": "EOQ and Consolidation",
+      "conceptIds": ["C50", "C51", "C52", "C53", "C54"],
+      "questionText": "Retailer Shovel Problem:\n\nA large retailer buys an innovative shovel from a regional distributor:\n- Unit cost: $45.20\n- Fixed ordering cost: $19.50 per order\n- Cost of capital: 17% per year\n- Physical holding costs: negligible\n- Annual demand: 22,500 units\n- Current order quantity: 500 units\n\na) Determine the optimal order quantity for this product.\nb) What is the total annual relevant cost if they use this order quantity?\nc) How much would they save (in dollars) if they use the EOQ instead of their current order quantity of 500?\nd) If they merged with an identical cousin's store (doubling total demand to 45,000 units), what percentage savings would they achieve on total relevant cost by using EOQ before and after the merger?",
+      "solutionText": "Given data:\n- c = $45.20 (unit cost)\n- S = $19.50 (ordering cost)\n- i = 17% = 0.17 (cost of capital)\n- h = 0 (negligible physical holding cost)\n- D = 22,500 units/year\n- Current Q = 500 units\n\nCalculations:\na) Holding cost: H = ic + h = 0.17 × $45.20 + 0 = $7.684/unit/year\n   EOQ = √(2SD/H) = √(2 × 19.50 × 22,500 / 7.684) = √(877,500 / 7.684) = √114,217 = 338 units\n\nb) Total cost at EOQ: TC(EOQ) = √(2SDH) = √(2 × 19.50 × 22,500 × 7.684) = √6,723,510 = $2,593\n\nc) Current total cost: TC(500) = S(D/Q) + H(Q/2)\n   TC(500) = 19.50 × (22,500/500) + 7.684 × (500/2)\n   TC(500) = 19.50 × 45 + 7.684 × 250 = $877.50 + $1,921 = $2,798.50\n   \n   Savings = TC(500) - TC(EOQ) = $2,798.50 - $2,593 = $205.50\n\nd) Consolidation analysis:\n   Before merger: Two stores, each with TC = $2,593, Total = $5,186\n   After merger: Combined demand = 45,000 units\n   New EOQ = √(2 × 19.50 × 45,000 / 7.684) = √(1,755,000 / 7.684) = 478 units\n   New TC = √(2 × 19.50 × 45,000 × 7.684) = $3,668\n   \n   Percentage savings = (5,186 - 3,668) / 5,186 × 100% = 29.3% savings\n   \n   Note: EOQ scales by √2 = 1.414, so combined EOQ = 338 × 1.414 = 478 units\n   Total cost scales by √2, so savings = (1 - 1/√2) × 100% = 29.3%",
+      "keyInsights": [
+        "EOQ (338) is significantly lower than current order quantity (500)",
+        "Annual savings of $205.50 from using EOQ instead of current policy",
+        "Consolidation provides 29.3% cost reduction due to economies of scale",
+        "EOQ consolidation follows square-root scaling laws"
+      ]
+    },
+    {
+      "questionId": "Q3", 
+      "type": "quantitative",
+      "topic": "Newsvendor Model",
+      "conceptIds": ["C60", "C61", "C62", "C63", "C64", "C65", "C67"],
+      "questionText": "Bookstore Soccer World Cup Problem:\n\nA bookstore is preparing to buy a special edition book on soccer World Cup history:\n- Mean demand: 180 units\n- Standard deviation: 65 units\n- Purchase cost: $23 per book\n- Selling price: $50 per book\n- Discount price (salvage): $10 per book\n\na) How many should they buy?\nb) What is the probability they will run out of inventory before discounting?\nc) If the inventory manager ordered 190 units, what is the probability they will meet all demand?\nd) Sketch and explain the shape of the service level vs. order quantity curve.",
+      "solutionText": "Given data:\n- μ = 180 (mean demand)\n- σ = 65 (standard deviation)\n- Cost = $23\n- Price = $50\n- Salvage = $10\n\nCalculations:\na) Optimal order quantity:\n   Cu = Price - Cost = $50 - $23 = $27 (underage cost)\n   Co = Cost - Salvage = $23 - $10 = $13 (overage cost)\n   pc = Cu/(Cu + Co) = 27/(27 + 13) = 27/40 = 0.675 (critical fractile)\n   \n   Q* = NORM.INV(0.675, 180, 65) = 180 + NORM.S.INV(0.675) × 65\n   z* = NORM.S.INV(0.675) ≈ 0.454\n   Q* = 180 + 0.454 × 65 = 180 + 29.5 = 209.5 ≈ 210 books\n\nb) Probability of stockout at Q* = 1 - service level = 1 - 0.675 = 0.325 = 32.5%\n\nc) Service level for Q = 190:\n   z = (190 - 180)/65 = 10/65 = 0.154\n   Service level = NORM.DIST(190, 180, 65, TRUE) = NORM.S.DIST(0.154) ≈ 0.561 = 56.1%\n\nd) Service level curve shape:\n   The curve is convex (exponential shape). As service level approaches 100%, order quantity increases exponentially. This happens because:\n   - At 50% service level (center of normal curve), small quantity increases add significant probability\n   - At high service levels (tail of curve), large quantity increases are needed for small probability gains\n   - The normal distribution tail approaches zero asymptotically\n   - This explains why 100% service level is economically unrealistic",
+      "keyInsights": [
+        "Optimal order quantity (210) exceeds mean demand (180) due to high profit margin",
+        "Critical fractile (67.5%) reflects high underage cost relative to overage cost", 
+        "Service level curve becomes exponentially steep at high service levels",
+        "Perfect service (100%) would require infinite inventory"
+      ]
+    },
+    {
+      "questionId": "S1",
+      "type": "qualitative", 
+      "topic": "Operations Strategy - Southwest Airlines",
+      "conceptIds": ["C11", "C12"],
+      "questionText": "Operations Strategy Analysis:\n\nFor Southwest's traditional model, analyze their operations objectives using the CQDF framework. Fill in the table:\n\nObjective | Define | Rank | Measure\nCost | ? | ? | ?\nQuality | ? | ? | ?\nDelivery | ? | ? | ?\nFlexibility | ? | ? | ?\n\nThen analyze: What would be the impact on Southwest's operations objectives if they shift to different classes of service and assigned seats? How would that impact their daily operations?",
+      "solutionText": "Southwest Traditional Model CQDF Analysis:\n\nObjective | Define | Rank | Measure\nCost | Lowest cost | 1 | Cost per passenger; cost per flight; fuel costs; staffing costs\nQuality | Standard/low | 3 | Clean planes; no meals; no frills; fun\nDelivery | Frequent flights; on time; we get you there; ease to change flights | 2 | On time percent; flights per day between cities; price for customer to change flights\nFlexibility | Low flexibility; no first class; no meals or frills | 4 | Number of options for flight services and seats\n\nImpact of Adding Service Classes and Assigned Seats:\n\nCurrent model: Cost #1, Delivery #2, Quality #3, Flexibility #4\n\nNew model impacts:\n- Flexibility would move up in rank order\n- Would slow down turnaround time (currently 25-minute gate turns)\n- Would complicate boarding process (no more first-come-first-served)\n- Would impact egalitarian culture and atmosphere of fun\n- Would require new systems, training, and operational complexity\n- Would increase costs (new ranking priority needed)\n- Delivery performance might suffer due to longer turnarounds\n\nDaily operations impact:\n- Longer gate times for boarding\n- More complex passenger management\n- Crew training on class differentiation\n- Revenue management complexity\n- Potential culture change from 'fun' to more traditional airline",
+      "keyInsights": [
+        "Southwest's success built on Cost #1, Delivery #2 priorities",
+        "Low flexibility (#4) enables operational efficiency", 
+        "Adding service classes would force fundamental CQDF rebalancing",
+        "Operational complexity increases when flexibility becomes important"
+      ]
+    },
+    {
+      "questionId": "S2",
+      "type": "qualitative",
+      "topic": "Supply Chain Management - Bullwhip Effect", 
+      "conceptIds": ["C40", "C41", "C42", "C70", "C73"],
+      "questionText": "Supply Chain Improvement:\n\na) What supply chain problem was evident for 'functional' or 'replenishment' products, such as beer in the eBeer game? What strategies and tools can be used to improve them?\n\nb) What are the key challenges for improving supply chains for 'innovative' or 'style/fashion' products, such as ski parkas in Sport Obermeyer? What strategies and tools can be used to improve them?",
+      "solutionText": "a) Functional Products (Beer) - Bullwhip Effect:\n\nProblem:\n- The bullwhip effect: oscillation and amplification\n- Fluctuations get worse as you move up the supply chain\n- Small demand changes create huge upstream swings\n\nCauses:\n- Over-reaction to backlogs\n- Neglecting to order based on inventory position  \n- Lack of communication between supply chain partners\n- Lack of coordination\n- Delay times for information and delivery of materials\n- Forward buying due to trade promotions\n- Shortage gaming (ordering extra when expecting allocations)\n\nImprovement Strategies:\n- Share information internally: Sales & Operations Planning (S&OP)\n- Share information externally: Coordinated Planning, Forecasting and Replenishment (CPFR)\n- Share decision rights: Vendor Managed Inventory (VMI)\n- Everyday Low Pricing (EDLP) to reduce forward buying\n- Limit order size increases\n- Penalties for order cancellations\n\nb) Innovative Products (Sport Obermeyer) - Demand Uncertainty:\n\nChallenges:\n- Long lead times (6+ months for fashion)\n- Competitive and trend uncertainty\n- Short product life cycles (single season)\n- Global production complexity\n- Unpredictable demand patterns\n\nImprovement Strategies:\nUse of Information:\n- Quantify risk through demand distributions\n- Forecast distributions, not just means\n- Make intelligent gambles with Newsvendor model\n- Improve forecast accuracy using early order information\n- Use retailer input to refine forecasts\n\nUse of Flexibility/Redundancy:\n- Increase reactive capacity\n- Hedge against residual risk\n- Common components and pre-positioned inventories\n- Postponement strategies\n- Quick response manufacturing\n- Dual sourcing for critical items",
+      "keyInsights": [
+        "Functional products suffer from bullwhip effect - need information sharing",
+        "Innovative products suffer from demand uncertainty - need flexibility",
+        "Different product types require different supply chain strategies",
+        "Information sharing reduces guessing; flexibility handles remaining uncertainty"
+      ]
+    },
+    {
+      "questionId": "S3",
+      "type": "qualitative",
+      "topic": "Supply Chain Risk Management",
+      "conceptIds": ["C46", "C47", "C48"],
+      "questionText": "Supply Chain Risk Management:\n\nWhat are some ways to prepare for and manage supply chain risk? Describe the two-stage approach of anticipatory strategies and reactive adaptations.",
+      "solutionText": "Supply Chain Risk Management Framework:\n\nTwo-Stage Approach:\n1. Anticipatory Strategies (\"Buy Options\")\n2. Reactive Adaptations (\"Exercise Options\")\n\nAnticipatory Strategies - Building Resilience:\n\nInformation & Planning:\n- Scenario planning for various disruption scenarios\n- Real-time risk monitoring systems\n- Modeling and optimization of supply networks\n- Shared risk monitoring with partners\n\nSupply Chain Structure Design:\n- Footprint restructuring and multi-region sourcing\n- Multiple suppliers in different regions\n- China + 1 strategies (diversification beyond single country)\n- Strategic sourcing partnerships\n- Vertical integration of critical suppliers\n- Control location and priority allocation\n\nSupply Chain Process Adjustments:\n- Strategic inventory buffers\n- Directed buy agreements\n- Risk-adjusted customer-managed inventory\n- Process streamlining (blockchain for reduced paperwork)\n- Safety stock = function of lead time demand variability and service level\n- Safety time buffers\n\nReactive Adaptations - Exercise Your Options:\n\nWhen Disruption Occurs:\n- Shift sourcing or production dynamically across regions\n- Invoke priority allocation agreements from suppliers\n- Adjust inventory and purchase agreements\n- Exercise pre-negotiated capacity increases\n- Activate backup suppliers\n- Redirect logistics flows\n\nFlexibility/Redundancy Tools:\n- Currency hedging\n- Increase reactive capacity\n- Multiple transportation modes\n- Cross-training workforce\n- Flexible manufacturing systems\n\nCommon Risk Mitigation Examples:\n- Geographic diversification reduces regional risks\n- Supplier diversification reduces single-source risks\n- Inventory buffers provide time to react\n- Information sharing enables faster response",
+      "keyInsights": [
+        "Two-stage approach: prepare (buy options) then react (exercise options)",
+        "Anticipatory strategies create capabilities before crisis hits", 
+        "Reactive adaptations use pre-built capabilities during crisis",
+        "Balance cost of preparation against risk reduction benefits"
+      ]
+    }
+  ],
+  "examSummary": {
+    "quantitativeTopics": {
+      "queueing": "Single and multi-server models, utilization effects, variability impacts",
+      "eoq": "Optimal order quantities, cost minimization, consolidation effects", 
+      "newsvendor": "One-shot decisions, critical fractile, service level curves"
+    },
+    "strategicTopics": {
+      "cqdf": "Cost-Quality-Delivery-Flexibility framework and tradeoffs",
+      "supplyChain": "Bullwhip effect vs. demand uncertainty management",
+      "riskManagement": "Anticipatory strategies and reactive adaptations"
+    },
+    "keyFormulas": [
+      "W = M × (ρ/(1-ρ)) × ((Ca² + Cs²)/2)",
+      "EOQ = √(2SD/H)",
+      "Q* = NORM.INV(pc, μ, σ)",
+      "pc = Cu/(Cu + Co)"
+    ],
+    "examFormat": "Open-note Excel submission with quantitative calculations and strategic insights"
+  }
+}
