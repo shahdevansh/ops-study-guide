@@ -11,46 +11,81 @@
   "overview": "The bullwhip effect shows how small changes in consumer demand can create massive swings in orders upstream in the supply chain. Like the telephone game but with orders - a 10% demand increase at retail becomes a 40% order increase at the manufacturer. Through the eBeer game simulation, you'll experience firsthand how reasonable local decisions create system-wide chaos, and learn the information sharing and coordination strategies that can tame the bullwhip.",
   "coreContent": [
     {
-      "title": "The Bullwhip Effect Phenomenon", 
+      "title": "The Bullwhip Effect Phenomenon",
       "conceptIds": ["C40"],
-      "content": "Bullwhip Effect: Order variability increases as move up the supply chain from consumers to suppliers. Demand information is distorted; upstream decision makers do not see true picture of demand. Information distortion and the bullwhip effect. In the Beer Game, typical inventory evolution shows massive swings - inventory levels can reach 50,000 units at the factory while staying relatively stable at retail.",
-      "keyInsight": "Order variability amplifies moving up supply chain from consumer. Small demand changes create huge upstream swings."
+      "content": "## The Bullwhip Effect\n\n**Definition:** Order variability **amplifies** as you move **upstream** in the supply chain — from consumers to retailers to distributors to manufacturers to suppliers.\n\n> **The telephone game, but with orders.** A small demand signal gets distorted and magnified at every link in the chain.\n\n### How It Works\n\n| Supply Chain Level | Demand Signal | Order Variability |\n|---|---|---|\n| **Consumer** | +10% increase | Baseline |\n| **Retailer** | Sees +10%, orders +15% | 1.5× amplification |\n| **Distributor** | Sees +15%, orders +25% | 2.5× amplification |\n| **Manufacturer** | Sees +25%, orders +40% | 4× amplification |\n\n### Beer Game Evidence\n\nIn the eBeer Game simulation, typical inventory patterns show:\n- **Retail:** Relatively stable inventory (±small swings)\n- **Distributor:** Moderate swings\n- **Wholesaler:** Large swings\n- **Factory:** Massive swings — inventory can reach **50,000 units** while retail stays stable\n\n> **Key Insight:** Demand information is **distorted** — upstream decision makers **do not see the true picture of demand**. Each player acts rationally with local information, but the system-wide result is chaos.",
+      "keyInsight": "Order variability amplifies moving up supply chain from consumer. Small demand changes create huge upstream swings.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["P03 (Uncertainty & Variability) — variability as a fundamental operations challenge"],
+        "buildsInto": ["C41 (Causes of Bullwhip) — understanding WHY amplification occurs", "C42 (Counter-Strategies) — how to fight it"],
+        "examAppearances": ["Final Review S2a: 'What supply chain problem was evident for functional products like beer in the eBeer game?'"]
+      }
     },
     {
       "title": "Real-World Examples",
       "conceptIds": ["C40"],
-      "content": "COVID Toilet Paper: April 2020 - 'Americans Have Too Much Toilet Paper. Finally, Sales Slow.' April 2021 - 'Tissue sales fall to below prepandemic levels as consumers work through their stockpiles.' Chip Shortage to Glut: 'Once-Thin Chip Inventories Swell as Gadget Sales Falter. The world is now awash in chips. The oversupply marks a sharp turnaround from a global shortage during two years of supercharged demand.'",
-      "keyInsight": "The bullwhip effect is evident in many industries and can generate significant costs"
+      "content": "## Real-World Bullwhip Examples\n\n### COVID Toilet Paper Crisis (2020–2021)\n\n| Timeline | What Happened |\n|---|---|\n| **April 2020** | *\"Americans Have Too Much Toilet Paper. Finally, Sales Slow.\"* |\n| **April 2021** | *\"Tissue sales fall to below prepandemic levels as consumers work through stockpiles.\"* |\n\n**Pattern:** Small consumer panic → massive retailer orders → manufacturer overproduction → glut → orders crash to zero.\n\n### Semiconductor Chip Shortage → Glut (2020–2023)\n\n> *\"Once-Thin Chip Inventories Swell as Gadget Sales Falter. The world is now awash in chips. The oversupply marks a sharp turnaround from a global shortage during two years of supercharged demand.\"*\n\n**Pattern:** COVID demand spike → everyone double-orders → manufacturers build capacity → demand normalizes → massive oversupply.\n\n> **The bullwhip effect is evident in many industries and can generate significant costs** — from wasted inventory to unnecessary capacity investments to lost sales.",
+      "keyInsight": "The bullwhip effect is evident in many industries and can generate significant costs",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C40 (Bullwhip Effect) — the phenomenon these examples illustrate"],
+        "buildsInto": ["C41 (Causes) — these examples demonstrate specific causes like shortage gaming and over-reactive ordering"],
+        "examAppearances": ["Final Review S2a: Real-world examples of bullwhip in functional products"]
+      }
     },
     {
       "title": "Four Root Causes of Bullwhip",
       "conceptIds": ["C41"],
-      "content": "1. Over-reaction to backlogs, lack of communication, lack of coordination, delay times for information and delivery of materials, neglecting to order based on inventory position. 2. Price variations - 'High-low' pricing ('trade promotion') encourages 'forward buying,' leading to higher variability in orders. 3. Rationing – shortage gaming: to secure a better allocation, retailers inflate their orders, i.e., order more than they need (place 'phantom orders'). 4. Unrestricted orders.",
-      "keyInsight": "Four main causes: Over-reactive ordering, trade promotions and forward buying, shortage gaming, and lack of information sharing"
+      "content": "## Four Root Causes\n\n### 1. Over-Reactive Ordering & Information Delays\n- **Over-reaction to backlogs** — seeing a spike and panicking\n- **Lack of communication** between supply chain partners\n- **Delay times** for information and delivery of materials\n- **Neglecting to order based on inventory position** — ordering based on fear, not facts\n\n### 2. Price Variations (Trade Promotions)\n- **\"High-low\" pricing** and trade promotions encourage **forward buying**\n- Retailers buy extra during promotions → huge order spike → then buy nothing for weeks\n- Creates artificial demand variability even when **consumption is steady**\n\n### 3. Shortage Gaming (Rationing & Phantom Orders)\n- When shortages are expected, retailers **inflate orders** to secure better allocations\n- Place **\"phantom orders\"** — ordering more than they actually need\n- Manufacturer sees inflated demand → overinvests in capacity → orders get cancelled\n\n### 4. Unrestricted Order Sizes\n- No limits on how much a retailer can order in a period\n- Enables wild swings in order quantities\n- No penalties for order cancellations\n\n### Cause → Effect → Counter-Strategy Map\n\n| Root Cause | Effect | Counter-Strategy |\n|---|---|---|\n| Over-reactive ordering | Amplified signals | Share demand info (S&OP, CPFR) |\n| Trade promotions | Forward buying spikes | Everyday Low Pricing (EDLP) |\n| Shortage gaming | Phantom orders | Allocation based on history, penalize cancellations |\n| Unrestricted orders | Wild swings | Limit order sizes, cap % increases |",
+      "keyInsight": "Four main causes: Over-reactive ordering, trade promotions and forward buying, shortage gaming, and lack of information sharing",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C40 (Bullwhip Effect) — the phenomenon being explained"],
+        "buildsInto": ["C42 (Counter-Strategies) — each cause has specific counter-strategies"],
+        "examAppearances": ["Final Review S2a: 'What strategies and tools can be used to improve functional product supply chains?'"]
+      }
     },
     {
-      "title": "Information Sharing Solutions - Internal",
+      "title": "Information Sharing Solutions — Internal (S&OP)",
       "conceptIds": ["C43"],
-      "content": "Sales & Operations Planning (S&OP): Share information about promotions, capacity, inventory, production plans. Weekly meetings with Sales, Operations, Finance, Supply Chain. Share information internally - weekly cross-functional meetings. Like having a family meeting every week where parents (sales and operations) share what they know and plan together.",
-      "keyInsight": "S&OP enables internal coordination between sales and operations through regular cross-functional meetings"
+      "content": "## Sales & Operations Planning (S&OP)\n\n**S&OP = Internal information sharing** through regular cross-functional meetings.\n\n### How It Works\n\n- **Weekly meetings** with Sales, Operations, Finance, Supply Chain\n- Share information about **promotions, capacity, inventory, production plans**\n- Like having a **family meeting** every week where parents (Sales and Operations) share what they know and plan together\n\n### What Gets Shared\n\n| Function | Shares |\n|---|---|\n| **Sales** | Upcoming promotions, demand forecasts, customer feedback |\n| **Operations** | Capacity constraints, production schedules |\n| **Finance** | Budget impacts, cost targets |\n| **Supply Chain** | Inventory levels, supplier lead times |\n\n> **Key Insight:** S&OP breaks down internal silos. When Sales knows about capacity constraints and Operations knows about upcoming promotions, better decisions happen.",
+      "keyInsight": "S&OP enables internal coordination between sales and operations through regular cross-functional meetings",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C42 (Counter-Strategies) — S&OP is one of the key counter-strategies"],
+        "buildsInto": ["C44 (CPFR) — extends S&OP principles across company boundaries"],
+        "examAppearances": ["Final Review S2a: S&OP as internal information sharing strategy"]
+      }
     },
     {
-      "title": "Information Sharing Solutions - External",
+      "title": "Information Sharing Solutions — External (CPFR)",
       "conceptIds": ["C44"],
-      "content": "Coordinated Planning, Forecasting and Replenishment (CPFR): Share information about promotions, capacity, inventory, production plans with supply chain partners. Plans that differ by more than, say, 10% require email or meeting to resolve. Like S&OP but between companies. Walmart and Procter & Gamble sit down together and share forecasts.",
-      "keyInsight": "CPFR extends S&OP principles across company boundaries for external coordination"
+      "content": "## Coordinated Planning, Forecasting and Replenishment (CPFR)\n\n**CPFR = S&OP but between companies.** Supply chain partners share forecasts and coordinate plans.\n\n### How It Works\n\n- Partners share information about **promotions, capacity, inventory, production plans**\n- Forecasts that differ by >10% trigger **email or meeting to resolve**\n- **Walmart and Procter & Gamble** sitting down together and sharing forecasts\n\n### S&OP vs. CPFR\n\n| Feature | S&OP | CPFR |\n|---|---|---|\n| Scope | Internal (within company) | External (across companies) |\n| Participants | Sales, Ops, Finance | Buyer + Supplier teams |\n| Data shared | Internal plans | Cross-company forecasts |\n| Trust required | Moderate | High |\n| Implementation difficulty | Medium | Hard |\n\n> **Key Insight:** CPFR is more powerful but harder to implement. It requires **trust between competitors** and willingness to share sensitive data.",
+      "keyInsight": "CPFR extends S&OP principles across company boundaries for external coordination",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C43 (S&OP) — CPFR extends S&OP externally"],
+        "buildsInto": ["C45 (VMI) — the next level beyond CPFR, where the supplier takes over ordering"],
+        "examAppearances": ["Final Review S2a: CPFR as external information sharing strategy"]
+      }
     },
     {
-      "title": "Vendor Managed Inventory",
+      "title": "Vendor Managed Inventory (VMI)",
       "conceptIds": ["C45"],
-      "content": "Vendor Managed Inventory (VMI): Same as CPFR, but the vendor is responsible to replenish inventory on customer's shelves. Customer shares daily or weekly sales information with supplier. Like having your grocery supplier stock your pantry directly. Instead of you deciding when to order more cereal, the cereal company monitors your pantry and automatically delivers more when you're getting low.",
-      "keyInsight": "VMI eliminates customer ordering decisions entirely - supplier takes responsibility for inventory levels"
+      "content": "## Vendor Managed Inventory (VMI)\n\n**VMI = Same as CPFR, but the vendor takes over the ordering decision entirely.**\n\n### How It Works\n\n1. Customer shares **daily or weekly POS (point-of-sale) data** with supplier\n2. Supplier **monitors customer's inventory levels**\n3. Supplier **decides when and how much to replenish**\n4. Customer **no longer places orders**\n\n> **Analogy:** Like having your grocery supplier stock your pantry directly. Instead of *you* deciding when to order more cereal, the cereal company monitors your pantry and automatically delivers when you're running low.\n\n### Why VMI Crushes Bullwhip\n\n- **Eliminates the retailer's ordering decision** entirely\n- Supplier sees **real consumption data**, not distorted order signals\n- No panic ordering, no phantom demand, no amplification\n- Breaks the chain of information distortion at its source\n\n### Progression of Coordination\n\n| Level | Who Orders | Info Shared | Bullwhip Reduction |\n|---|---|---|---|\n| **No coordination** | Each level independently | None | ❌ Maximum bullwhip |\n| **S&OP** | Each level, but informed | Internal plans | ⚠️ Moderate |\n| **CPFR** | Each level, coordinated | Cross-company forecasts | ✅ Significant |\n| **VMI** | Supplier orders for customer | Real-time POS data | ✅✅ Maximum |",
+      "keyInsight": "VMI eliminates customer ordering decisions entirely - supplier takes responsibility for inventory levels",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C44 (CPFR) — VMI goes beyond CPFR by transferring the ordering decision"],
+        "buildsInto": [],
+        "examAppearances": ["Final Review S2a: VMI as the most advanced counter-strategy"]
+      }
     },
     {
       "title": "Complete Counter-Strategy Framework",
       "conceptIds": ["C42"],
-      "content": "Counter-Strategies: Share demand information, Orders based on inventory position, Vendor managed inventory, Coordinated planning, forecasting, replenishment, Coordinate and communicate in advance, Every day low pricing, Discount based on sell-through instead of sell-into, Limit order sizes, Limit percent increase in orders, Penalize canceled orders, Restructure allocation rules – loyalty, historical sales.",
-      "keyInsight": "Information sharing, VMI, EDLP, limit order sizes, penalize cancellations attack each cause of bullwhip directly"
+      "content": "## Complete Counter-Strategy Toolkit\n\n### Information Sharing Strategies\n- **S&OP** — internal cross-functional planning\n- **CPFR** — external planning with supply chain partners\n- **VMI** — supplier manages customer's inventory\n- **Share demand/sell-through data** — so upstream sees real consumption\n\n### Pricing Strategies\n- **Everyday Low Pricing (EDLP)** — eliminates forward buying from promotions\n- **Discount based on sell-through** (not sell-into) — rewards actual sales, not loading the channel\n\n### Order Management Strategies\n- **Orders based on inventory position** — rational, data-driven ordering\n- **Limit order sizes** — cap maximum order per period\n- **Limit percent increase in orders** — prevent sudden spikes\n- **Penalize cancelled orders** — discourage phantom ordering\n\n### Allocation Strategies\n- **Restructure allocation rules** — base on loyalty, historical sales (not current order size)\n- Removes incentive for shortage gaming\n\n> **Key Insight:** The counter-strategies directly attack each of the four root causes. **Information sharing** attacks over-reaction and delays. **EDLP** attacks trade promotions. **Allocation rules and penalties** attack shortage gaming. **Order limits** attack unrestricted ordering.\n\n> **Implementation reality:** The benefits of coordination look obvious, but implementation is difficult. It requires **buy-in from multiple functions AND multiple firms**.",
+      "keyInsight": "Information sharing, VMI, EDLP, limit order sizes, penalize cancellations attack each cause of bullwhip directly",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C41 (Causes of Bullwhip) — counter-strategies map to specific causes"],
+        "buildsInto": ["C70 (Fisher Matrix) — efficient SC design uses these strategies for functional products", "C71 (Efficient vs. Responsive SC) — counter-strategies enable efficient supply chains"],
+        "examAppearances": ["Final Review S2a: Complete list of bullwhip counter-strategies expected"]
+      }
     }
   ],
   "formulas": [
@@ -59,7 +94,7 @@
       "formula": "Variability increases exponentially up the supply chain",
       "variables": {
         "Consumer demand": "Base level variability",
-        "Retailer orders": "Amplified variability", 
+        "Retailer orders": "Amplified variability",
         "Distributor orders": "Further amplified",
         "Factory orders": "Maximum amplification"
       },
@@ -69,32 +104,32 @@
   "practiceProblems": [
     {
       "id": "p1",
-      "question": "In the eBeer game, you are playing the role of Retailer. Consumer demand has been steady at 4 units per week for several weeks. Suddenly, demand jumps to 8 units in Week 5. Your current inventory is 6 units, you have 4 units on order arriving this week, and your target inventory is 12 units. How many units should you order from your Distributor?",
-      "solution": "Current position: Inventory 6 + Arriving 4 = 10 units. After serving demand of 8: 10 - 8 = 2 units remaining. To reach target of 12 units: need 12 - 2 = 10 more units. Should order 10 units. However, most players over-react and order more, thinking demand will stay high or continue increasing.",
+      "question": "## eBeer Game: Retailer Ordering Decision\n\nYou are playing the role of **Retailer** in the eBeer game.\n\n**Given:**\n- Consumer demand: steady at **4 units/week** for several weeks\n- Demand **jumps to 8 units** in Week 5\n- Current inventory: **6 units**\n- Units on order arriving this week: **4 units**\n- Target inventory: **12 units**\n\n**How many units should you order from your Distributor?**",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Current position**\n- Inventory on hand: 6 units\n- Arriving this week: +4 units\n- **Available:** $6 + 4 = 10$ units\n\n**Step 2: After serving demand**\n- Available − Demand: $10 - 8 = 2$ units remaining\n\n**Step 3: Order to reach target**\n- Target inventory − Remaining: $12 - 2 = 10$ units needed\n- **Should order: 10 units**\n\n> **The Bullwhip Trap:** Most players **over-react** and order significantly more than 10, thinking demand will stay high or continue increasing. This is rational locally but creates amplified orders upstream — the essence of the bullwhip effect.\n\n> **Better approach:** Order based on **inventory position** (what you have + what's on order − what you need), not on fear of future increases.",
       "source": "eBeer Game simulation experience",
       "conceptIds": ["C40", "C41"],
       "type": "quantitative"
     },
     {
       "id": "p2",
-      "question": "A grocery chain runs a 'buy 2 get 1 free' promotion on Campbell's soup during Week 1. Normal weekly demand is 100 cases. During the promotion week, demand jumps to 300 cases. What will likely happen to the retailer's orders to Campbell's, and why is this problematic?",
-      "solution": "The retailer will likely order heavily during the promotion week to restock, then order very little (maybe zero) for the next 2-3 weeks as customers consume their stockpiled soup. Campbell's sees huge order variability (300, then 0, 0, 50...) even though underlying consumption is steady at 100/week. This creates bullwhip - Campbell's may over-produce thinking demand has increased, then face excess inventory.",
+      "question": "## Trade Promotion Bullwhip\n\nA grocery chain runs a **'buy 2 get 1 free'** promotion on Campbell's soup during Week 1. Normal weekly demand is **100 cases**. During the promotion, demand jumps to **300 cases**.\n\n**What will happen to orders upstream, and why is this problematic?**",
+      "solution": "### Solution\n\n**What happens:**\n1. **Promotion week:** Retailer orders heavily to restock (300+ cases)\n2. **Weeks 2-4:** Retailer orders **very little or zero** — customers are consuming stockpiled soup\n3. **Actual consumption:** Stays at ~100 cases/week throughout\n\n**Campbell's sees:**\n- Week 1: 300 cases ordered → *\"Demand is booming!\"*\n- Weeks 2-4: 0, 0, 50 → *\"Demand collapsed!\"*\n\n**The Problem:**\n- Campbell's may **over-produce** thinking demand increased\n- Then faces **excess inventory** when orders dry up\n- Creates **boom-bust cycle** in manufacturing\n- Underlying consumption was **steady at 100/week the entire time**\n\n> **Counter-strategy:** EDLP (Everyday Low Pricing) eliminates promotion-driven forward buying. Alternatively, base discounts on **sell-through** (actual consumer purchases) rather than **sell-into** (retailer orders).",
       "source": "eBeer Game Debrief After Class Handouts Haas 2026.json",
       "conceptIds": ["C40", "C41"],
       "type": "conceptual"
     },
     {
       "id": "p3",
-      "question": "A manufacturer historically allocates scarce product to retailers based on their order quantities during shortage periods. Retailer A normally orders 100 units but expects a shortage next quarter. What is the likely outcome, and how could the allocation rule be improved?",
-      "solution": "Retailer A will likely inflate their order to 200-300 units hoping to receive at least 100 units after allocation. Other retailers do the same (shortage gaming). The manufacturer sees artificially high 'demand' of 200-300 per retailer and may over-invest in capacity. Better allocation rules: base allocation on historical sales patterns, customer loyalty, or sell-through rates rather than order size during shortages.",
+      "question": "## Shortage Gaming\n\nA manufacturer allocates scarce product based on **order quantities** during shortages. Retailer A normally orders **100 units** but expects a shortage next quarter.\n\n**What is the likely outcome, and how could the allocation rule be improved?**",
+      "solution": "### Solution\n\n**What happens (Shortage Gaming):**\n- Retailer A inflates order to **200-300 units** hoping to get at least 100 after allocation\n- **Every other retailer does the same thing**\n- Manufacturer sees \"demand\" of 200-300 per retailer → thinks market is booming\n- May **over-invest in capacity** based on phantom demand\n- When shortage eases, mass cancellations flood in\n\n**Better Allocation Rules:**\n\n| Current Rule (Bad) | Better Rule |\n|---|---|\n| Allocate based on order size | Allocate based on **historical sales patterns** |\n| | Allocate based on **customer loyalty** |\n| | Allocate based on **sell-through rates** |\n| | **Penalize cancelled orders** |\n\n> **Key Insight:** When allocation is based on order size, retailers are incentivized to lie. Change the rules so that honesty is the best strategy.",
       "source": "eBeer Game Debrief After Class Handouts Haas 2026.json",
       "conceptIds": ["C41", "C42"],
       "type": "conceptual"
     },
     {
       "id": "p4",
-      "question": "Compare two scenarios: (1) Traditional ordering where each retailer independently orders from distributor, vs (2) VMI where distributor manages all retailer inventory using shared POS data. How would VMI reduce bullwhip?",
-      "solution": "Traditional: Each retailer sees local demand spike, panics, over-orders. Distributor sees massive aggregate orders and thinks total market demand spiked. VMI: Distributor sees real POS data showing actual consumer demand stayed steady. No panic ordering, no phantom demand signal. VMI eliminates the retailer's ordering decision entirely, breaking the amplification chain.",
+      "question": "## VMI vs. Traditional Ordering\n\nCompare two scenarios:\n1. **Traditional:** Each retailer independently orders from distributor\n2. **VMI:** Distributor manages all retailer inventory using shared POS data\n\n**How would VMI reduce bullwhip?**",
+      "solution": "### Solution\n\n**Traditional Ordering:**\n- Retailer sees local demand spike → panics → over-orders\n- Distributor sees massive aggregate orders → thinks total demand spiked\n- Information is **distorted at every step**\n\n**VMI:**\n- Distributor sees **real POS data** showing actual consumer demand stayed steady\n- No panic ordering — because the retailer isn't making order decisions\n- No phantom demand signal — no information distortion\n- Distributor can make **rational, system-wide decisions**\n\n**Why VMI works:**\n\n| Problem | VMI Solution |\n|---|---|\n| Retailer over-reacts | Retailer doesn't order — supplier does |\n| Information distortion | Supplier sees real consumption data |\n| Phantom orders | No ordering = no phantom orders |\n| Amplification chain | Chain is **broken** at the first link |\n\n> **VMI eliminates the retailer's ordering decision entirely**, breaking the amplification chain at its source.",
       "source": "eBeer Game Debrief After Class Handouts Haas 2026.json",
       "conceptIds": ["C42", "C45"],
       "type": "conceptual"
@@ -102,7 +137,7 @@
   ],
   "keyInsights": [
     "Demand information is distorted; upstream decision makers do not see true picture of demand",
-    "Information sharing (of sell-through data, forecasts) and coordination (on stocking, replenishment, promotions) mitigate bullwhip", 
+    "Information sharing (of sell-through data, forecasts) and coordination (on stocking, replenishment, promotions) mitigate bullwhip",
     "The Bullwhip effect is evident in many industries and can generate significant costs",
     "Benefits of coordination look obvious, but implementation is difficult",
     "Coordination requires buy-in from multiple functions and multiple firms",
@@ -111,7 +146,7 @@
   ],
   "connections": {
     "relatedLectures": ["supply-chain-risk", "supply-chain-strategy"],
-    "examAppearances": ["FinalReview"], 
+    "examAppearances": ["FinalReview"],
     "excelTemplate": "bullwhip-simulation.xlsx"
   }
 }

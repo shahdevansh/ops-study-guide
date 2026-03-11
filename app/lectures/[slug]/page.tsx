@@ -10,6 +10,7 @@ import { InsightBox } from '@/components/content/InsightBox'
 import { PracticeToggle } from '@/components/content/PracticeToggle'
 import { ConceptTag } from '@/components/content/ConceptTag'
 import { FormattedContent } from '@/components/content/FormattedContent'
+import { MarkdownContent } from '@/components/content/MarkdownContent'
 
 import { use } from 'react'
 
@@ -173,13 +174,31 @@ export default function LecturePage({ params: paramsPromise }: Props) {
                   })}
                 </div>
 
-                <div className="prose prose-sm max-w-none dark:prose-invert mb-4">
-                  <FormattedContent text={section.content} />
+                <div className="mb-4">
+                  <MarkdownContent content={section.content} />
                 </div>
 
                 <InsightBox type="principle">
                   {section.keyInsight}
                 </InsightBox>
+
+                {/* Cross-references */}
+                {section.crossRefs && (
+                  <div className="mt-4 p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-sm">
+                    <h4 className="text-xs font-bold text-gray-400 uppercase mb-2">🔗 Cross-References</h4>
+                    <div className="space-y-1 text-gray-400">
+                      {section.crossRefs.prerequisiteConcepts?.map((ref: string, ri: number) => (
+                        <div key={`pre-${ri}`}>← <span className="text-blue-400">Prerequisite:</span> {ref}</div>
+                      ))}
+                      {section.crossRefs.buildsInto?.map((ref: string, ri: number) => (
+                        <div key={`build-${ri}`}>→ <span className="text-green-400">Builds into:</span> {ref}</div>
+                      ))}
+                      {section.crossRefs.examAppearances?.map((ref: string, ri: number) => (
+                        <div key={`exam-${ri}`}>📝 <span className="text-yellow-400">Exam:</span> {ref}</div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -325,29 +344,32 @@ export default function LecturePage({ params: paramsPromise }: Props) {
           </div>
         </section>
 
-        {/* Excel Template Download */}
-        {lecture.excelTemplate && (
-          <section className="mb-12">
-            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
-                📊 Excel Template
-              </h3>
-              <p className="text-green-800 dark:text-green-200 text-sm mb-4">
-                Download the Excel template for this lecture to practice the calculations.
-              </p>
+        {/* Downloads */}
+        <section className="mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Markdown Notes Download */}
+            <a 
+              href={`/notes/${lecture.slug}.md`}
+              download
+              className="block bg-cyan-900/20 border border-cyan-800 rounded-xl p-6 hover:bg-cyan-900/30 transition"
+            >
+              <h3 className="text-lg font-semibold text-cyan-100 mb-2">📝 Download Study Notes</h3>
+              <p className="text-cyan-200 text-sm">Standalone markdown file — use as exam reference notes.</p>
+            </a>
+
+            {/* Excel Template Download */}
+            {lecture.connections?.excelTemplate && (
               <a 
-                href="#"
-                className="inline-block px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                onClick={(e) => {
-                  e.preventDefault()
-                  alert('Excel templates coming soon! For now, practice with the online calculators.')
-                }}
+                href={`/templates/${lecture.connections.excelTemplate}`}
+                download
+                className="block bg-green-900/20 border border-green-800 rounded-xl p-6 hover:bg-green-900/30 transition"
               >
-                Download Excel Template
+                <h3 className="text-lg font-semibold text-green-100 mb-2">📊 Excel Template</h3>
+                <p className="text-green-200 text-sm">Yellow inputs, green outputs — ready for exam use.</p>
               </a>
-            </div>
-          </section>
-        )}
+            )}
+          </div>
+        </section>
 
         {/* Navigation */}
         <div className="flex justify-between items-center pt-8 border-t border-gray-200 dark:border-gray-700">

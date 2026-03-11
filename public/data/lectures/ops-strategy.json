@@ -13,48 +13,102 @@
     {
       "title": "Operations Strategy Framework",
       "conceptIds": ["C11", "C12"],
-      "content": "A strategy is a well coordinated set of objectives, policies and plans aimed at securing a long-term competitive advantage. It provides vision for the organization. Operations Strategy has three levels: (1) Mission - States a purpose for operations and priority among objectives. It specifies the primary task which must be achieved for operations to succeed. (2) Operations Objectives - Cost, Quality, Delivery, Flexibility. Define carefully, Measurable, Rank ordered. (3) Management Levers - Facilities Location and Focus, Vertical Integration, Supply Chain Management, Cost Management, Quality Management, New Products/New Services, Inventory Management, Production Planning & Scheduling, Capacity Management, Process & Technology, HR and People Management.",
-      "keyInsight": "The mission sets the general direction for operations, the objectives provide measurable targets or goals, and the management levers are the tools you use to achieve the goals."
+      "content": "### What Is Operations Strategy?\n\n> A **strategy** is a well-coordinated set of objectives, policies, and plans aimed at securing a **long-term competitive advantage**.\n\nIt provides vision for the organization. Operations Strategy has **three levels**:\n\n#### 1. Mission\n- States a **purpose** for operations and priority among objectives\n- Specifies the **primary task** which must be achieved for operations to succeed\n\n#### 2. Operations Objectives (CQDF)\n- **Cost** — Low cost, competitive cost, or premium pricing strategy\n- **Quality** — Performance, conformance, reliability, durability, etc.\n- **Delivery** — Speed and reliability of fulfillment\n- **Flexibility** — Volume changes, new products, product mix\n- Must be **defined carefully**, **measurable**, and **rank ordered**\n\n#### 3. Management Levers\nThe tactical tools you use to achieve objectives:\n- Facilities Location and Focus\n- Vertical Integration\n- Supply Chain Management\n- Cost Management\n- Quality Management\n- New Products / New Services\n- Inventory Management\n- Production Planning & Scheduling\n- Capacity Management\n- Process & Technology\n- HR and People Management",
+      "keyInsight": "The mission sets the general direction for operations, the objectives provide measurable targets or goals, and the management levers are the tools you use to achieve the goals.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C10 (Product-Process Matrix) — aligning strategy with process choice",
+          "C14 (Focused Operations) — extreme CQDF prioritization in practice",
+          "C36 (Operations Triangle) — connecting CQDF to queueing tradeoffs"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q2: CQDF analysis for AA company — define, rank, measure each objective",
+          "Final Review S1: Southwest Airlines CQDF table — define, rank, measure + impact of adding service classes"
+        ]
+      }
     },
     {
-      "title": "CQDF Framework - Operations Objectives",
+      "title": "CQDF Framework — Operations Objectives",
       "conceptIds": ["C11"],
-      "content": "Cost - Low cost, competitive cost, or premium pricing strategy. Quality for Physical Goods: Performance (primary product characteristics), Conformance (meeting specifications), Reliability (frequency of field failures), Durability (length of product lifetime), Features ('bells and whistles'), Serviceability (speed, courtesy of repair), Aesthetics, Perceived Quality. Quality for Services: Tangibles (physical facilities, equipment, appearance), Reliability (dependable and accurate service), Responsiveness (willingness to help promptly), Assurance (knowledge and trust), Empathy (caring, individualized attention). Delivery: Speed (rapid delivery) and Reliability (on-time delivery). Flexibility: Volume (seasonal fluctuations), New Product/Service Introduction (speed/frequency), Product/Service Mix (range of offerings).",
-      "keyInsight": "All objectives must be defined carefully, have measurable targets, and be rank ordered. You cannot excel at all four simultaneously."
+      "content": "### The Four Dimensions\n\n#### Cost\n- Low cost, competitive cost, or premium pricing strategy\n- Measured by: $/unit, cost per passenger, cost relative to competitors\n\n#### Quality\n**For Physical Goods:**\n- **Performance** — primary product characteristics\n- **Conformance** — meeting specifications\n- **Reliability** — frequency of field failures\n- **Durability** — length of product lifetime\n- **Features** — 'bells and whistles'\n- **Serviceability** — speed, courtesy of repair\n- **Aesthetics** — look, feel, taste\n- **Perceived Quality** — brand, reputation\n\n**For Services (SERVQUAL):**\n- **Tangibles** — physical facilities, equipment, appearance\n- **Reliability** — dependable and accurate service\n- **Responsiveness** — willingness to help promptly\n- **Assurance** — knowledge and trust\n- **Empathy** — caring, individualized attention\n\n#### Delivery\n- **Speed** — rapid delivery\n- **Reliability** — on-time delivery\n- Measured by: on-time %, delivery lead time, # late deliveries\n\n#### Flexibility\n- **Volume** — handling seasonal fluctuations\n- **New Product/Service Introduction** — speed and frequency\n- **Product/Service Mix** — range of offerings\n\n### Rules for Using CQDF\n1. **Define** each objective carefully for your specific context\n2. Set **measurable targets** for each\n3. **Rank order** them — you cannot excel at all four simultaneously",
+      "keyInsight": "All objectives must be defined carefully, have measurable targets, and be rank ordered. You cannot excel at all four simultaneously.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C12 (Management Levers) — the tactics that execute CQDF priorities",
+          "C10 (Product-Process Matrix) — CQDF ranking determines where you sit on the matrix"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q2: Define, measure, and rank CQDF for AA company",
+          "Final Review S1: Southwest Airlines CQDF table with define/rank/measure columns"
+        ]
+      }
     },
     {
-      "title": "Winners vs Qualifiers & the 3 C's",
+      "title": "Winners vs. Qualifiers & the 3 C's",
       "conceptIds": ["C11"],
-      "content": "Qualifier: Must have to enter market. Winner: Feature that leads the customer to choose your product or service. Consider the '3 C's' when ranking objectives: Customers (what do they want?), Competitors (what are they doing?), Capabilities (what can you do well?).",
-      "keyInsight": "Focus your operations on order winners, not just order qualifiers. Understand what customers actually value, not what you think they should value."
+      "content": "### Order Winners vs. Order Qualifiers\n\n| Type | Definition | Example |\n|------|-----------|----------|\n| **Qualifier** | Must have to *enter* the market | FDA approval for a drug |\n| **Winner** | Feature that leads customer to *choose* your product | Fastest delivery time |\n\n### The 3 C's for Ranking Objectives\n\nWhen deciding how to rank your CQDF priorities, consider:\n\n1. **Customers** — What do they actually want?\n2. **Competitors** — What are they doing well?\n3. **Capabilities** — What can you do better than others?\n\n> 💡 Focus your operations on **order winners**, not just order qualifiers. Understand what customers actually value, not what you *think* they should value.",
+      "keyInsight": "Focus your operations on order winners, not just order qualifiers. Understand what customers actually value, not what you think they should value.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C12 (Management Levers) — once you know your winners, align levers accordingly"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q2: Identifying winners vs. qualifiers for AA company",
+          "Final Review S1: What makes Southwest's delivery a 'winner' vs. competitor qualifiers"
+        ]
+      }
     },
     {
       "title": "McDonald's vs. Burger King Analysis",
       "conceptIds": ["C11"],
-      "content": "Traditional McDonald's: Cost #1 (standardized processes, economies of scale), Quality #2 (conformance - every burger identical), Delivery #3 (fast service through assembly line), Flexibility #4 (limited menu, rigid processes). Traditional Burger King: Quality #1 (taste, 'flame-grilled'), Flexibility #2 ('Have it your way' customization), Delivery #3 (made-to-order takes longer), Cost #4 (customization costs more). McDonald's 'Made for You' shift required changing operations objectives ranking and management levers.",
-      "keyInsight": "Different CQDF rankings require fundamentally different operational approaches. McDonald's had to redesign their entire system when they shifted from assembly-line to made-to-order."
+      "content": "### CQDF Comparison Table\n\n| Objective | McDonald's (Traditional) | Burger King (Traditional) |\n|-----------|------------------------|-------------------------|\n| **Cost** | **#1** — Standardized processes, economies of scale, lowest cost/burger | **#4** — Customization increases costs |\n| **Quality** | **#2** — Conformance quality: every Big Mac identical | **#1** — Taste quality: flame-grilled superiority |\n| **Delivery** | **#3** — Fast service through assembly-line process | **#3** — Made-to-order takes longer |\n| **Flexibility** | **#4** — Limited menu, rigid processes | **#2** — \"Have it your way\" customization |\n\n### McDonald's \"Made for You\" Shift\n- Required **completely changing** operations objectives ranking\n- Had to **redesign management levers** to support new priorities\n- Demonstrates that shifting CQDF rankings is a **fundamental operational transformation**, not a minor tweak",
+      "keyInsight": "Different CQDF rankings require fundamentally different operational approaches. McDonald's had to redesign their entire system when they shifted from assembly-line to made-to-order.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C10 (Product-Process Matrix) — McDonald's and BK sit at different positions",
+          "C14 (Focused Operations) — McDonald's traditional model is a focused operation"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q2: Similar CQDF analysis for AA company with business model shift",
+          "Final Review S1: Impact of Southwest adding service classes (analogous to McDonald's 'Made for You')"
+        ]
+      }
     },
     {
       "title": "Southwest Airlines Case Study",
       "conceptIds": ["C11", "C12"],
-      "content": "Southwest's Interlocking Operations Strategy: Point-to-point service, Fast turn time (25 min vs 60 min industry average), Low cost operations, High aircraft utilization, All Boeing 737 aircraft, Smaller airports, Simplified boarding process, No meals, Southwest culture. CQDF Ranking: Quality #1 (reliable, safe service), Delivery #2 (on-time performance, frequent flights), Cost #3 (low prices), Flexibility #4 (limited routes, one aircraft type).",
-      "keyInsight": "The best operations strategies are supported through many individual elements (levers/tactics) that are consistent with the objectives. Competitors cannot achieve parity by simply copying individual elements – the whole is more than the sum of the parts."
+      "content": "### Southwest's Interlocking Operations Strategy\n\nSouthwest succeeds because **every management lever reinforces their CQDF priorities**:\n\n| Management Lever | How It Supports Strategy |\n|-----------------|-------------------------|\n| Point-to-point service | Simplifies scheduling, reduces delays |\n| Fast turn time (25 min vs. 60 min industry) | Increases aircraft utilization |\n| All Boeing 737 aircraft | Reduces maintenance costs, training costs |\n| Smaller airports | Lower gate fees, less congestion |\n| Simplified boarding (no assigned seats) | Faster turnaround |\n| No meals | Reduces cost and turnaround time |\n| Southwest culture | Employee satisfaction → customer satisfaction |\n\n### CQDF Ranking\n\n| Rank | Objective | Definition |\n|------|-----------|------------|\n| **#1** | Quality | Reliable, safe service |\n| **#2** | Delivery | On-time performance, frequent flights |\n| **#3** | Cost | Low prices enabled by operational efficiency |\n| **#4** | Flexibility | Limited routes, one aircraft type |\n\n> 💡 **The best operations strategies are supported through many individual elements (levers/tactics) that are consistent with the objectives.** Competitors cannot achieve parity by simply copying individual elements — the whole is more than the sum of the parts.",
+      "keyInsight": "The best operations strategies are supported through many individual elements (levers/tactics) that are consistent with the objectives. Competitors cannot achieve parity by simply copying individual elements – the whole is more than the sum of the parts.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C36 (Operations Triangle) — Southwest's CQDF choices create specific tradeoffs in queueing/delivery"
+        ],
+        "examAppearances": [
+          "Final Review S1: Full CQDF table for Southwest + analysis of adding service classes/assigned seats",
+          "Midterm 2026 Q2: Analogous strategy analysis for AA company"
+        ]
+      }
     }
   ],
   "formulas": [],
   "practiceProblems": [
     {
       "id": "p1",
-      "question": "A Simple Quick-Turn Analysis for Southwest Airlines. Assume: Air Time = 115 minutes (same for SW and Industry Average), Turn Time = 25 minutes (SW) vs 60 minutes (Industry Ave). Calculate: Total time, Percent increase for competitors, Number of planes needed if Southwest has 539 Boeing 737s, and Annual cost difference at 10% cost of capital with planes costing $60M each.",
-      "solution": "Total time: SW = 115 + 25 = 140 minutes, Industry = 115 + 60 = 175 minutes. Percent increase = 175/140 = 25% more time. Competitors need 25% more planes: 674 vs 539. Southwest: 539 × $60M = $32.34B in planes. Competitor: 674 × $60M = $40.44B in planes. Difference = $8.1B. Annual cost difference = $8.1B × 10% = $810M per year.",
+      "question": "### Southwest Airlines Quick-Turn Analysis\n\n**Given:**\n- Air Time = $115$ minutes (same for SW and Industry Average)\n- Turn Time = $25$ minutes (SW) vs. $60$ minutes (Industry Average)\n- Southwest has $539$ Boeing 737s\n- Each plane costs $\\$60M$\n- Cost of capital = $10\\%$\n\n**Calculate:**\n1. Total time for one flight cycle (each airline)\n2. Percent increase in time for competitors vs. Southwest\n3. Number of planes competitors need to match Southwest's schedule\n4. Annual cost difference at $10\\%$ cost of capital",
+      "solution": "#### Step 1: Total Flight Cycle Time\n$$\\text{SW Total} = 115 + 25 = 140 \\text{ minutes}$$\n$$\\text{Industry Total} = 115 + 60 = 175 \\text{ minutes}$$\n\n#### Step 2: Percent Increase\n$$\\text{\\% Increase} = \\frac{175}{140} = 1.25 = 25\\% \\text{ more time}$$\n\n#### Step 3: Planes Needed by Competitors\nCompetitors need $25\\%$ more planes to match Southwest's flight frequency:\n$$\\text{Competitor planes} = 539 \\times 1.25 = 674 \\text{ planes}$$\n\n#### Step 4: Annual Cost Difference\n$$\\text{SW fleet cost} = 539 \\times \\$60M = \\$32.34B$$\n$$\\text{Competitor fleet cost} = 674 \\times \\$60M = \\$40.44B$$\n$$\\text{Difference} = \\$40.44B - \\$32.34B = \\$8.1B$$\n$$\\text{Annual cost difference} = \\$8.1B \\times 10\\% = \\$810M \\text{ per year}$$\n\n> 💡 A **25-minute** turn time advantage translates to **$810M/year** in savings — this is the power of aligned management levers.",
       "source": "Southwest After Class Handouts Haas 2026.json",
       "conceptIds": ["C11", "C12"],
       "type": "quantitative"
     },
     {
       "id": "p2",
-      "question": "Complete a CQDF analysis for McDonald's traditional system and Burger King traditional system. For each company, rank the four objectives (1-4) and define what each means for that company.",
-      "solution": "McDonald's: Cost #1 (standardized processes, economies of scale, lowest cost per burger), Quality #2 (conformance quality - every Big Mac identical), Delivery #3 (fast service under 60 seconds), Flexibility #4 (limited menu variations). Burger King: Quality #1 (taste quality, flame-grilled superiority), Flexibility #2 (customization, 'Have it your way'), Delivery #3 (made-to-order, slower than McDonald's), Cost #4 (customization increases costs).",
+      "question": "### CQDF Analysis: McDonald's vs. Burger King\n\nComplete a CQDF analysis for both companies' **traditional** systems. For each company:\n1. **Rank** the four objectives ($1$–$4$)\n2. **Define** what each objective means for that company\n3. Explain how their operational choices support the ranking",
+      "solution": "#### McDonald's Traditional CQDF\n\n| Rank | Objective | Definition | Supporting Levers |\n|------|-----------|------------|-------------------|\n| **#1** | Cost | Lowest cost per burger | Standardized processes, economies of scale, limited menu |\n| **#2** | Quality | Conformance quality — every Big Mac identical worldwide | Rigid procedures, training, quality control |\n| **#3** | Delivery | Fast service under 60 seconds | Assembly-line process, pre-made inventory |\n| **#4** | Flexibility | Minimal menu variations | Rigid process limits customization |\n\n#### Burger King Traditional CQDF\n\n| Rank | Objective | Definition | Supporting Levers |\n|------|-----------|------------|-------------------|\n| **#1** | Quality | Taste quality — flame-grilled superiority | Flame broiler technology, fresh preparation |\n| **#2** | Flexibility | Customization — \"Have it your way\" | Made-to-order process, flexible assembly |\n| **#3** | Delivery | Reasonable speed, but made-to-order is slower | Parallel preparation where possible |\n| **#4** | Cost | Higher costs due to customization | Customization inherently more expensive |\n\n> 💡 **Key takeaway:** Same industry, completely different strategies. Neither is \"wrong\" — they serve different customer priorities.",
       "source": "Operations Strategy After Class Handouts Haas 2026.json",
       "conceptIds": ["C11"],
       "type": "qualitative"

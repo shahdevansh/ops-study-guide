@@ -13,38 +13,118 @@
     {
       "title": "Process Flow Diagrams",
       "conceptIds": ["C05", "C07"],
-      "content": "A process flow diagram is a graphical representation of work flow in a business process. For Kristen's Cookies: Take Order (1 min/order, You) → Mix (6 min/batch, You) → Spoon (2 min/doz, Roommate) → Bake (10 min/doz, Oven) → Cool (2 min/doz, natural) → Pack (1 min/order, You) → Pay (5 min, You). Throughput Time (also called Flow Time or Turn-Around Time): The time required to complete a given job—from the time it enters the system until it leaves. Leadtime: The time between the placement and fulfillment of the order.",
-      "keyInsight": "Drawing the process flow diagram is the first step in any process analysis - it reveals the sequence of activities and helps identify potential bottlenecks."
+      "content": "### What Is a Process Flow Diagram?\n\nA **process flow diagram** is a graphical representation of workflow in a business process. It shows every step, who performs it, and how long it takes.\n\n#### Kristen's Cookies Process\n\n| Step | Time | Resource |\n|------|------|----------|\n| Take Order | 1 min/order | You |\n| Mix | 6 min/batch | You |\n| Spoon | 2 min/doz | Roommate |\n| Bake | 10 min/doz | Oven |\n| Cool | 2 min/doz | Natural |\n| Pack | 1 min/order | You |\n| Pay | 5 min/order | You |\n\n#### Key Time Definitions\n\n- **Throughput Time** (also called **Flow Time** or **Turn-Around Time**): The time required to complete a given job — from the time it enters the system until it leaves\n- **Lead Time**: The time between the *placement* and *fulfillment* of the order (broader — includes time before production starts)\n\n> 💡 Drawing the process flow diagram is the **first step** in any process analysis — it reveals the sequence of activities and helps identify potential bottlenecks.",
+      "keyInsight": "Drawing the process flow diagram is the first step in any process analysis - it reveals the sequence of activities and helps identify potential bottlenecks.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C20 (Little's Law) — throughput time is a key variable in WIP = Throughput Rate × Throughput Time",
+          "C30 (Queueing) — process flow reveals where queues form"
+        ],
+        "examAppearances": [
+          "CC1 Q1: Draw process flow and calculate throughput time for Kristen's Cookies",
+          "Midterm 2026 Q1: Station-by-station process analysis for Factory Physics problem"
+        ]
+      }
     },
     {
       "title": "Cycle Time and Capacity",
       "conceptIds": ["C02", "C06"],
-      "content": "Cycle Time (time/unit, min/dozen): The time between successive completions of a batch. The cycle time for the system is the same as the cycle time of the slowest stage (the one that takes the longest time). Throughput Rate (units/time, dozen/hr) = Capacity: Throughput rate = 1/(cycle time). Throughput rate is the rate at which work gets done. The maximum possible throughput rate is the capacity of the system. Can be defined for an individual stage of processing or for the entire system.",
-      "keyInsight": "System capacity equals the capacity of the bottleneck resource - not the sum of all resources."
+      "content": "### Cycle Time\n\n**Cycle Time** ($\\text{time/unit}$, e.g., $\\text{min/dozen}$): The time between successive completions of a batch.\n\n> The cycle time for the **system** is the same as the cycle time of the **slowest stage** (the bottleneck).\n\n### Capacity (Throughput Rate)\n\n$$\\text{Capacity} = \\frac{1}{\\text{Cycle Time}}$$\n\n**Throughput Rate** ($\\text{units/time}$, e.g., $\\text{dozen/hr}$) is the rate at which work gets done. The **maximum possible** throughput rate is the **capacity** of the system.\n\n#### Important Distinctions\n- **Cycle time** = time *between* successive outputs (the gap)\n- **Throughput time** = total time for *one unit* to traverse the entire system (the journey)\n- Capacity can be defined for an **individual stage** or the **entire system**",
+      "keyInsight": "System capacity equals the capacity of the bottleneck resource - not the sum of all resources.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C03 (Flow Rate) — flow rate depends on capacity vs. demand",
+          "C09 (Capacity Analysis) — systematic method to find capacity of each resource"
+        ],
+        "examAppearances": [
+          "CC1 Q2: Calculate cycle time and capacity for multi-station process",
+          "Midterm 2026 Q1: Capacity calculations with setup times and batch sizes"
+        ]
+      }
     },
     {
       "title": "Bottleneck Analysis",
       "conceptIds": ["C01", "C13"],
-      "content": "A bottleneck is what limits the processing activity. The bottleneck of the entire process is the stage with the longest cycle time (or least capacity). Limited resources like labor, tools, and capital can also be bottlenecks. In Kristen's Cookies with one oven: For 1 dozen orders - You: 8 min/doz capacity = 7.5 doz/hr, Oven: 10 min/doz capacity = 6 doz/hr, Roommate: 4 min/doz capacity = 15 doz/hr. The oven is the bottleneck at 6 doz/hr.",
-      "keyInsight": "Bottlenecks may move as order size changes. Doubling capacity of bottleneck resource will not necessarily double system capacity because the bottleneck may shift."
+      "content": "### What Is a Bottleneck?\n\nA **bottleneck** is the resource that limits the processing activity. It is the stage with the **longest cycle time** (or **least capacity**).\n\n#### Kristen's Cookies — Finding the Bottleneck (1-dozen orders)\n\n| Resource | Time per Dozen | Capacity |\n|----------|---------------|----------|\n| **You** | 8 min/doz | $60/8 = 7.5$ doz/hr |\n| **Oven** | 10 min/doz | $60/10 = 6$ doz/hr |\n| **Roommate** | 4 min/doz | $60/4 = 15$ doz/hr |\n\n**Bottleneck = Oven** at $6$ doz/hr (lowest capacity)\n\n### ⚠️ Bottleneck Shifting\n\n**Critical concept:** Doubling the capacity of the bottleneck will **NOT** necessarily double system capacity — because the **bottleneck may shift** to another resource!\n\n- Bottlenecks may move as **order size changes**\n- There may be **more than one bottleneck** simultaneously\n- After fixing the bottleneck, **always re-check** which step is now the constraint",
+      "keyInsight": "Bottlenecks may move as order size changes. Doubling capacity of bottleneck resource will not necessarily double system capacity because the bottleneck may shift.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C13 (Bottleneck Shifting) — what happens when you fix one bottleneck",
+          "C09 (Capacity Analysis) — systematic method for finding bottlenecks",
+          "C23 (WIP-Throughput Tradeoff) — bottleneck determines the throughput ceiling in Factory Physics curves"
+        ],
+        "examAppearances": [
+          "CC1 Q2: Identify bottleneck and calculate flow rate for multi-station process",
+          "Midterm 2026 Q1: Bottleneck shifts from Station D to Station A when batch size changes",
+          "Midterm 2026 Q1: Optimal batch size to maximize capacity (~12-13 units)"
+        ]
+      }
     },
     {
       "title": "Setup Effects on Capacity",
       "conceptIds": ["C08"],
-      "content": "Setup time is the time needed to prepare a machine, person, or system for a new task, from the end of the last batch to the start of the first good piece of the next batch. Setups can include cleaning, tool changes, adjustments, programming, and test runs. Different types of processes: No setups – capacity does not depend on order size. Uncapacitated setups – capacity increases, at a decreasing rate, as batch size increases. Capacitated setups – capacity may increase or decrease with increasing batch size, depending on the size of the 'mixing bowl' (the resource with the capacity constraint).",
-      "keyInsight": "Setups create economies of scale - larger batches spread the setup time across more units, improving capacity."
+      "content": "### What Is Setup Time?\n\n**Setup time** is the time needed to prepare a machine, person, or system for a new task — from the end of the last batch to the start of the first good piece of the next batch.\n\n#### Types of Setups\n- Cleaning\n- Tool changes\n- Adjustments\n- Programming\n- Test runs\n\n### Three Categories of Setup Impact\n\n| Category | Capacity vs. Batch Size | Example |\n|----------|------------------------|----------|\n| **No setups** | Capacity does **not** depend on order size | Continuous flow process |\n| **Uncapacitated setups** | Capacity **increases** (at decreasing rate) as batch size increases | Machine with changeover time |\n| **Capacitated setups** | Capacity may **increase or decrease** with batch size, depending on the \"mixing bowl\" constraint | Kristen's mixer (limited bowl size) |\n\n### Capacity with Setups Formula\n\n$$\\text{Capacity} = \\frac{\\text{Batch Size}}{\\text{Setup Time} + (\\text{Processing Time per Unit} \\times \\text{Batch Size})}$$\n\n> 💡 **Setups create economies of scale** — larger batches spread the setup time across more units, improving per-unit capacity.",
+      "keyInsight": "Setups create economies of scale - larger batches spread the setup time across more units, improving capacity.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C50 (EOQ) — the fixed ordering cost in EOQ is essentially a setup cost",
+          "C01 (Bottleneck) — setups can change which resource is the bottleneck"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q1: Setup times change bottleneck when batch size shrinks (Station A becomes bottleneck)",
+          "Midterm 2026 Q1: Optimal batch size balances setup frequency vs. capacity (~12-13 units)",
+          "CC1 Q3: Capacity calculations with setup time included"
+        ]
+      }
     },
     {
       "title": "Flow Rate and Utilization",
       "conceptIds": ["C03", "C04"],
-      "content": "Flow Rate = min(Demand Rate, Process Capacity). If demand exceeds capacity, you're capacity-constrained. If capacity exceeds demand, you're demand-constrained. Utilization = Flow Rate / Capacity = Time Busy / Time Available. For Kristen's Cookies, if demand is 60 doz/hr but oven capacity is only 6 doz/hr, flow rate = 6 doz/hr. Utilization of You (mixing) = 6 doz/hr ÷ 7.5 doz/hr = 80%.",
-      "keyInsight": "Non-bottleneck resources will have utilization less than 100%. Only the bottleneck determines the flow rate of the entire system."
+      "content": "### Flow Rate\n\n$$\\text{Flow Rate} = \\min(\\text{Demand Rate}, \\text{Process Capacity})$$\n\n| Scenario | Condition | Implication |\n|----------|-----------|-------------|\n| **Capacity-constrained** | Demand > Capacity | Flow rate = Capacity; you're losing potential sales |\n| **Demand-constrained** | Capacity > Demand | Flow rate = Demand; you have idle resources |\n\n### Utilization\n\n$$\\text{Utilization} = \\frac{\\text{Flow Rate}}{\\text{Capacity}} = \\frac{\\text{Time Busy}}{\\text{Time Available}}$$\n\n#### Kristen's Cookies Example\nWith oven as bottleneck at $6$ doz/hr:\n\n$$\\text{Utilization of You (mixing)} = \\frac{6 \\text{ doz/hr}}{7.5 \\text{ doz/hr}} = 80\\%$$\n\n> 💡 **Non-bottleneck resources will always have utilization less than 100%.** Only the bottleneck determines the flow rate of the entire system.",
+      "keyInsight": "Non-bottleneck resources will have utilization less than 100%. Only the bottleneck determines the flow rate of the entire system.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C01 (Bottleneck) — must identify bottleneck to determine process capacity",
+          "C02 (Process Capacity) — capacity is the denominator in utilization"
+        ],
+        "buildsInto": [
+          "C04 → C30 (Queueing) — utilization ($\\rho$) drives the hockey-stick waiting time curve",
+          "C04 → C32 (Utilization Effect) — $\\rho/(1-\\rho)$ shows why high utilization = long waits"
+        ],
+        "examAppearances": [
+          "CC1 Q2: Calculate utilization for each station in multi-station process",
+          "Midterm 2026 Q1: Determine whether system is demand-constrained or capacity-constrained",
+          "Midterm 2026 Q1: Calculate station utilizations under different batch sizes"
+        ]
+      }
     },
     {
       "title": "Capacity Analysis Tool",
       "conceptIds": ["C09"],
-      "content": "Tool: Capacity Analysis. Idea: Determine capacity of each resource in isolation. Resource with least capacity (oven in Kristen's Cookies) constrains system. Steps: 1) Calculate processing time per unit for each resource, 2) Convert to capacity (units per hour), 3) Identify bottleneck (lowest capacity), 4) Calculate flow rate and utilizations, 5) Analyze impact of changes (adding resources, changing batch sizes).",
-      "keyInsight": "Capacity analysis is the foundation for all process improvement decisions - it shows where to focus your efforts for maximum impact."
+      "content": "### The Systematic Approach\n\n**Tool: Capacity Analysis** — Determine capacity of each resource in isolation, then find the constraint.\n\n#### Steps:\n1. **Calculate processing time per unit** for each resource\n2. **Convert to capacity** (units per hour): $\\text{Capacity} = 60 / \\text{processing time (min)}$\n3. **Identify bottleneck** — the resource with the **lowest capacity**\n4. **Calculate flow rate**: $\\text{Flow Rate} = \\min(\\text{Demand}, \\text{Bottleneck Capacity})$\n5. **Calculate utilizations** for each resource: $\\text{Utilization} = \\text{Flow Rate} / \\text{Station Capacity}$\n6. **Analyze impact of changes** — adding resources, changing batch sizes, reducing setups\n\n### Watch for These Traps\n- Setup times that **change with batch size**\n- **Shared resources** that serve multiple steps\n- **Workers who do different tasks** (aggregate their time per unit)\n- Batch size effects on bottleneck identity\n\n> 💡 Capacity analysis is the **foundation** for all process improvement decisions — it shows where to focus your efforts for maximum impact.",
+      "keyInsight": "Capacity analysis is the foundation for all process improvement decisions - it shows where to focus your efforts for maximum impact.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C01 (Bottleneck) — need to understand bottleneck concept",
+          "C02 (Process Capacity) — calculating capacity for each resource",
+          "C03 (Flow Rate) — determining actual throughput",
+          "C04 (Utilization) — measuring resource efficiency",
+          "C06 (Cycle Time) — converting between time and rate"
+        ],
+        "buildsInto": [
+          "C13 (Bottleneck Shifting) — what happens after you improve the bottleneck",
+          "C20 (Little's Law) — connects capacity analysis to WIP and throughput time"
+        ],
+        "examAppearances": [
+          "CC1 Q2: Full capacity analysis for Power Toys assembly line",
+          "Midterm 2026 Q1: Capacity analysis with setup times for 4-station process",
+          "Final Review: Capacity analysis appears as foundation for queueing problems"
+        ]
+      }
     }
   ],
   "formulas": [
@@ -55,7 +135,7 @@
       "workedExample": "Oven cycle time = 10 min/dozen = 0.167 hr/dozen. Capacity = 1 ÷ 0.167 = 6 dozen/hour"
     },
     {
-      "name": "Flow Rate Formula", 
+      "name": "Flow Rate Formula",
       "formula": "Flow Rate = min(Demand Rate, Process Capacity)",
       "variables": {"Flow Rate": "Actual production rate", "Demand Rate": "Customer demand rate", "Process Capacity": "Maximum production capability"},
       "workedExample": "If demand = 8 dozen/hr and process capacity = 6 dozen/hr, then flow rate = 6 dozen/hr"
@@ -65,29 +145,35 @@
       "formula": "Utilization = Flow Rate / Capacity",
       "variables": {"Utilization": "Percentage of time resource is busy", "Flow Rate": "Actual production rate", "Capacity": "Maximum capability of resource"},
       "workedExample": "Mixing capacity = 7.5 dozen/hr, Flow rate = 6 dozen/hr, Utilization = 6/7.5 = 80%"
+    },
+    {
+      "name": "Capacity with Setups",
+      "formula": "Capacity = Batch Size / (Setup Time + Processing Time per Unit × Batch Size)",
+      "variables": {"Batch Size": "Units per batch", "Setup Time": "Fixed time per batch", "Processing Time per Unit": "Variable time per unit"},
+      "workedExample": "Setup = 110 min, processing = 8 min/unit, batch = 40: Capacity = 40/(110 + 8×40) = 40/430 = 0.093 batches/min = 5.58 units/hr"
     }
   ],
   "practiceProblems": [
     {
       "id": "p1",
-      "question": "For Kristen's Cookie Company with one oven, calculate the throughput time for an order of one dozen cookies. Show the Gantt chart timing.",
-      "solution": "Take Order (0-1 min, You), Mix (1-7 min, You), Spoon (7-9 min, Roommate), Bake (9-19 min, Oven), Cool (19-21 min, natural), Pack (21-22 min, You), Pay (22-27 min, You). Total throughput time = 27 minutes for one dozen cookies.",
+      "question": "### Kristen's Cookie Throughput Time\n\nFor Kristen's Cookie Company with **one oven**, calculate the **throughput time** for an order of one dozen cookies. Show the Gantt chart timing for each step.\n\n**Process steps:**\n| Step | Time | Resource |\n|------|------|----------|\n| Take Order | $1$ min | You |\n| Mix | $6$ min | You |\n| Spoon | $2$ min | Roommate |\n| Bake | $10$ min | Oven |\n| Cool | $2$ min | Natural |\n| Pack | $1$ min | You |\n| Pay | $5$ min | You |",
+      "solution": "#### Gantt Chart Timing\n\n| Step | Start | End | Resource |\n|------|-------|-----|----------|\n| Take Order | $0$ | $1$ min | You |\n| Mix | $1$ | $7$ min | You |\n| Spoon | $7$ | $9$ min | Roommate |\n| Bake | $9$ | $19$ min | Oven |\n| Cool | $19$ | $21$ min | Natural |\n| Pack | $21$ | $22$ min | You |\n| Pay | $22$ | $27$ min | You |\n\n$$\\text{Total throughput time} = 27 \\text{ minutes for one dozen cookies}$$\n\n> 💡 Note: For subsequent orders, the throughput time per order decreases because steps can **overlap** (pipelining). The oven bakes order 1 while You mix order 2.",
       "source": "Kristen's Cookie Company After Class Handouts Haas 2026.json",
       "conceptIds": ["C05", "C07"],
       "type": "quantitative"
     },
     {
       "id": "p2",
-      "question": "Power Toys Inc. produces toy trucks on a 9-station assembly line. Station processing times: 1(72s), 2(80s), 3(90s), 4(68s), 5(70s), 6(60s), 7(95s), 8(58s), 9(80s). What is the bottleneck and system capacity? If demand is 60 trucks/hour, what is the utilization of Station 2?",
-      "solution": "Bottleneck is Station 7 with 95 seconds. Capacity = 3600 sec/hr ÷ 95 sec/unit = 37.9 trucks/hr. Flow rate = min(60, 37.9) = 37.9 trucks/hr. Station 2 capacity = 3600 ÷ 80 = 45 trucks/hr. Utilization of Station 2 = 37.9 ÷ 45 = 84.2%.",
+      "question": "### Power Toys Assembly Line\n\nPower Toys Inc. produces toy trucks on a **9-station assembly line**.\n\n| Station | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n|---------|---|---|---|---|---|---|---|---|---|\n| Time (sec) | $72$ | $80$ | $90$ | $68$ | $70$ | $60$ | $95$ | $58$ | $80$ |\n\n**Calculate:**\n1. Which station is the bottleneck?\n2. What is the system capacity (trucks/hour)?\n3. If demand is $60$ trucks/hour, what is the flow rate?\n4. What is the utilization of Station 2?",
+      "solution": "#### Step 1: Identify Bottleneck\n**Station 7** has the longest processing time at $95$ seconds → **Bottleneck**\n\n#### Step 2: System Capacity\n$$\\text{Capacity} = \\frac{3600 \\text{ sec/hr}}{95 \\text{ sec/unit}} = 37.9 \\text{ trucks/hr}$$\n\n#### Step 3: Flow Rate\n$$\\text{Flow Rate} = \\min(60, 37.9) = 37.9 \\text{ trucks/hr}$$\n\nThe system is **capacity-constrained** (demand exceeds capacity).\n\n#### Step 4: Utilization of Station 2\n$$\\text{Station 2 Capacity} = \\frac{3600}{80} = 45 \\text{ trucks/hr}$$\n$$\\text{Utilization} = \\frac{37.9}{45} = 84.2\\%$$\n\n> 💡 Station 2 is **not** the bottleneck, so its utilization is below $100\\%$.",
       "source": "Capacity Analysis After Class Practice Problems and Solutions.json",
       "conceptIds": ["C01", "C02", "C03", "C04"],
       "type": "quantitative"
     },
     {
       "id": "p3",
-      "question": "A machine has a 110-minute setup time and 8 minutes processing per unit. Compare the capacity for batch sizes of 40 units vs 100 units.",
-      "solution": "Batch size 40: Total time = 110 + (8 × 40) = 430 minutes. Capacity = 40 units ÷ 430 minutes × 60 min/hr = 5.58 units/hr. Batch size 100: Total time = 110 + (8 × 100) = 910 minutes. Capacity = 100 units ÷ 910 minutes × 60 min/hr = 6.59 units/hr. Larger batches spread setup cost across more units, increasing capacity.",
+      "question": "### Setup Time and Batch Size\n\nA machine has:\n- **Setup time:** $110$ minutes\n- **Processing time per unit:** $8$ minutes\n\nCompare the capacity for batch sizes of **40 units** vs. **100 units**.",
+      "solution": "#### Batch Size = 40 Units\n$$\\text{Total time} = 110 + (8 \\times 40) = 110 + 320 = 430 \\text{ minutes}$$\n$$\\text{Capacity} = \\frac{40 \\text{ units}}{430 \\text{ min}} \\times 60 \\text{ min/hr} = 5.58 \\text{ units/hr}$$\n\n#### Batch Size = 100 Units\n$$\\text{Total time} = 110 + (8 \\times 100) = 110 + 800 = 910 \\text{ minutes}$$\n$$\\text{Capacity} = \\frac{100 \\text{ units}}{910 \\text{ min}} \\times 60 \\text{ min/hr} = 6.59 \\text{ units/hr}$$\n\n#### Comparison\n\n| Batch Size | Total Time | Capacity | Setup % of Total |\n|-----------|-----------|----------|------------------|\n| $40$ | $430$ min | $5.58$ units/hr | $110/430 = 25.6\\%$ |\n| $100$ | $910$ min | $6.59$ units/hr | $110/910 = 12.1\\%$ |\n\n> 💡 Larger batches **spread setup cost** across more units, increasing effective capacity. But the improvement has **diminishing returns** — going from $40$ to $100$ (+150%) only increases capacity by $18\\%$.",
       "source": "Capacity Analysis After Class Practice Problems and Solutions.json",
       "conceptIds": ["C08", "C02"],
       "type": "quantitative"

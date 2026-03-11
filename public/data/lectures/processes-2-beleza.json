@@ -13,32 +13,101 @@
     {
       "title": "Product-Process Matrix",
       "conceptIds": ["C10", "C14"],
-      "content": "Traditional salons operate as job shops: flexible processes (high unit cost) serving high product variety and low volume. Beleza Natural positioned itself differently: rigid, well-defined processes (low unit cost) serving standardized products and high volume. Product-Process Matrix shows the natural fit between: Standardized product + High volume → Rigid, well-defined process (e.g., production line). High product variety + Low volume → Flexible process (e.g., job shop). Examples: McDonald's vs. full-service restaurant, Shouldice Hospital vs. general hospital, JetBlue vs. full-service airline.",
-      "keyInsight": "Rigid, well-defined processes enable operational efficiencies. Customers prefer a more customized product and are willing to pay a premium price, but focused operations can achieve low cost through specialization."
+      "content": "### The Strategic Choice: Where Do You Sit on the Matrix?\n\nThe **Product-Process Matrix** maps the natural fit between product variety and process type:\n\n| | Low Volume / High Variety | High Volume / Low Variety |\n|---|---|---|\n| **Flexible process** (Job Shop) | ✅ Natural fit — high unit cost | ❌ Mismatch |\n| **Rigid process** (Production Line) | ❌ Mismatch | ✅ Natural fit — low unit cost |\n\n#### Industry Examples\n\n| Flexible (Job Shop) | Focused (Production Line) |\n|---|---|\n| Traditional salon | **Beleza Natural** |\n| Full-service restaurant | **McDonald's** |\n| General hospital | **Shouldice Hospital** |\n| Full-service airline | **JetBlue / Southwest** |\n\n### Traditional Salon vs. Beleza\n- **Traditional salon**: Flexible processes (high unit cost) → high product variety, low volume per service type\n- **Beleza Natural**: Rigid, well-defined processes (low unit cost) → standardized product, high volume\n\n> 💡 **Rigid, well-defined processes enable operational efficiencies.** Customers prefer customization and will pay a premium — but focused operations can achieve low cost through specialization.",
+      "keyInsight": "Rigid, well-defined processes enable operational efficiencies. Customers prefer a more customized product and are willing to pay a premium price, but focused operations can achieve low cost through specialization.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C11 (Operations Strategy / CQDF) — CQDF ranking determines where you sit on the matrix"
+        ],
+        "buildsInto": [
+          "C14 (Focused Operations) — extreme position on the matrix",
+          "C70 (Fisher Matrix) — extends product-process thinking to supply chain strategy"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q2: AA company shifting position on product-process matrix (high volume → high customization)",
+          "Final Review S1: Southwest's position on the matrix and impact of adding service classes"
+        ]
+      }
     },
     {
       "title": "Focused Operations Model",
       "conceptIds": ["C14"],
-      "content": "Focused business/operational model: standardized product + rigid, well-defined processes. Strengths: low cost, competitive differentiation. Limitations: focused model places limits on change/evolution, market diversification. Beleza focuses exclusively on Afro-textured hair treatments using a standardized 5-step process: Reception → Division → Super Relaxing → Hydration → Hair Style. Each step has specialized workers and equipment.",
-      "keyInsight": "Focused operational model exploits power of rigid, well-defined processes to deliver a narrow product offering at low cost. Innovation in how services/products are delivered creates value and enables new business models."
+      "content": "### What Makes a Focused Operation?\n\n**Focused business model** = Standardized product + Rigid, well-defined processes\n\n#### Strengths\n- **Low cost** through specialization and efficiency\n- **Competitive differentiation** — do one thing better than anyone\n- **Consistent quality** through standardization\n- **High volume throughput** — economies of scale\n\n#### Limitations\n- Places **limits on change and evolution**\n- Restricts **market diversification**\n- Vulnerable if the one market you serve **shrinks**\n\n### Beleza's 5-Step Assembly Line\n\n| Step | Function | Specialized? |\n|------|----------|--------------|\n| 1. Reception | Check in, assess hair | Yes — trained greeters |\n| 2. Division | Section hair for treatment | Yes — skilled technicians |\n| 3. Super Relaxing | Chemical treatment | Yes — specialized workers + equipment |\n| 4. Hydration | Moisture treatment | Yes — dedicated stations |\n| 5. Hair Style | Final styling | Yes — trained stylists |\n\n> 💡 **Focused operational model exploits the power of rigid, well-defined processes** to deliver a narrow product offering at low cost. **Innovation in how services/products are delivered** creates value and enables new business models.",
+      "keyInsight": "Focused operational model exploits power of rigid, well-defined processes to deliver a narrow product offering at low cost. Innovation in how services/products are delivered creates value and enables new business models.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C10 (Product-Process Matrix) — focused operations sit in the high-volume/rigid-process quadrant",
+          "C11 (Operations Strategy / CQDF) — focused model implies specific CQDF ranking"
+        ],
+        "buildsInto": [
+          "C71 (Efficient vs. Responsive SC) — focused operations align with efficient supply chains"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q2: AA company's focused model (high volume, rigid process) vs. proposed shift to customization",
+          "Final Review: Beleza as example of product-process alignment creating competitive advantage"
+        ]
+      }
     },
     {
-      "title": "Beleza Capacity Analysis - Saturday",
+      "title": "Beleza Capacity Analysis — Saturday",
       "conceptIds": ["C01", "C02", "C13"],
-      "content": "Saturday demand: 513 customers/day ÷ 12 hours = 42.75 customers/hour. Process steps and capacities: Reception (2 workers, 2 min/customer): 60 cust/hr, Division (8 workers, 12.5 min/customer): 38.4 cust/hr, Super Relaxing (18 workers, 40 min/customer): 27 cust/hr, Hydration (4 workers, 8 min/customer): 30 cust/hr, Hair Style (9 workers, 14 min/customer): 39 cust/hr. Bottleneck: Super Relaxing at 27 cust/hr. Flow rate = min(42.75 demand, 27 capacity) = 27 cust/hr.",
-      "keyInsight": "System performance is determined by the limiting resource (bottleneck capacity). The bottleneck is Super Relaxing, limiting the entire salon to 27 customers per hour despite having 41 total workers."
+      "content": "### Demand\n$$\\text{Saturday demand} = \\frac{513 \\text{ customers/day}}{12 \\text{ hours}} = 42.75 \\text{ customers/hour}$$\n\n### Station Capacities\n\n$$\\text{Station Capacity} = \\frac{\\text{Number of Workers} \\times 60}{\\text{Activity Time per Customer}}$$\n\n| Station | Workers | Time/Customer | Capacity (cust/hr) |\n|---------|---------|--------------|--------------------|\n| Reception | $2$ | $2$ min | $(2 \\times 60)/2 = 60$ |\n| Division | $8$ | $12.5$ min | $(8 \\times 60)/12.5 = 38.4$ |\n| **Super Relaxing** | $18$ | $40$ min | $(18 \\times 60)/40 = 27$ |\n| Hydration | $4$ | $8$ min | $(4 \\times 60)/8 = 30$ |\n| Hair Style | $9$ | $14$ min | $(9 \\times 60)/14 = 38.6$ |\n\n### Bottleneck Identification\n\n**Bottleneck = Super Relaxing** at $27$ cust/hr (lowest capacity)\n\n$$\\text{Flow Rate} = \\min(42.75, 27) = 27 \\text{ cust/hr}$$\n\nThe system is **capacity-constrained** — demand ($42.75$) exceeds capacity ($27$).\n\n> 💡 **System performance is determined by the limiting resource (bottleneck capacity).** The bottleneck is Super Relaxing, limiting the entire salon to $27$ customers per hour despite having $41$ total workers.",
+      "keyInsight": "System performance is determined by the limiting resource (bottleneck capacity). The bottleneck is Super Relaxing, limiting the entire salon to 27 customers per hour despite having 41 total workers.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C01 (Bottleneck) — identifying the constraining resource",
+          "C02 (Process Capacity) — capacity = bottleneck capacity",
+          "C03 (Flow Rate) — min(demand, capacity)",
+          "C09 (Capacity Analysis) — systematic approach from Lecture 2"
+        ],
+        "buildsInto": [
+          "C13 (Bottleneck Shifting) — rebalancing workers shifts the bottleneck"
+        ],
+        "examAppearances": [
+          "CC1 Q2: Same capacity analysis approach applied to different process",
+          "Midterm 2026 Q1: Capacity analysis with setup times (more complex version of same approach)"
+        ]
+      }
     },
     {
       "title": "Resource Rebalancing Analysis",
       "conceptIds": ["C13"],
-      "content": "Current Saturday utilizations: Reception 45%, Division 70%, Super Relaxing 100%, Hydration 90%, Hair Style 70%. Average labor utilization: 78.6%. Improvement option 1 - Add one SR worker: Increases capacity to 28.5 cust/hr, flow rate per week increases from 1820 to 1856, but still bottlenecked at SR. Improvement option 2 - Shift workers to SR: Move 1 from Reception and 1 from Hair Style to SR (20 SR workers total). New capacity: 30 cust/hr, weekly flow rate increases to 1892, average labor utilization improves to 81.7%.",
-      "keyInsight": "Rebalancing resources across a production system to (roughly) equalize utilization levels extracts value from previously underutilized resources. More balanced production system achieves higher throughput."
+      "content": "### Current Saturday Utilizations\n\n$$\\text{Utilization} = \\frac{\\text{Flow Rate}}{\\text{Station Capacity}} = \\frac{27}{\\text{Station Capacity}}$$\n\n| Station | Capacity | Utilization |\n|---------|----------|-------------|\n| Reception | $60$ | $27/60 = 45\\%$ |\n| Division | $38.4$ | $27/38.4 = 70\\%$ |\n| **Super Relaxing** | $27$ | $27/27 = 100\\%$ |\n| Hydration | $30$ | $27/30 = 90\\%$ |\n| Hair Style | $38.6$ | $27/38.6 = 70\\%$ |\n\n**Average labor utilization: $78.6\\%$**\n\n> Notice the imbalance: Reception at $45\\%$ while Super Relaxing is at $100\\%$\n\n### Option 1: Add One SR Worker\n- New SR capacity: $(19 \\times 60)/40 = 28.5$ cust/hr\n- New bottleneck: Still SR\n- Weekly flow rate: $1820 \\to 1856$ (+36 customers)\n\n### Option 2: Shift Workers to SR (Recommended)\nMove $1$ from Reception and $1$ from Hair Style → SR ($20$ workers)\n\n| Station | Workers | New Capacity | New Utilization |\n|---------|---------|-------------|----------------|\n| Reception | $1$ | $30$ | $100\\%$ |\n| Division | $8$ | $38.4$ | $78\\%$ |\n| **Super Relaxing** | $20$ | $30$ | $100\\%$ |\n| Hydration | $4$ | $30$ | $100\\%$ |\n| Hair Style | $8$ | $34.3$ | $88\\%$ |\n\n- New process capacity: $30$ cust/hr (multiple bottlenecks)\n- Weekly flow rate: $1820 \\to 1892$ (+72 customers)\n- **Average labor utilization: $81.7\\%$** (up from $78.6\\%$)\n\n> 💡 **Rebalancing resources across a production system to (roughly) equalize utilization levels extracts value from previously underutilized resources.** A more balanced production system achieves higher throughput.",
+      "keyInsight": "Rebalancing resources across a production system to (roughly) equalize utilization levels extracts value from previously underutilized resources. More balanced production system achieves higher throughput.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C01 (Bottleneck) — must identify current bottleneck before rebalancing",
+          "C04 (Utilization) — utilization reveals which resources are underutilized",
+          "C09 (Capacity Analysis) — recalculate after every rebalancing move"
+        ],
+        "buildsInto": [
+          "C13 (Bottleneck Shifting) — rebalancing creates new bottlenecks at different stations"
+        ],
+        "examAppearances": [
+          "CC1: Capacity analysis with resource rebalancing",
+          "Midterm 2026 Q1: System changes when batch size changes (analogous to rebalancing)"
+        ]
+      }
     },
     {
       "title": "Bottleneck Management Principles",
       "conceptIds": ["C01", "C13"],
-      "content": "Doubling capacity of bottleneck resource will not necessarily double system capacity (because the bottleneck may shift). In Beleza, adding workers to SR eventually shifts the bottleneck to another station. The goal is to balance the system so no single resource is dramatically underutilized while another is overloaded. Weekly analysis shows different bottlenecks for different days of the week due to varying demand patterns.",
-      "keyInsight": "Bottlenecks may move as capacity changes. There may be more than one bottleneck. Focus improvement efforts on the current bottleneck, but prepare for bottleneck shifting."
+      "content": "### Key Principles\n\n1. **Doubling capacity of bottleneck ≠ doubling system capacity**\n   - Adding workers to SR eventually shifts the bottleneck to another station\n   - In the rebalanced Beleza example, $3$ stations become co-bottlenecks at $30$ cust/hr\n\n2. **Balance the system** — aim to roughly equalize utilization levels\n   - No single resource should be dramatically underutilized while another is overloaded\n   - Perfect balance is often impossible, but directional improvement helps\n\n3. **Bottlenecks vary by demand pattern**\n   - Different days of the week may have different bottlenecks due to varying demand\n   - Saturday's bottleneck (SR) may not be Tuesday's bottleneck\n\n4. **Focus improvement on the current bottleneck**\n   - Improving a non-bottleneck resource is **wasted effort**\n   - But always prepare for where the bottleneck will shift next\n\n> 💡 **Bottlenecks may move as capacity changes.** There may be more than one bottleneck. Focus improvement efforts on the current bottleneck, but prepare for bottleneck shifting.",
+      "keyInsight": "Bottlenecks may move as capacity changes. There may be more than one bottleneck. Focus improvement efforts on the current bottleneck, but prepare for bottleneck shifting.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C01 (Bottleneck) — fundamental concept this builds on",
+          "C09 (Capacity Analysis) — tool for identifying bottlenecks"
+        ],
+        "buildsInto": [
+          "C23 (WIP-Throughput Tradeoff) — bottleneck capacity determines the throughput ceiling",
+          "C24 (Buffer or Suffer) — buffers protect bottlenecks from starvation"
+        ],
+        "examAppearances": [
+          "Midterm 2026 Q1: Bottleneck shifts from Station D to Station A when batch size changes",
+          "Midterm 2026 Q3: Grohe Lux — reducing WIP impacts throughput (bottleneck starvation)"
+        ]
+      }
     }
   ],
   "formulas": [
@@ -64,24 +133,24 @@
   "practiceProblems": [
     {
       "id": "p1",
-      "question": "For Beleza Natural on Saturday, calculate the process capacity and identify the bottleneck. Given: Reception (2 workers, 2 min), Division (8 workers, 12.5 min), Super Relaxing (18 workers, 40 min), Hydration (4 workers, 8 min), Hair Style (9 workers, 14 min).",
-      "solution": "Capacities: Reception = 2×60/2 = 60 cust/hr, Division = 8×60/12.5 = 38.4 cust/hr, Super Relaxing = 18×60/40 = 27 cust/hr, Hydration = 4×60/8 = 30 cust/hr, Hair Style = 9×60/14 = 39 cust/hr. Bottleneck = Super Relaxing (minimum capacity). Process capacity = 27 cust/hr.",
+      "question": "### Beleza Saturday Capacity Analysis\n\nFor Beleza Natural on Saturday, calculate the **process capacity** and identify the **bottleneck**.\n\n| Station | Workers | Time/Customer |\n|---------|---------|---------------|\n| Reception | $2$ | $2$ min |\n| Division | $8$ | $12.5$ min |\n| Super Relaxing | $18$ | $40$ min |\n| Hydration | $4$ | $8$ min |\n| Hair Style | $9$ | $14$ min |",
+      "solution": "#### Step 1: Calculate Each Station's Capacity\n\n$$\\text{Capacity} = \\frac{\\text{Workers} \\times 60}{\\text{Time per Customer}}$$\n\n| Station | Calculation | Capacity |\n|---------|-----------|----------|\n| Reception | $(2 \\times 60)/2$ | $60$ cust/hr |\n| Division | $(8 \\times 60)/12.5$ | $38.4$ cust/hr |\n| Super Relaxing | $(18 \\times 60)/40$ | $27$ cust/hr |\n| Hydration | $(4 \\times 60)/8$ | $30$ cust/hr |\n| Hair Style | $(9 \\times 60)/14$ | $38.6$ cust/hr |\n\n#### Step 2: Identify Bottleneck\n**Bottleneck = Super Relaxing** (minimum capacity at $27$ cust/hr)\n\n#### Step 3: Process Capacity\n$$\\text{Process Capacity} = \\text{Bottleneck Capacity} = 27 \\text{ cust/hr}$$\n\n> 💡 Despite $41$ total workers, the system can only serve $27$ customers per hour. The other $14$ non-SR workers have idle time.",
       "source": "Beleza Natural After Class Handouts Haas 2026.json",
       "conceptIds": ["C01", "C02"],
       "type": "quantitative"
     },
     {
       "id": "p2",
-      "question": "If Beleza shifts 1 worker from Reception and 1 worker from Hair Style to Super Relaxing, calculate the new process capacity and utilizations for Saturday demand of 42.75 cust/hr.",
-      "solution": "New configuration: Reception (1 worker), Division (8 workers), Super Relaxing (20 workers), Hydration (4 workers), Hair Style (8 workers). New capacities: Reception = 30 cust/hr, Division = 38.4 cust/hr, Super Relaxing = 30 cust/hr, Hydration = 30 cust/hr, Hair Style = 34 cust/hr. New bottleneck = 30 cust/hr (multiple stations). New utilizations: Reception 100%, Division 78%, Super Relaxing 100%, Hydration 100%, Hair Style 88%.",
+      "question": "### Beleza Resource Rebalancing\n\nIf Beleza shifts **1 worker from Reception** and **1 worker from Hair Style** to Super Relaxing, calculate:\n1. New process capacity\n2. New utilizations for Saturday demand of $42.75$ cust/hr\n3. Which station(s) are now the bottleneck?",
+      "solution": "#### New Worker Configuration\n\n| Station | Old Workers | New Workers |\n|---------|------------|-------------|\n| Reception | $2$ | $1$ |\n| Division | $8$ | $8$ |\n| Super Relaxing | $18$ | $20$ |\n| Hydration | $4$ | $4$ |\n| Hair Style | $9$ | $8$ |\n\n#### New Capacities\n\n| Station | Calculation | New Capacity |\n|---------|-----------|-------------|\n| Reception | $(1 \\times 60)/2$ | $30$ cust/hr |\n| Division | $(8 \\times 60)/12.5$ | $38.4$ cust/hr |\n| Super Relaxing | $(20 \\times 60)/40$ | $30$ cust/hr |\n| Hydration | $(4 \\times 60)/8$ | $30$ cust/hr |\n| Hair Style | $(8 \\times 60)/14$ | $34.3$ cust/hr |\n\n#### New Bottleneck\n**Multiple co-bottlenecks**: Reception, Super Relaxing, and Hydration all at $30$ cust/hr\n\n$$\\text{New Process Capacity} = 30 \\text{ cust/hr}$$\n\n#### New Utilizations (Flow Rate = $30$ cust/hr)\n\n| Station | Capacity | Utilization |\n|---------|----------|-------------|\n| Reception | $30$ | $30/30 = 100\\%$ |\n| Division | $38.4$ | $30/38.4 = 78\\%$ |\n| Super Relaxing | $30$ | $30/30 = 100\\%$ |\n| Hydration | $30$ | $30/30 = 100\\%$ |\n| Hair Style | $34.3$ | $30/34.3 = 88\\%$ |\n\n> 💡 Rebalancing increased throughput from $27$ to $30$ cust/hr (+$11\\%$) **without adding any workers** — just by shifting underutilized resources to the bottleneck.",
       "source": "Beleza Natural After Class Handouts Haas 2026.json",
       "conceptIds": ["C13", "C04"],
       "type": "quantitative"
     },
     {
       "id": "p3",
-      "question": "Explain why Beleza Natural's focused operations strategy creates competitive advantage over traditional salons.",
-      "solution": "Beleza uses a focused operations model: standardized product (one type of hair treatment) with rigid, well-defined processes (5-step assembly line). This achieves: 1) Low cost through specialization and efficiency, 2) Consistent quality through standardization, 3) High volume throughput, 4) Competitive differentiation in serving Afro-textured hair market. Traditional salons use flexible processes for high variety but suffer from higher costs and lower efficiency. Product-process alignment creates sustainable advantage.",
+      "question": "### Beleza's Focused Operations Strategy\n\nExplain why Beleza Natural's **focused operations strategy** creates competitive advantage over traditional salons. Reference the Product-Process Matrix in your answer.",
+      "solution": "#### Product-Process Matrix Position\n\n**Traditional salons** = Job Shop quadrant\n- High variety (cuts, colors, perms, treatments, etc.)\n- Flexible processes — each stylist handles entire service\n- **High unit cost**, lower volume per service type\n\n**Beleza Natural** = Production Line quadrant\n- Low variety (one standardized hair treatment)\n- Rigid, well-defined 5-step assembly line\n- **Low unit cost**, high volume\n\n#### Sources of Competitive Advantage\n\n1. **Low cost** through specialization and efficiency\n   - Workers specialize in one step → learning curve benefits\n   - Equipment optimized for one process → higher utilization\n\n2. **Consistent quality** through standardization\n   - Every customer gets the same proven treatment\n   - Variation reduced across all steps\n\n3. **High volume throughput**\n   - Assembly-line process enables serving many more customers\n   - Workers don't context-switch between different services\n\n4. **Competitive differentiation** in serving the Afro-textured hair market\n   - Focused exclusively on an underserved segment\n   - Built expertise that generalist salons can't match\n\n#### The Tradeoff\nBeleza **sacrifices flexibility** (can't offer cuts, colors, or other services) to achieve **cost and quality advantages** in their specific market. This is the essence of the Product-Process Matrix — you must choose your position and align your operations accordingly.\n\n> 💡 Product-process alignment creates sustainable advantage. Beleza's competitors would need to fundamentally restructure their operations to compete — they can't just copy one element.",
       "source": "Beleza Natural After Class Handouts Haas 2026.json",
       "conceptIds": ["C10", "C14"],
       "type": "qualitative"

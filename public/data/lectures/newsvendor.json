@@ -13,38 +13,68 @@
     {
       "title": "The Newsvendor Problem Setup",
       "conceptIds": ["C60"],
-      "content": "One product and one selling season. One ordering opportunity. Consider a newsboy who orders and sells newspapers. Order too much: leftover newspapers are recycled or discarded. Order too few: all newspapers are sold and he loses sales. Ordering decisions must be made before the selling season starts. Demand is unknown. Objective: choose an order quantity to maximize expected profit.",
-      "keyInsight": "Newsvendor model applies to settings where there is a single order/production decision, demand is uncertain, and there is a 'too much-too little challenge'"
+      "content": "## The Newsvendor Problem\n\nThe newsvendor model applies whenever you face **three conditions simultaneously**:\n\n1. **One product, one selling season** — a single ordering/production opportunity\n2. **Demand is uncertain** — you don't know exactly how much customers will want\n3. **\"Too much–too little\" challenge** — ordering too much creates waste; ordering too little loses sales\n\n### The Core Tradeoff\n\n| Order Too Much | Order Too Few |\n|---|---|\n| Leftover inventory | Lost sales |\n| Must sell at salvage/discount | Missed profit opportunity |\n| **Overage cost** incurred | **Underage cost** incurred |\n\n> **Key Insight:** The ordering decision must be made *before* the selling season starts, when demand is still unknown. The objective is to choose an order quantity that **maximizes expected profit**.\n\n### Where Does This Apply?\n- **Newspapers** — classic example (buy morning, sell by evening)\n- **Fashion retail** — seasonal collections with one buying window\n- **Fresh produce** — perishable goods (see BrightSide case)\n- **Airline seats** — capacity allocation (revenue management)\n- **Tech products** — new product launches with uncertain adoption\n- **Any one-shot decision** under demand uncertainty",
+      "keyInsight": "Newsvendor model applies to settings where there is a single order/production decision, demand is uncertain, and there is a 'too much-too little challenge'",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C48 (Safety Stock) — buffers against uncertainty, similar motivation"],
+        "buildsInto": ["C66 (Postponement) — applying newsvendor to delayed customization", "C68 (BrightSide Application) — newsvendor with zero salvage and allocation", "C69 (Revenue Management) — newsvendor applied to airline seat allocation"],
+        "examAppearances": ["CC4: BrightSide Produce — newsvendor with zero salvage value", "Final Review Q3: Bookstore soccer World Cup — full newsvendor calculation"]
+      }
     },
     {
-      "title": "Critical Fractile - The Heart of the Model",
+      "title": "Critical Fractile — The Heart of the Model",
       "conceptIds": ["C61", "C62", "C63"],
-      "content": "Let cu = Underage Cost (cost of ordering too little), co = Overage Cost (cost of ordering too much). The vendor will only want to buy an additional unit if the expected incremental contribution is positive: (1 – p(n)) cu – p(n) co ≥ 0. This gives us the Critical Fractile: pc = cu/(cu + co). Overage cost co is typically Cost - Salvage Value. Underage cost cu is typically Price - Cost.",
-      "keyInsight": "The critical fractile is the probability that demand is less than or equal to the optimal stocking level. At Q*, the service level equals the critical fractile."
+      "content": "## Critical Fractile (Critical Ratio)\n\nThe critical fractile is **the single most important concept** in the newsvendor model. It tells you the optimal service level — the probability that you should be able to satisfy all demand.\n\n### Cost Definitions\n\n| Cost | Symbol | Formula | Meaning |\n|---|---|---|---|\n| **Underage Cost** | $C_u$ | $C_u = \\text{Price} - \\text{Cost}$ | Profit lost per unit of unmet demand |\n| **Overage Cost** | $C_o$ | $C_o = \\text{Cost} - \\text{Salvage Value}$ | Loss per unsold unit |\n\n### The Critical Fractile Formula\n\n$$p_c = \\frac{C_u}{C_u + C_o}$$\n\n> **Intuition:** The critical fractile answers: *\"Should I stock one more unit?\"* You stock the extra unit **only if** the probability of selling it (avoiding underage) outweighs the probability of being stuck with it (incurring overage).\n\nFormally, the vendor wants to buy an additional unit only if:\n\n$$(1 - p(n)) \\cdot C_u - p(n) \\cdot C_o \\geq 0$$\n\nSolving gives us $p_c = \\frac{C_u}{C_u + C_o}$.\n\n### What the Critical Fractile Means\n\n- **At the optimal order quantity $Q^*$**, the service level equals the critical fractile\n- $P(\\text{demand} \\leq Q^*) = p_c$\n- **Higher profit margins → higher $p_c$ → stock more aggressively**\n- **Higher salvage value → lower $C_o$ → higher $p_c$ → stock more**\n\n### Quick Intuition Check\n\n| Scenario | $p_c$ | Stock... |\n|---|---|---|\n| High margin ($C_u \\gg C_o$) | Close to 1.0 | Aggressively — lost sales are expensive |\n| Low margin ($C_u \\approx C_o$) | ≈ 0.50 | Conservatively — about mean demand |\n| Tiny margin ($C_u \\ll C_o$) | Close to 0 | Very little — overage dominates |",
+      "keyInsight": "The critical fractile is the probability that demand is less than or equal to the optimal stocking level. At Q*, the service level equals the critical fractile.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C60 (Newsvendor Model) — the problem setup that motivates the critical fractile"],
+        "buildsInto": ["C64 (Service Level) — the critical fractile IS the optimal service level", "C65 (Normal Distribution) — used to convert pc into actual order quantity Q*"],
+        "examAppearances": ["CC4: BrightSide Produce — critical fractile with zero salvage", "Final Review Q3: Bookstore World Cup — Cu=27, Co=13, pc=0.675"]
+      }
     },
     {
-      "title": "Normal Distribution Application",
+      "title": "Normal Distribution Application — Finding Q*",
       "conceptIds": ["C65", "C64"],
-      "content": "Since demand is normally distributed: Q* = NORM.INV(critical fractile, mean, std dev) = NORM.INV(pc, μ, σ). Alternatively: z* = NORM.S.INV(critical fractile) and Q* = μ + z*σ. Service level = P(demand ≤ Q) = NORM.DIST(Q, μ, σ, TRUE). At Q*, service level = pc.",
-      "keyInsight": "Excel functions handle the normal distribution calculations. You can work with either Q directly or convert to z-scores for table lookup."
+      "content": "## From Critical Fractile to Order Quantity\n\nOnce you have $p_c$, you need to convert it into an actual order quantity using the **normal distribution** (since demand is assumed normally distributed).\n\n### Method 1: Direct Excel Function\n\n$$Q^* = \\text{NORM.INV}(p_c, \\mu, \\sigma)$$\n\nThis is the **easiest and most common** approach on exams.\n\n### Method 2: Z-Score Approach\n\n1. Find the z-score: $z^* = \\text{NORM.S.INV}(p_c)$ or look up in standard normal table\n2. Convert to order quantity: $Q^* = \\mu + z^* \\cdot \\sigma$\n\n### Checking Service Level at Any Q\n\nTo find the service level at any order quantity (not just optimal):\n\n$$\\text{Service Level} = \\text{NORM.DIST}(Q, \\mu, \\sigma, \\text{TRUE})$$\n\n### Step-by-Step Procedure: \"Given Price, Cost, Salvage → Find Q*\"\n\n1. **Calculate costs:**\n   - $C_u = \\text{Price} - \\text{Cost}$\n   - $C_o = \\text{Cost} - \\text{Salvage}$\n2. **Calculate critical fractile:**\n   - $p_c = \\frac{C_u}{C_u + C_o}$\n3. **Find optimal Q:**\n   - $Q^* = \\text{NORM.INV}(p_c, \\mu, \\sigma)$\n4. **Verify:** Service level at $Q^*$ should equal $p_c$\n\n### Common Excel Functions Reference\n\n| Function | Purpose | Example |\n|---|---|---|\n| `NORM.INV(p, μ, σ)` | Given probability → find Q | `NORM.INV(0.675, 180, 65)` = 210 |\n| `NORM.DIST(Q, μ, σ, TRUE)` | Given Q → find service level | `NORM.DIST(210, 180, 65, TRUE)` = 0.675 |\n| `NORM.S.INV(p)` | Given probability → find z-score | `NORM.S.INV(0.675)` = 0.454 |\n| `NORM.S.DIST(z, TRUE)` | Given z-score → find probability | `NORM.S.DIST(0.454, TRUE)` = 0.675 |\n\n> **Pro Tip:** At $Q^*$, the service level equals the critical fractile. If your numbers don't match, you made an error somewhere.",
+      "keyInsight": "Excel functions handle the normal distribution calculations. You can work with either Q directly or convert to z-scores for table lookup.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C61 (Critical Fractile) — determines the probability input to NORM.INV"],
+        "buildsInto": ["C67 (Service Level Curve Shape) — understanding how Q changes as service level increases", "C68 (BrightSide) — applying NORM.INV and NORM.DIST to produce allocation"],
+        "examAppearances": ["CC4: BrightSide Produce — NORM.DIST to check service levels, NORM.INV for target quantities", "Final Review Q3: Bookstore — Q* = NORM.INV(0.675, 180, 65) = 210"]
+      }
     },
     {
       "title": "Postponement and the Vanilla Box Strategy",
       "conceptIds": ["C66"],
-      "content": "Now suppose that there are five models of printer that are sold in different countries. How many total units would need to be held if they hold one standard type of 'vanilla box' and 'localize' the printers only after demand occurs? Standard deviation of demand for five models = SQRT(5) * 4000 = 8,944.27. This assumes demand across printers is independent. Variance of demand for five models = 16,000,000 * 5 = 80,000,000.",
-      "keyInsight": "Delayed customization can reduce inventory significantly. σ_total = σ × √n for n variants. Combined uncertainty is less than sum of individual uncertainties."
+      "content": "## Postponement / Delayed Customization\n\n**Core Idea:** Instead of stocking $n$ different product variants, hold a **generic \"vanilla box\"** and customize only *after* demand is known.\n\n### Why It Works — Risk Pooling\n\nIf you have $n$ independent product variants, each with standard deviation $\\sigma$:\n\n$$\\sigma_{\\text{total}} = \\sigma \\times \\sqrt{n}$$\n\nThis is **much less** than $n \\times \\sigma$ (stocking each variant separately).\n\n### Worked Example: Printer Distribution\n\n**Without postponement** (5 country-specific models):\n- Each model: $\\sigma = 4{,}000$ units\n- Total inventory needed: governed by $5 \\times 4{,}000 = 20{,}000$ in worst case\n\n**With postponement** (1 vanilla box, customize after demand known):\n- Combined $\\sigma_{\\text{total}} = 4{,}000 \\times \\sqrt{5} = 8{,}944$ units\n- **55% reduction** in demand uncertainty!\n\n### When to Use Postponement\n\n| Good Fit | Poor Fit |\n|---|---|\n| High variety (many SKUs) | Low variety |\n| Independent demand across variants | Perfectly correlated demand |\n| Customization can be done quickly | Long customization lead time |\n| Variants share common platform | Fundamentally different products |\n\n> **Key Insight:** Delayed customization leverages the statistical fact that **aggregate forecasts are more accurate** than individual forecasts. $\\sigma_{\\text{total}} = \\sigma \\sqrt{n} \\ll n \\cdot \\sigma$ when $n > 1$.",
+      "keyInsight": "Delayed customization can reduce inventory significantly. σ_total = σ × √n for n variants. Combined uncertainty is less than sum of individual uncertainties.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C60 (Newsvendor Model) — the foundational one-shot ordering framework", "C65 (Normal Distribution) — variance pooling relies on normal distribution properties"],
+        "buildsInto": ["C73 (Sport Obermeyer) — applies postponement in fashion supply chains", "C54 (Consolidation Effect) — same √n scaling logic in EOQ context"],
+        "examAppearances": ["Final Review S2: Sport Obermeyer — postponement as an innovative product strategy"]
+      }
     },
     {
       "title": "Service Level Curve Shape",
       "conceptIds": ["C67"],
-      "content": "As service level approaches 100%, order quantity increases exponentially (convex curve). Going from 90% to 95% service might require 20% more inventory, but going from 95% to 99% might require 100% more inventory! The curve gets steeper and steeper, like climbing a cliff.",
-      "keyInsight": "This explains why 100% service is rarely economical. Even Amazon doesn't promise 100% availability."
+      "content": "## The Convex Service Level Curve\n\nAs service level approaches 100%, the required order quantity increases **exponentially**.\n\n### Why the Curve Gets Steeper\n\n| Service Level | Additional Inventory Needed | Incremental Cost |\n|---|---|---|\n| 50% → 60% | Small increase | Low |\n| 80% → 90% | Moderate increase | Medium |\n| 90% → 95% | ~20% more inventory | High |\n| 95% → 99% | ~100% more inventory | Very high |\n| 99% → 99.9% | Massive increase | Astronomical |\n\n> **Think of it as climbing a cliff:** The first 80% of service is a gentle slope. The last 5% is a vertical wall. This is because the **tails of the normal distribution** are asymptotic — approaching zero probability but never reaching it.\n\n### Business Implications\n\n- **100% service is virtually impossible** and prohibitively expensive\n- Even Amazon doesn't promise 100% availability\n- The optimal service level (= critical fractile) balances the **marginal cost** of the last unit against its **marginal benefit**\n- Companies must decide: *\"How much are we willing to pay for each additional percentage point of service?\"*\n\n> **Exam Insight:** If asked to \"sketch the service level curve,\" draw a **convex (exponentially increasing) curve** from lower-left to upper-right, getting steeper as it approaches 100%.",
+      "keyInsight": "This explains why 100% service is rarely economical. Even Amazon doesn't promise 100% availability.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C64 (Service Level) — defines what service level means", "C65 (Normal Distribution) — the normal distribution's tails drive the convex shape"],
+        "buildsInto": ["C68 (BrightSide) — service level tradeoffs in equitable produce allocation"],
+        "examAppearances": ["Final Review Q3d: Bookstore — sketch and explain the service level curve shape"]
+      }
     },
     {
       "title": "Revenue Management Application",
       "conceptIds": ["C69"],
-      "content": "Revenue Management – Newsvendor Applied to Airlines. Low fare: Discounted price for restricted advance-purchase ticket – targeting leisure travelers. Demand for low-fare tickets is abundant. High fare: Regular price for unrestricted ticket – targeting business travelers. Demand for high-fare tickets is normally distributed (mean, std dev). Most high-fare demand occurs only within a few days of the actual flight. Maximize expected revenues by controlling the number of low-fare seats you sell.",
-      "keyInsight": "Newsvendor logic applies to capacity allocation: balancing low-margin early sales vs. high-margin late sales."
+      "content": "## Revenue Management — Newsvendor Applied to Airlines\n\nRevenue management uses the newsvendor framework to **allocate limited capacity** between customer segments.\n\n### Airline Seat Allocation\n\n| Segment | Fare Type | Demand | Timing |\n|---|---|---|---|\n| **Leisure travelers** | Low fare (discounted, restricted) | Abundant, predictable | Book early |\n| **Business travelers** | High fare (unrestricted) | Uncertain, normally distributed | Book late (days before flight) |\n\n### The Newsvendor Connection\n\n- **\"Product\"** = seats reserved for high-fare passengers\n- **Underage cost** ($C_u$) = high fare − low fare (revenue lost by selling seat cheap)\n- **Overage cost** ($C_o$) = high fare (empty seat if high-fare demand doesn't materialize)\n- **Critical fractile** determines how many seats to **protect** for high-fare customers\n\n$$p_c = \\frac{C_u}{C_u + C_o} = \\frac{\\text{High Fare} - \\text{Low Fare}}{\\text{High Fare}}$$\n\n> **Key Insight:** This is the same newsvendor logic — balance the risk of **selling too many cheap seats** (turning away profitable late-bookers) vs. **saving too many seats** (flying with empties).",
+      "keyInsight": "Newsvendor logic applies to capacity allocation: balancing low-margin early sales vs. high-margin late sales.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C60 (Newsvendor Model) — the foundational framework", "C61 (Critical Fractile) — determines optimal seat protection level"],
+        "buildsInto": [],
+        "examAppearances": ["Final Review S2: Supply chain strategies mention revenue management as a newsvendor application"]
+      }
     }
   ],
   "formulas": [
@@ -102,41 +132,41 @@
   "practiceProblems": [
     {
       "id": "p1",
-      "question": "Demand for a new tuxedo for the high school prom season is uncertain, and the selling season will be extremely brief. Manufacturing is done in advance of the season so that the tuxes are all available at the start of the season. Marketing managers determine demand for a given size is normally distributed with a mean of 500 units and standard deviation of 175 units. Cost to produce is $400. Planned selling price is $750. Units left over at the end of the season can be sold for $200. How many tuxes should they produce?",
-      "solution": "Price = $750, Cost = $400, Salvage value = $200, Average demand = 500 units, Standard deviation = 175 units. Overage cost: co = 400 – 200 = 200. Underage cost: cu = 750 – 400 = 350. Critical Fractile = pc = cu/(cu+co) = 350 / (350+200) = 0.6364. Q* = NORM.INV(0.6364, 500, 175) = 561 units.",
+      "question": "## Tuxedo Manufacturing\n\nDemand for a new tuxedo for the high school prom season is uncertain, and the selling season will be extremely brief. Manufacturing is done in advance.\n\n**Given:**\n- Demand ~ $N(\\mu = 500, \\sigma = 175)$\n- **Cost** to produce: $400/unit\n- **Selling price:** $750/unit\n- **Salvage value:** $200/unit (end-of-season clearance)\n\n**How many tuxedos should they produce?**",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Calculate costs**\n- $C_o = \\text{Cost} - \\text{Salvage} = 400 - 200 = \\$200$\n- $C_u = \\text{Price} - \\text{Cost} = 750 - 400 = \\$350$\n\n**Step 2: Critical fractile**\n$$p_c = \\frac{C_u}{C_u + C_o} = \\frac{350}{350 + 200} = \\frac{350}{550} = 0.6364$$\n\n**Step 3: Find optimal order quantity**\n$$Q^* = \\text{NORM.INV}(0.6364, 500, 175) = 561 \\text{ units}$$\n\n*Alternatively:* $z^* = \\text{NORM.S.INV}(0.6364) = 0.35$, so $Q^* = 500 + 0.35 \\times 175 = 561$\n\n**Step 4: Verify**\n- Service level at $Q^* = 561$: $\\text{NORM.DIST}(561, 500, 175, \\text{TRUE}) = 0.6364$ ✓\n\n> **Interpretation:** Produce **561 tuxedos**. You accept a 36.4% chance of stocking out because the profit margin ($350) justifies the overage risk ($200).",
       "source": "Newsvendor Haas After Class Handouts 2026.json",
       "conceptIds": ["C60", "C61", "C62", "C63"],
       "type": "quantitative"
     },
     {
-      "id": "p2", 
-      "question": "For the tuxedo problem, what if the standard deviation of demand were 250 instead of 175? Would the optimal order quantity increase, decrease, or stay the same?",
-      "solution": "The critical fractile stays the same (0.64) since it only depends on costs, not demand variability. But Q* = NORM.INV(0.64, 500, 250) = 587 units. So Q* increases when variability increases, even though the critical fractile is unchanged.",
+      "id": "p2",
+      "question": "## Impact of Higher Variability\n\nFor the tuxedo problem, what if the standard deviation of demand were **250 instead of 175**? Would the optimal order quantity increase, decrease, or stay the same?",
+      "solution": "### Solution\n\nThe critical fractile **stays the same** at $p_c = 0.6364$ since it depends **only on costs**, not demand variability.\n\nBut the optimal order quantity changes:\n\n$$Q^* = \\text{NORM.INV}(0.6364, 500, 250) = 587 \\text{ units}$$\n\n**$Q^*$ increases** when variability increases (from 561 → 587).\n\n> **Why?** With $p_c > 0.5$, we're stocking **above the mean**. Higher variability stretches the distribution, pushing the 63.64th percentile further to the right. More uncertainty + profitable margins = stock more to capture upside.",
       "source": "Newsvendor Haas After Class Handouts 2026.json",
       "conceptIds": ["C60", "C65"],
       "type": "quantitative"
     },
     {
       "id": "p3",
-      "question": "Demand for a new computer printer is uncertain, but the selling season will be extremely brief. Manufacturing is done in advance so that the printers are all available at the start of the season. Marketing managers determine demand is normally distributed with a mean of 10,000 units and standard deviation of 4,000 units. Cost to produce is $625. Planned selling price is $1000. Units left over at the end of the season can be sold for $450. How many printers should they produce?",
-      "solution": "Overage cost, co = cost - salvage value = $625 - $450 = $175. Underage cost, cu = price - cost = $1000 - $625 = $375. Critical fractile, pc = cu / (cu + co) = 375/(375+175) = 0.68. Q* = NORM.INV(0.68, 10000, 4000) = 11,891 units.",
+      "question": "## Printer Distribution\n\nDemand for a new computer printer is uncertain, with a brief selling season. Manufacturing is done in advance.\n\n**Given:**\n- Demand ~ $N(\\mu = 10{,}000, \\sigma = 4{,}000)$\n- **Cost:** $625/unit\n- **Selling price:** $1,000/unit\n- **Salvage value:** $450/unit\n\n**How many printers should they produce?**",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Calculate costs**\n- $C_o = 625 - 450 = \\$175$\n- $C_u = 1{,}000 - 625 = \\$375$\n\n**Step 2: Critical fractile**\n$$p_c = \\frac{375}{375 + 175} = \\frac{375}{550} = 0.6818$$\n\n**Step 3: Find optimal order quantity**\n$$Q^* = \\text{NORM.INV}(0.6818, 10{,}000, 4{,}000) = 11{,}891 \\text{ units}$$\n\n> **Note:** $Q^* > \\mu$ because $p_c > 0.5$ — the high profit margin justifies stocking above average demand.",
       "source": "Newsvendor Haas After Class Handouts 2026.json",
       "conceptIds": ["C60", "C61", "C62", "C63"],
       "type": "quantitative"
     },
     {
       "id": "p4",
-      "question": "A ski parka company makes Product A with the following data: Unit Cost $110.00, Selling Price $153.00, Discount Price to Jobber $88.00, Mean Demand 1017.00, Standard Deviation 388.00. What is the optimal order quantity and service level?",
-      "solution": "Overage cost: Co = 110.00 - 88.00 = $22.00. Underage cost: Cu = 153.00 - 110.00 = $43.00. Critical Fractile = 43.00/(43.00+22.00) = 0.662. Optimal Q* = NORM.INV(0.662, 1017, 388) = 1178.7 units. Service Level at Q* = 66.2%.",
+      "question": "## Ski Parka — Product A\n\nA ski parka company has the following data for Product A:\n\n| Parameter | Value |\n|---|---|\n| Unit Cost | $110.00 |\n| Selling Price | $153.00 |\n| Discount Price (Jobber) | $88.00 |\n| Mean Demand | 1,017 |\n| Standard Deviation | 388 |\n\n**What is the optimal order quantity and service level?**",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Calculate costs**\n- $C_o = 110 - 88 = \\$22.00$\n- $C_u = 153 - 110 = \\$43.00$\n\n**Step 2: Critical fractile**\n$$p_c = \\frac{43}{43 + 22} = \\frac{43}{65} = 0.6615$$\n\n**Step 3: Optimal order quantity**\n$$Q^* = \\text{NORM.INV}(0.6615, 1017, 388) = 1{,}179 \\text{ units}$$\n\n**Step 4: Service level at $Q^*$**\n$$\\text{Service Level} = p_c = 66.2\\%$$\n\n> This means there's a 33.8% chance of stocking out — but that's **optimal** given the cost structure.",
       "source": "Supplemental Newsvendor Problem Solutions Haas 2026.json",
       "conceptIds": ["C60", "C61", "C62", "C63", "C64"],
       "type": "quantitative"
     },
     {
       "id": "p5",
-      "question": "For the ski parka company, if they wanted to achieve a 90% service level for Product A, what order quantity should they use?",
-      "solution": "To achieve 90% service level: Q = NORM.INV(0.90, 1017, 388) = 1,514 units. Note this is different from the optimal Q* which maximizes expected profit.",
-      "source": "Supplemental Newsvendor Problem Solutions Haas 2026.json", 
+      "question": "## Ski Parka — Target Service Level\n\nFor the ski parka company, if they wanted to achieve a **90% service level** for Product A, what order quantity should they use?",
+      "solution": "### Solution\n\nTo achieve 90% service level (regardless of cost optimization):\n\n$$Q = \\text{NORM.INV}(0.90, 1017, 388) = 1{,}514 \\text{ units}$$\n\nCompare with profit-optimal $Q^* = 1{,}179$ units.\n\n| Metric | Optimal ($Q^*$) | 90% Service |\n|---|---|---|\n| Order Quantity | 1,179 | 1,514 |\n| Service Level | 66.2% | 90.0% |\n| Extra units | — | +335 |\n\n> **Key Distinction:** The profit-maximizing quantity and the service-level-targeting quantity are **different objectives**. Achieving 90% service costs more in expected overage than the 66.2% optimum justifies.",
+      "source": "Supplemental Newsvendor Problem Solutions Haas 2026.json",
       "conceptIds": ["C64", "C65"],
       "type": "quantitative"
     }

@@ -2,7 +2,7 @@
   "slug": "eoq",
   "title": "Economic Order Quantity",
   "classNumber": 9,
-  "module": "C", 
+  "module": "C",
   "keyQuestion": "How much should we order at a time to minimize total cost for repetitive ordering?",
   "caseName": "Hawaii Five-0 Photos, Bicycle Frames, Coffee Maker Distribution",
   "prerequisites": ["processes-1-kristens"],
@@ -13,32 +13,57 @@
     {
       "title": "The EOQ Problem Setup",
       "conceptIds": ["C50"],
-      "content": "Repetitive Orders: Basic Questions. How much to order? When to order? Assumptions: Demand is deterministic and stationary. Ordered products are delivered in the full batch. No shortages. Two costs: Set up cost (ordering cost) that is independent of the order quantity - out of pocket cost, measured in $ per order. Inventory holding cost, measured in $ per unit per year - varies with order size. Objective: Minimize the total relevant annual cost.",
-      "keyInsight": "The EOQ balances ordering costs and holding costs. At EOQ, ordering cost equals holding cost."
+      "content": "## The EOQ Problem: Repetitive Ordering\n\nThe EOQ model answers two fundamental questions for **repetitive, deterministic** ordering:\n1. **How much** to order? (batch size)\n2. **When** to order? (reorder timing)\n\n### Key Assumptions\n- **Demand is deterministic and stationary** (known, constant rate)\n- **Full batch delivery** — entire order arrives at once\n- **No shortages** allowed\n- **Two relevant costs only:**\n\n| Cost | Symbol | Measured In | Behavior |\n|---|---|---|---|\n| **Setup/ordering cost** | $S$ | \\$/order | Fixed per order, independent of $Q$ |\n| **Holding cost** | $H$ | \\$/unit/year | Increases with order size |\n\n### The Core Tradeoff\n\n| Order Small & Often | Order Large & Rarely |\n|---|---|\n| ✅ Low holding costs | ✅ Low ordering costs |\n| ❌ High ordering costs (many orders) | ❌ High holding costs (lots of inventory) |\n\n> **Objective:** Minimize the **total relevant annual cost** — the sum of ordering costs and holding costs.\n\n### EOQ vs. Newsvendor — Know the Difference!\n\n| Feature | EOQ | Newsvendor |\n|---|---|---|\n| Demand | Deterministic (known) | Uncertain (random) |\n| Ordering | Repetitive (ongoing) | One-shot (single season) |\n| Key tradeoff | Ordering cost vs. holding cost | Overage cost vs. underage cost |\n| Formula | $EOQ = \\sqrt{\\frac{2SD}{H}}$ | $Q^* = \\text{NORM.INV}(p_c, \\mu, \\sigma)$ |",
+      "keyInsight": "The EOQ balances ordering costs and holding costs. At EOQ, ordering cost equals holding cost.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C08 (Setup Time) — setup/ordering cost S is the monetary equivalent of setup time", "P01 (Setups) — recurring theme connecting process analysis to inventory"],
+        "buildsInto": ["C51 (Total Relevant Cost) — the cost function EOQ minimizes", "C54 (Consolidation Effect) — extending EOQ to merged operations"],
+        "examAppearances": ["CC3: Full EOQ calculation", "Final Review Q2: Retailer Shovel — EOQ = 338 units"]
+      }
     },
     {
       "title": "Holding Cost Components",
       "conceptIds": ["C52"],
-      "content": "Inventory holding cost: cost to carry an item in inventory for a length of time – usually one year. Interest/taxes, insurance, depreciation, obsolescence, deterioration, spoilage, pilferage, breakage, warehousing, opportunity cost. Some of these are financial costs and some are physical holding costs. H = ic + h, where i = cost of capital per year, c = unit cost, h = physical holding costs per unit per year. For example, a company uses 40% annual inventory cost. If product costs $20 per unit, then H = 20*40% = $8/unit*year.",
-      "keyInsight": "Holding cost combines financial (opportunity cost of capital) and physical (warehousing, insurance, obsolescence, theft) costs"
+      "content": "## Holding Cost: The Full Picture\n\nHolding cost ($H$) captures **everything it costs to keep one unit in inventory for one year**.\n\n### The Formula\n\n$$H = i \\cdot c + h$$\n\nwhere:\n- $i$ = **cost of capital** per year (e.g., 0.15 for 15%)\n- $c$ = **unit cost** (purchase price per unit)\n- $h$ = **physical holding costs** per unit per year\n\n### Two Types of Holding Costs\n\n| Financial Costs ($i \\cdot c$) | Physical Costs ($h$) |\n|---|---|\n| Interest / opportunity cost of capital | Warehousing & rent |\n| Taxes on inventory | Insurance |\n| | Depreciation & obsolescence |\n| | Deterioration & spoilage |\n| | Pilferage & breakage |\n\n### Worked Example\n\n**Hawaii Five-0 Photos:**\n- Unit cost: $c = \\$50$\n- Cost of capital: $i = 15\\%$\n- Physical holding costs: negligible ($h \\approx 0$)\n\n$$H = 0.15 \\times 50 + 0 = \\$7.50/\\text{unit/year}$$\n\n> **Rule of thumb:** Many companies use 20-40% of unit cost as total annual holding cost. If a product costs $20 and the company uses 40%, then $H = \\$8$/unit/year.",
+      "keyInsight": "Holding cost combines financial (opportunity cost of capital) and physical (warehousing, insurance, obsolescence, theft) costs",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C50 (EOQ) — holding cost is one of the two costs EOQ balances"],
+        "buildsInto": ["C51 (Total Relevant Cost) — H feeds directly into TC formula"],
+        "examAppearances": ["CC3: Calculate H from cost of capital and unit cost", "Final Review Q2: H = 0.17 × $45.20 = $7.684/unit/year"]
+      }
     },
     {
-      "title": "Total Relevant Cost Function", 
+      "title": "Total Relevant Cost Function and the EOQ Formula",
       "conceptIds": ["C51"],
-      "content": "Total relevant costs per year (for any order quantity, Q): TC(Q) = S(D/Q) + H(Q/2). Procurement costs per year: S(D/Q). Holding costs per year: H(Q/2). Economic order quantity: EOQ = √(2SD/H). At EOQ, ordering cost equals holding cost: S(D/EOQ) = H(EOQ/2).",
-      "keyInsight": "The total cost curve is U-shaped with minimum at EOQ. Ordering costs decrease as Q increases, holding costs increase as Q increases."
+      "content": "## Total Relevant Cost and the EOQ\n\n### The Total Cost Function\n\nFor any order quantity $Q$:\n\n$$TC(Q) = S \\cdot \\frac{D}{Q} + H \\cdot \\frac{Q}{2}$$\n\n| Component | Formula | Interpretation |\n|---|---|---|\n| **Ordering cost/year** | $S \\cdot \\frac{D}{Q}$ | $\\frac{D}{Q}$ orders per year, each costing $S$ |\n| **Holding cost/year** | $H \\cdot \\frac{Q}{2}$ | Average inventory = $\\frac{Q}{2}$, each unit costs $H$/year |\n\n### Why the Cost Curve is U-Shaped\n\n- As $Q$ increases: ordering costs **decrease** (fewer orders) but holding costs **increase** (more inventory)\n- As $Q$ decreases: ordering costs **increase** (more orders) but holding costs **decrease** (less inventory)\n- The **minimum** occurs where the two cost curves cross\n\n### The EOQ Formula\n\nTaking the derivative of $TC(Q)$ and setting it to zero:\n\n$$EOQ = \\sqrt{\\frac{2SD}{H}}$$\n\n> **Critical property:** At $EOQ$, **ordering cost exactly equals holding cost**:\n> $$S \\cdot \\frac{D}{EOQ} = H \\cdot \\frac{EOQ}{2}$$\n\n### Total Cost at EOQ (Shortcut)\n\n$$TC(EOQ) = \\sqrt{2SDH}$$\n\nThis is derived from the fact that at EOQ, each cost component equals half of total cost.\n\n### Step-by-Step: \"Given D, S, H → Find EOQ and TC\"\n\n1. **Identify parameters:** $D$ (annual demand), $S$ (ordering cost), $H$ (holding cost)\n2. **If $H$ not given directly:** Calculate $H = i \\cdot c + h$\n3. **Calculate EOQ:** $EOQ = \\sqrt{\\frac{2SD}{H}}$\n4. **Calculate TC at EOQ:** $TC = \\sqrt{2SDH}$ or $TC = S \\cdot \\frac{D}{EOQ} + H \\cdot \\frac{EOQ}{2}$\n5. **Verify:** Check that ordering cost ≈ holding cost at EOQ",
+      "keyInsight": "The total cost curve is U-shaped with minimum at EOQ. Ordering costs decrease as Q increases, holding costs increase as Q increases.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C50 (EOQ) — the problem setup", "C52 (Holding Cost) — one of the two cost inputs"],
+        "buildsInto": ["C53 (Robustness) — how flat the U-curve is near the minimum", "C54 (Consolidation) — extending TC analysis to merged operations"],
+        "examAppearances": ["CC3: Calculate TC at current Q and at EOQ", "Final Review Q2: TC(EOQ) = $2,593 vs. TC(500) = $2,798.50"]
+      }
     },
     {
-      "title": "EOQ Robustness and Savings",
+      "title": "EOQ Robustness — Why Being Wrong Is OK",
       "conceptIds": ["C53"],
-      "content": "Percent savings from using the EOQ: % savings = (TC(Q) - TC(EOQ))/TC(Q). The EOQ is very forgiving of errors. Being 25% off EOQ typically costs less than 3% extra. Cost curve is flat near the optimum - like a wide, shallow bowl. So don't stress about getting EOQ exactly right.",
-      "keyInsight": "EOQ is robust - being off by 25% only costs ~3% more. The formula is forgiving of estimation errors."
+      "content": "## EOQ Robustness\n\n### The Forgiving Formula\n\nThe EOQ is remarkably **robust to estimation errors**. The total cost curve is like a **wide, shallow bowl** — being off-center barely increases cost.\n\n### Percent Savings Formula\n\n$$\\% \\text{ savings} = \\frac{TC(Q_{\\text{current}}) - TC(EOQ)}{TC(Q_{\\text{current}})}$$\n\n### Sensitivity Analysis\n\n| Error in Q | Extra Cost |\n|---|---|\n| ±10% off EOQ | ~0.5% extra |\n| ±25% off EOQ | ~2.5% extra |\n| ±50% off EOQ | ~6% extra |\n| 2× EOQ | ~12.5% extra |\n\n> **Key Insight:** Being **25% wrong** on your order quantity only costs about **3% more** than optimal. The cost curve is very flat near the minimum.\n\n### Why This Matters\n\n- Don't obsess over getting EOQ *exactly* right\n- Rough estimates of $S$, $D$, and $H$ are usually **good enough**\n- Round to convenient order sizes (cases, pallets, truckloads)\n- Other practical constraints (shelf space, supplier minimums) can override EOQ without much penalty\n\n> **Exam Tip:** If asked \"should the company worry about their Q being slightly different from EOQ?\" — the answer is almost always **no**, because the cost curve is flat near the optimum.",
+      "keyInsight": "EOQ is robust - being off by 25% only costs ~3% more. The formula is forgiving of estimation errors.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C51 (Total Relevant Cost) — the U-shaped curve whose flatness creates robustness"],
+        "buildsInto": [],
+        "examAppearances": ["Final Review Q2c: Savings from switching to EOQ = $205.50 (modest, showing robustness)", "CC3: Percent savings calculations"]
+      }
     },
     {
-      "title": "Consolidation Effect",
+      "title": "Consolidation Effect — Square-Root Economies of Scale",
       "conceptIds": ["C54"],
-      "content": "Now assume that the company consolidates all 3 DCs into one large central DC. What is the demand per year for the one large DC? Combined EOQ = √(2S(D1+D2+D3)/H). EOQ scales by √n for n locations. If each DC has demand D, combined demand = 3D, so combined EOQ = √3 × individual EOQ = 1.73 × individual EOQ. Total cost grows sub-linearly, creating savings.",
-      "keyInsight": "Consolidating demand creates square-root savings. Larger scale improves efficiency. EOQ scales by √n, so total costs grow slower than demand."
+      "content": "## Consolidation / Merger Analysis\n\nWhen multiple locations **merge their demand**, EOQ creates significant savings through **square-root scaling**.\n\n### The Math\n\nIf each of $n$ locations has demand $D$:\n\n- **Separate:** Each location's $EOQ = \\sqrt{\\frac{2SD}{H}}$, total cost = $n \\times \\sqrt{2SDH}$\n- **Combined:** $EOQ_{\\text{combined}} = \\sqrt{\\frac{2S(nD)}{H}} = \\sqrt{n} \\times EOQ_{\\text{individual}}$\n- **Combined TC:** $\\sqrt{2S(nD)H} = \\sqrt{n} \\times \\sqrt{2SDH}$\n\n### Savings Formula\n\n$$\\% \\text{ savings} = 1 - \\frac{1}{\\sqrt{n}}$$\n\n| Locations Consolidated ($n$) | % Savings |\n|---|---|\n| 2 → 1 | 29.3% |\n| 3 → 1 | 42.3% |\n| 4 → 1 | 50.0% |\n| 9 → 1 | 66.7% |\n\n### Worked Example: Coffee Maker Distribution\n\n**3 DCs, each with:** $D = 7{,}800$, $S = \\$22$, $H = \\$6.30$\n\n- Individual $EOQ = \\sqrt{\\frac{2 \\times 22 \\times 7800}{6.30}} = 234$ units\n- Individual $TC = \\$1{,}470$ per DC → Total for 3 DCs = **$4,409**\n\n**After consolidation** (1 DC with $D = 23{,}400$):\n- Combined $EOQ = \\sqrt{\\frac{2 \\times 22 \\times 23400}{6.30}} = 405$ units (≈ $\\sqrt{3} \\times 234$)\n- Combined $TC =$ **$2,568**\n- **Savings = 42.3%** ($= 1 - 1/\\sqrt{3}$)\n\n> **Key Insight:** Consolidation savings come from spreading **fixed ordering costs** over larger volume. The same $\\sqrt{n}$ scaling appears in newsvendor (postponement) — it's a universal principle of pooling.",
+      "keyInsight": "Consolidating demand creates square-root savings. Larger scale improves efficiency. EOQ scales by √n, so total costs grow slower than demand.",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C50 (EOQ) — the base formula being extended", "C51 (Total Relevant Cost) — consolidation reduces total TC"],
+        "buildsInto": ["C66 (Postponement) — same √n pooling logic in demand uncertainty context"],
+        "examAppearances": ["Final Review Q2d: Retailer merger — 29.3% savings from consolidating 2 stores", "CC3: Coffee maker 3-DC consolidation"]
+      }
     }
   ],
   "formulas": [
@@ -47,7 +72,7 @@
       "formula": "EOQ = √(2SD/H)",
       "variables": {
         "S": "Setup/ordering cost per order",
-        "D": "Annual demand (units per year)", 
+        "D": "Annual demand (units per year)",
         "H": "Holding cost per unit per year"
       },
       "workedExample": "Hawaii Five-0: D=900, S=$10, H=$7.50. EOQ = √(2×10×900/7.50) = √2400 = 49 photos"
@@ -57,7 +82,7 @@
       "formula": "TC(Q) = S(D/Q) + H(Q/2)",
       "variables": {
         "S": "Setup cost per order",
-        "D": "Annual demand", 
+        "D": "Annual demand",
         "Q": "Order quantity",
         "H": "Holding cost per unit per year"
       },
@@ -90,38 +115,38 @@
         "S": "Setup cost per order (same across locations)",
         "H": "Holding cost per unit per year (same across locations)"
       },
-      "workedExample": "3 DCs each with D=7800: Combined D=23,400. Individual EOQ=459. Combined EOQ = √3 × 459 = 795"
+      "workedExample": "3 DCs each with D=7800: Combined D=23,400. Individual EOQ=234. Combined EOQ = √3 × 234 = 405"
     }
   ],
   "practiceProblems": [
     {
-      "id": "p1", 
-      "question": "A distribution center supplies gift shops with autographed pictures of Jack Lord. Sales at this DC are 18 photos per week, and Mr. Lord charges the DC $50 per picture. The DC estimates that its costs of placing an order is $10. The DC uses 15% for its annual cost of capital and physical holding costs are negligible. They currently use an order quantity of 75. The DC is open 50 weeks per year. What is the DC's current total relevant cost? What size orders should the DC place? What percent savings should they achieve?",
-      "solution": "D = 18×50 = 900 photos/year. S = $10. c = $50. H = ic + h = 0.15×50 + 0 = $7.50/unit/year. Current Q = 75. Current TC = 10×(900/75) + 7.50×(75/2) = $120 + $281.25 = $401.25. EOQ = √(2×10×900/7.50) = 49 photos. TC at EOQ = 10×(900/49) + 7.50×(49/2) = $184 + $184 = $368. Savings = (401.25-368)/401.25 = 8.3%",
+      "id": "p1",
+      "question": "## Hawaii Five-0 Photos\n\nA distribution center supplies gift shops with autographed pictures of Jack Lord.\n\n**Given:**\n- Sales: **18 photos/week**, open **50 weeks/year**\n- Unit cost: **$50** per picture\n- Ordering cost: **$10** per order\n- Cost of capital: **15%** annually\n- Physical holding costs: **negligible**\n- Current order quantity: **75 photos**\n\n**Find:** (a) Current total relevant cost, (b) Optimal order quantity (EOQ), (c) Percent savings",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Calculate parameters**\n- $D = 18 \\times 50 = 900$ photos/year\n- $S = \\$10$/order\n- $H = i \\times c + h = 0.15 \\times 50 + 0 = \\$7.50$/unit/year\n\n**Step 2: Current total cost** ($Q = 75$)\n$$TC(75) = 10 \\times \\frac{900}{75} + 7.50 \\times \\frac{75}{2} = \\$120 + \\$281.25 = \\$401.25$$\n\n> Notice: Holding cost ($281) ≫ Ordering cost ($120) → ordering too much!\n\n**Step 3: Find EOQ**\n$$EOQ = \\sqrt{\\frac{2 \\times 10 \\times 900}{7.50}} = \\sqrt{2{,}400} = 49 \\text{ photos}$$\n\n**Step 4: TC at EOQ**\n$$TC(49) = 10 \\times \\frac{900}{49} + 7.50 \\times \\frac{49}{2} = \\$184 + \\$184 = \\$368$$\n\n> At EOQ: Ordering cost = Holding cost = $184 ✓\n\n**Step 5: Percent savings**\n$$\\% \\text{ savings} = \\frac{401.25 - 368}{401.25} = 8.3\\%$$",
       "source": "EOQ After Class Handouts Haas 2026.json",
-      "conceptIds": ["C50", "C51", "C52", "C53"], 
+      "conceptIds": ["C50", "C51", "C52", "C53"],
       "type": "quantitative"
     },
     {
       "id": "p2",
-      "question": "A bicycle manufacturer makes road frames and trail frames. Frames are made in a special vacuum chamber, and it takes one hour to switch from one type to the other. This setup time has opportunity cost of $10,000. Both types have manufacturing cost of $1000 per frame. The firm's cost of capital is 15% annually. Physical holding costs are $100 per frame per year. Demand for each type is 5000 units per year. How large a batch should the manufacturer produce?",
-      "solution": "D = 5000 frames/year. S = $10,000. c = $1000. H = ic + h = 0.15×1000 + 100 = $250/unit/year. EOQ = √(2×10,000×5000/250) = √400,000 = 632 frames. At EOQ, ordering cost = holding cost: $10,000×(5000/632) = $250×(632/2) = $79,114.",
+      "question": "## Bicycle Frames\n\nA bicycle manufacturer makes road frames and trail frames in a vacuum chamber.\n\n**Given:**\n- Setup time: **1 hour** (opportunity cost = **$10,000**)\n- Manufacturing cost: **$1,000**/frame\n- Cost of capital: **15%** annually\n- Physical holding costs: **$100**/frame/year\n- Demand (each type): **5,000 units/year**\n\n**How large a batch should the manufacturer produce?**",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Calculate holding cost**\n$$H = i \\times c + h = 0.15 \\times 1{,}000 + 100 = \\$250/\\text{unit/year}$$\n\n**Step 2: Find EOQ**\n$$EOQ = \\sqrt{\\frac{2 \\times 10{,}000 \\times 5{,}000}{250}} = \\sqrt{400{,}000} = 632 \\text{ frames}$$\n\n**Step 3: Verify** (ordering cost = holding cost at EOQ)\n$$10{,}000 \\times \\frac{5{,}000}{632} = \\$79{,}114 \\quad ; \\quad 250 \\times \\frac{632}{2} = \\$79{,}000$$ ✓\n\n> **Note:** The high setup cost ($10,000) relative to holding cost drives a large batch size. This is analogous to setup times in process analysis — long setups → big batches.",
       "source": "EOQ Practice Problems and Solutions Haas 2026.json",
       "conceptIds": ["C50", "C51", "C52"],
       "type": "quantitative"
     },
     {
       "id": "p3",
-      "question": "A distributor sells a coffee maker from 3 distribution centers. Data for one DC: Demand = 7,800 units/year, Cost per unit = $35, Cost of capital = 18% annually, Fixed ordering cost = $22, Current order size = 325. What is its current total cost? What is the optimal order quantity? What percent savings can they achieve?",
-      "solution": "D = 7800, S = $22, H = 0.18×35 = $6.30. Current TC = 22×(7800/325) + 6.30×(325/2) = $527.38 + $1023.75 = $1551.13. EOQ = √(2×22×7800/6.30) = √54,857 = 234. Optimal TC = 22×(7800/234) + 6.30×(234/2) = $733.33 + $736.20 = $1469.53. Savings = (1551.13-1469.53)/1551.13 = 5.3%",
-      "source": "EOQ After Class Handouts Haas 2026.json", 
+      "question": "## Coffee Maker Distribution (Single DC)\n\nA distributor sells coffee makers from 3 DCs. Data for **one DC**:\n\n| Parameter | Value |\n|---|---|\n| Demand | 7,800 units/year |\n| Unit cost | $35 |\n| Cost of capital | 18% |\n| Ordering cost | $22 |\n| Current order size | 325 |\n\n**Find:** (a) Current TC, (b) EOQ, (c) Percent savings",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Calculate holding cost**\n$$H = 0.18 \\times 35 = \\$6.30/\\text{unit/year}$$\n\n**Step 2: Current TC** ($Q = 325$)\n$$TC(325) = 22 \\times \\frac{7{,}800}{325} + 6.30 \\times \\frac{325}{2} = \\$527.38 + \\$1{,}023.75 = \\$1{,}551.13$$\n\n**Step 3: EOQ**\n$$EOQ = \\sqrt{\\frac{2 \\times 22 \\times 7{,}800}{6.30}} = \\sqrt{54{,}857} = 234 \\text{ units}$$\n\n**Step 4: TC at EOQ**\n$$TC(234) = 22 \\times \\frac{7{,}800}{234} + 6.30 \\times \\frac{234}{2} = \\$733.33 + \\$736.20 = \\$1{,}469.53$$\n\n**Step 5: Savings**\n$$\\% \\text{ savings} = \\frac{1{,}551.13 - 1{,}469.53}{1{,}551.13} = 5.3\\%$$",
+      "source": "EOQ After Class Handouts Haas 2026.json",
       "conceptIds": ["C50", "C51", "C53"],
       "type": "quantitative"
     },
     {
       "id": "p4",
-      "question": "For the coffee maker distributor, if they consolidate all 3 DCs into one central DC (with same parameters), what is the EOQ for the central DC? What percent savings on inventory cost can they anticipate versus 3 separate DCs?",
-      "solution": "Combined demand = 3×7800 = 23,400 units/year. Combined EOQ = √(2×22×23,400/6.30) = 459. This is √3 × individual EOQ = 1.73 × 234 = 405 (approximately). Combined TC = 22×(23,400/459) + 6.30×(459/2) = $1122 + $1446 = $2568. Cost for 3 separate DCs = 3×$1469.53 = $4408.59. Savings = (4408.59-2568)/4408.59 = 42.3%",
+      "question": "## Coffee Maker — Consolidation\n\nIf the distributor consolidates all **3 DCs into one central DC** (same parameters per DC), what is the EOQ and percent savings vs. 3 separate DCs?",
+      "solution": "### Step-by-Step Solution\n\n**Step 1: Combined demand**\n$$D_{\\text{combined}} = 3 \\times 7{,}800 = 23{,}400 \\text{ units/year}$$\n\n**Step 2: Combined EOQ**\n$$EOQ_{\\text{combined}} = \\sqrt{\\frac{2 \\times 22 \\times 23{,}400}{6.30}} = 405 \\text{ units}$$\n\nNote: $405 \\approx \\sqrt{3} \\times 234 = 1.73 \\times 234$  ✓\n\n**Step 3: Combined TC**\n$$TC = 22 \\times \\frac{23{,}400}{405} + 6.30 \\times \\frac{405}{2} = \\$1{,}271 + \\$1{,}276 = \\$2{,}547$$\n\n**Step 4: Compare**\n- 3 separate DCs: $3 \\times \\$1{,}469.53 = \\$4{,}408.59$\n- 1 consolidated DC: $\\$2{,}547$\n\n$$\\% \\text{ savings} = \\frac{4{,}408.59 - 2{,}547}{4{,}408.59} = 42.2\\%$$\n\n> **Shortcut:** For $n = 3$ locations: savings $= 1 - \\frac{1}{\\sqrt{3}} = 1 - 0.577 = 42.3\\%$ ✓",
       "source": "EOQ Practice Problems and Solutions Haas 2026.json",
       "conceptIds": ["C54"],
       "type": "quantitative"
@@ -131,7 +156,7 @@
     "The EOQ balances ordering costs and holding costs - at the optimum, these two costs are equal",
     "Optimizing the order quantity can generate significant savings, especially for high-volume items",
     "EOQ is robust to estimation errors - being 25% wrong typically costs less than 3% in extra costs",
-    "Consolidation creates square-root economies of scale - EOQ grows by √n but costs grow slower than linearly", 
+    "Consolidation creates square-root economies of scale - EOQ grows by √n but costs grow slower than linearly",
     "Setup costs in EOQ are analogous to setup times in production - both create batching incentives",
     "The model assumes deterministic, constant demand - safety stock would be needed for uncertain demand"
   ],

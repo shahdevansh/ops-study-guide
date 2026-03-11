@@ -33,6 +33,11 @@ export interface Lecture {
   practiceProblems: PracticeProblem[];
   keyInsights: string[];
   excelTemplate?: string;
+  connections?: {
+    relatedLectures?: string[];
+    examAppearances?: string[];
+    excelTemplate?: string;
+  };
 }
 
 export interface CoreContentSection {
@@ -40,6 +45,11 @@ export interface CoreContentSection {
   conceptIds: string[];
   content: string;
   keyInsight: string;
+  crossRefs?: {
+    prerequisiteConcepts?: string[];
+    buildsInto?: string[];
+    examAppearances?: string[];
+  };
 }
 
 export interface FormulaWithExample {

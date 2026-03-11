@@ -8,114 +8,199 @@
   "prerequisites": ["processes-1-kristens"],
   "concepts": ["C46", "C47", "C48"],
   "priority": "MEDIUM",
-  "overview": "Supply chain risk management is like buying insurance before you need it. Through anticipatory strategies, you 'buy options' during calm times - backup suppliers, safety stock, flexible capacity. When disruption strikes, you 'exercise your options' with reactive adaptations. From COVID to geopolitical tensions, modern supply chains face increasing uncertainty that requires systematic risk assessment and preparation.",
+  "overview": "Supply chain risk management is like **buying insurance before you need it**. Through **anticipatory strategies**, you \"buy options\" during calm times — backup suppliers, safety stock, flexible capacity. When disruption strikes, you \"exercise your options\" with **reactive adaptations**. From COVID to geopolitical tensions, modern supply chains face increasing uncertainty that requires systematic **risk assessment** and preparation.",
   "coreContent": [
     {
       "title": "Current Risk Landscape",
       "conceptIds": ["C46"],
-      "content": "In a KPMG survey, CEOs ranked 'geopolitics and political uncertainty' the No. 1 risk to economic growth over the next three years, rocketing up from seventh in 2022. Gartner's top emerging risks: Third-Party Viability (67%), Mass Generative AI Availability (66%), Financial Planning Uncertainty (62%), Cloud Concentration Risk (62%), China Trade Tensions (56%).",
-      "keyInsight": "Geopolitical and supply chain risks have surged to become top CEO concerns"
+      "content": "### The Risk Environment Has Changed\n\nIn a KPMG survey, CEOs ranked **\"geopolitics and political uncertainty\"** the **#1 risk** to economic growth over the next three years — up from **#7 in 2022**.\n\n#### Gartner's Top Emerging Risks\n\n| Risk | % of Leaders Citing |\n|------|:---:|\n| **Third-Party Viability** | 67% |\n| Mass Generative AI Availability | 66% |\n| Financial Planning Uncertainty | 62% |\n| Cloud Concentration Risk | 62% |\n| **China Trade Tensions** | 56% |\n\n> **Key takeaway:** Supply chain risk is no longer a \"nice to have\" — it's a **top CEO priority**. The era of optimizing purely for cost efficiency is over.",
+      "keyInsight": "Geopolitical and supply chain risks have surged to become top CEO concerns",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C47 (Risk Mitigation Strategies) — understanding risks drives mitigation approach",
+          "C70 (Fisher Matrix) — risk tolerance affects efficient vs. responsive SC choice"
+        ],
+        "examAppearances": [
+          "Final Review S3: Supply chain risk management framework overview"
+        ]
+      }
     },
     {
       "title": "Risk Management Framework",
       "conceptIds": ["C46"],
-      "content": "Enterprise Risk Management is a process designed to identify potential events that may affect the entity, and manage risk to be within its risk appetite. Components: Internal Environment (tone, risk appetite), Objective Setting, Event Identification (internal and external events), Risk Assessment (likelihood and impact), Risk Response (avoid, accept, reduce, or share risk), Control Activities, Monitoring.",
-      "keyInsight": "Risk = Probability of event × Impact of event. Must balance risk appetite with business objectives."
+      "content": "### Enterprise Risk Management (ERM)\n\n**Definition:** A process designed to **identify potential events** that may affect the entity, and **manage risk** to be within its **risk appetite**.\n\n#### The Risk Equation\n\n$$\\text{Risk} = \\text{Probability of Event} \\times \\text{Impact of Event}$$\n\n#### ERM Components\n\n1. **Internal Environment** — organizational tone and risk appetite\n2. **Objective Setting** — what are we trying to protect?\n3. **Event Identification** — what could go wrong? (internal + external)\n4. **Risk Assessment** — likelihood × impact matrix\n5. **Risk Response** — **Avoid**, **Accept**, **Reduce**, or **Share** risk\n6. **Control Activities** — policies and procedures\n7. **Monitoring** — ongoing surveillance\n\n> **Risk appetite** is the key strategic decision: how much risk are you willing to tolerate? A pharmaceutical company has very low risk appetite for quality failures; a tech startup might accept high risk for speed to market.",
+      "keyInsight": "Risk = Probability of event × Impact of event. Must balance risk appetite with business objectives.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C11 (Operations Strategy — CQDF) — risk appetite must align with strategic priorities"
+        ],
+        "buildsInto": [
+          "C47 (Risk Mitigation Strategies) — risk response options",
+          "C48 (Safety Stock / Buffers) — one response to identified risks"
+        ],
+        "examAppearances": [
+          "Final Review S3: Describe the two-stage approach to risk management"
+        ]
+      }
     },
     {
       "title": "Risk Assessment Matrix",
       "conceptIds": ["C46"],
-      "content": "Risk Assessment uses likelihood (Rare, Unlikely, Moderate, Likely, Almost certain) vs Impact (Negligible, Low, Moderate, Very High, Extreme) matrix. Common Supply Chain Risks: matching supply with demand, delayed shipments, fluctuations in demand, financial risk, currency exchange rate fluctuations, moderate tariff changes. Low Probability / High Impact Risks: volcano, oil spill, market crash, tsunami, political instability/war, pandemic, supplier factory fire, large tariff changes.",
-      "keyInsight": "Different risk types require different management approaches - common risks vs. rare/high-impact events"
+      "content": "### Categorizing Risks by Likelihood × Impact\n\n#### The Matrix\n\n|  | **Negligible** | **Low** | **Moderate** | **Very High** | **Extreme** |\n|---|:---:|:---:|:---:|:---:|:---:|\n| **Almost Certain** | Medium | High | High | Very High | Very High |\n| **Likely** | Low | Medium | High | High | Very High |\n| **Moderate** | Low | Medium | Medium | High | High |\n| **Unlikely** | Low | Low | Medium | Medium | High |\n| **Rare** | Low | Low | Low | Medium | Medium |\n\n#### Common Supply Chain Risks (High Probability / Moderate Impact)\n\n- Matching supply with demand\n- Delayed shipments\n- Demand fluctuations\n- Financial risk / currency exchange rates\n- Moderate tariff changes\n\n#### Black Swan Risks (Low Probability / Extreme Impact)\n\n- **Natural disasters** — volcano, tsunami, earthquake\n- **Geopolitical** — war, political instability, large tariff changes\n- **Health** — pandemic (COVID, avian flu)\n- **Industrial** — supplier factory fire, oil spill\n- **Financial** — market crash\n\n> **Different risks require different strategies:** Common risks → optimize and hedge. Black swans → build resilience and options.",
+      "keyInsight": "Different risk types require different management approaches - common risks vs. rare/high-impact events",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": [
+          "C47 (Risk Mitigation Strategies) — mitigation differs by risk category"
+        ],
+        "examAppearances": [
+          "Final Review S3: Categorize risks and describe appropriate responses"
+        ]
+      }
     },
     {
       "title": "Two-Stage Risk Management Strategy",
       "conceptIds": ["C46", "C47"],
-      "content": "Anticipatory Strategies → Reactive Adaptations. These 'buy you options' → 'Exercise your options'. Anticipatory: Information & Planning (scenario planning, real-time risk monitoring, modeling), Supply Chain Structure Design (footprint restructuring & multi-region sourcing, strategic sourcing partnerships, vertical integration), Supply Chain Process Adjustments (strategic inventory, directed buy agreements, process streamlining).",
-      "keyInsight": "Two-stage approach: anticipatory strategies create options for later use when negative events occur"
+      "content": "### \"Buy Options\" → \"Exercise Options\"\n\n| Stage | When | What You Do | Analogy |\n|-------|------|-------------|--------|\n| **Anticipatory** | Before disruption | Build capabilities, create options | Buying insurance |\n| **Reactive** | During disruption | Use pre-built capabilities | Filing a claim |\n\n#### Anticipatory Strategies (\"Buy Options\")\n\n**1. Information & Planning**\n- Scenario planning for various disruption types\n- Real-time risk monitoring systems\n- Supply network modeling and optimization\n\n**2. Supply Chain Structure Design**\n- **Footprint restructuring** & multi-region sourcing\n- **China+1 / China+Many** diversification\n- Strategic sourcing partnerships\n- **Vertical integration** of critical suppliers\n\n**3. Supply Chain Process Adjustments**\n- Strategic inventory buffers (safety stock)\n- Directed buy agreements\n- Process streamlining (blockchain for reduced paperwork)\n\n> **Key insight:** Anticipatory strategies are **investments** made during calm times. They cost money upfront but create valuable **options** you can exercise when crisis hits.",
+      "keyInsight": "Two-stage approach: anticipatory strategies create options for later use when negative events occur",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C24 (Buffer or Suffer) — same principle: invest in buffers before you need them",
+          "C11 (Operations Strategy — CQDF) — risk strategy must align with CQDF priorities"
+        ],
+        "buildsInto": [
+          "C47 (Risk Mitigation Strategies) — specific anticipatory tactics",
+          "C48 (Safety Stock / Buffers) — inventory as an anticipatory strategy"
+        ],
+        "examAppearances": [
+          "Final Review S3: Full description of two-stage approach with examples"
+        ]
+      }
     },
     {
       "title": "Supply Chain Structure Redesign",
       "conceptIds": ["C47"],
-      "content": "Footprint restructuring and multi-region sourcing: Multiple suppliers in different regions. Closer to markets, exchange rate risk mitigation, optimize production-distribution networks. China + 1, China + Many. Strategic sourcing partnerships: Jointly pursue resilience strategies. Vertical integration of critical suppliers: Control location and priority allocation.",
-      "keyInsight": "Geographic diversification reduces regional risks. China+1 strategies reduce single-country dependence."
+      "content": "### Geographic Diversification Strategies\n\n#### China+1 / China+Many\n\n| Strategy | Description | Tradeoff |\n|----------|-------------|----------|\n| **Single source (China)** | 100% from one country | Lowest cost, highest risk |\n| **China+1** | Primary in China, backup in Vietnam/India/Mexico | Moderate cost increase, significant risk reduction |\n| **China+Many** | Spread across 3-4 countries | Higher cost, lowest risk |\n| **Full diversification** | No country >30% | Highest cost, maximum resilience |\n\n#### Three Structure Strategies\n\n1. **Footprint restructuring & multi-region sourcing**\n   - Multiple suppliers in different regions\n   - Closer to end markets\n   - Exchange rate risk mitigation\n   - Optimize production-distribution networks\n\n2. **Strategic sourcing partnerships**\n   - Jointly pursue resilience strategies with key suppliers\n   - Shared risk monitoring\n   - Long-term commitments in exchange for priority allocation\n\n3. **Vertical integration of critical suppliers**\n   - Control location and priority allocation\n   - Eliminate dependency on external decisions\n   - Higher cost but maximum control\n\n> **The tradeoff is always cost vs. resilience.** A perfectly diversified supply chain is expensive; a perfectly efficient one is fragile.",
+      "keyInsight": "Geographic diversification reduces regional risks. China+1 strategies reduce single-country dependence.",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C46 (Supply Chain Risk Management) — structure redesign is an anticipatory strategy"
+        ],
+        "buildsInto": [
+          "C71 (Efficient vs. Responsive SC) — diversification moves toward responsive SC",
+          "C70 (Fisher Matrix) — risk-sensitive products need responsive chains"
+        ],
+        "examAppearances": [
+          "Final Review S3: Describe footprint restructuring and China+1 strategies",
+          "Supply Chain Risk Practice: Furniture company multi-region decision"
+        ]
+      }
     },
     {
       "title": "Buffers and Flexibility",
       "conceptIds": ["C48"],
-      "content": "Managing Common Supply Chain Risks: Use of inventory buffers - Safety stock = Function of average and variability of lead time demand, and target service level. Use of time buffers – Safety time. Use of information – internally and with supply chain partners: S&OP, CPFR, VMI. Use of flexibility/redundancy: Increase reactive capacity, Currency hedging.",
-      "keyInsight": "Buffer against demand and supply uncertainty. Alternative to safety stock is safety time (longer lead times)."
+      "content": "### Managing Common Supply Chain Risks\n\n#### Types of Buffers\n\n| Buffer Type | What It Is | Cost | Best For |\n|-------------|-----------|------|----------|\n| **Inventory buffer** (Safety stock) | Extra inventory above expected demand | Holding costs | Demand variability, supply delays |\n| **Time buffer** (Safety time) | Ordering earlier than needed | Working capital tied up longer | Lead time uncertainty |\n| **Information buffer** | Shared data with partners | IT investment | Demand signal distortion |\n| **Capacity buffer** | Extra production capability | Idle resources | Demand spikes, supply disruption |\n\n#### Safety Stock Formula\n\n$$\\text{Safety Stock} = f(\\text{avg lead time demand}, \\text{variability}, \\text{service level})$$\n\n- **Higher variability** → more safety stock needed\n- **Higher service level target** → more safety stock needed\n- **Longer lead times** → more safety stock needed\n\n#### Information-Based Strategies\n\n- **S&OP** (Sales & Operations Planning) — internal coordination\n- **CPFR** (Collaborative Planning, Forecasting & Replenishment) — external sharing\n- **VMI** (Vendor Managed Inventory) — supplier manages your stock\n\n> **Alternative to holding inventory:** Use **flexibility and redundancy** — reactive capacity, currency hedging, multiple transportation modes.",
+      "keyInsight": "Buffer against demand and supply uncertainty. Alternative to safety stock is safety time (longer lead times).",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C24 (Buffer or Suffer) — Factory Physics principle that buffers are necessary",
+          "C40 (Bullwhip Effect) — information sharing reduces bullwhip (a major risk source)",
+          "C42 (Counter-Strategies) — S&OP, CPFR, VMI are also bullwhip counter-strategies"
+        ],
+        "buildsInto": [
+          "C60 (Newsvendor Model) — quantifies optimal inventory under uncertainty",
+          "C64 (Service Level) — target service level drives safety stock decisions"
+        ],
+        "examAppearances": [
+          "Final Review S3: Describe buffering strategies for supply chain risk",
+          "Final Review S2: Information-based strategies (S&OP, CPFR, VMI) for bullwhip"
+        ]
+      }
     },
     {
       "title": "Reactive Adaptations",
       "conceptIds": ["C47"],
-      "content": "Ongoing Risk Monitoring and Reaction: Shared risk monitoring. Exercise the option(s) you created: Shifting sourcing or production dynamically across regions, Invoking priority allocation from suppliers, Adjusting inventory and purchase agreements. Real-time response capabilities become critical during disruption periods.",
-      "keyInsight": "Reactive strategies require real-time monitoring and pre-established capabilities to shift resources quickly"
+      "content": "### \"Exercise Your Options\" When Disruption Hits\n\n#### What You Do During a Crisis\n\n1. **Shift sourcing or production** dynamically across regions\n2. **Invoke priority allocation** from pre-qualified suppliers\n3. **Adjust inventory and purchase agreements** — expedite, redirect, substitute\n4. **Activate backup suppliers** and contingency capacity\n5. **Real-time monitoring** enables rapid detection and response\n\n#### The Key: Pre-Built Capabilities\n\n> You can only exercise options you've already purchased. A company that invested in backup suppliers can switch in days. A company that didn't may need **months** to qualify new suppliers.\n\n#### Cross-Functional Coordination During Crisis\n\n| Function | Actions |\n|----------|--------|\n| **Operations** | Shift production, activate backups, expedite |\n| **Finance** | Hedge currency, assess working capital impact, accelerate payments |\n| **HR** | Employee safety, evacuations, cross-training activation |\n| **Marketing** | Communicate shortages, manage customer expectations |\n| **CEO** | Strategic decisions on long-term sourcing changes |\n\n> **Supply chain risk management requires coordination across ALL functions** — it's not just an operations problem.",
+      "keyInsight": "Reactive strategies require real-time monitoring and pre-established capabilities to shift resources quickly",
+      "crossRefs": {
+        "prerequisiteConcepts": [
+          "C46 (Supply Chain Risk Management) — reactive is stage 2 of the framework",
+          "C47 (Risk Mitigation Strategies) — you react using the anticipatory options you built"
+        ],
+        "buildsInto": [
+          "C11 (Operations Strategy — CQDF) — crisis response reveals true strategic priorities"
+        ],
+        "examAppearances": [
+          "Final Review S3: Exercise options during disruption — specific examples",
+          "Supply Chain Risk Practice: Furniture company response to escalating crises"
+        ]
+      }
     }
   ],
   "formulas": [
     {
       "name": "Risk Calculation",
-      "formula": "Risk = Probability × Impact",
+      "formula": "$$\\text{Risk} = \\text{Probability} \\times \\text{Impact}$$",
       "variables": {
-        "Probability": "Likelihood of negative event occurring",
-        "Impact": "Magnitude of damage if event occurs"
+        "Probability": "Likelihood of negative event occurring (0 to 1)",
+        "Impact": "Magnitude of damage if event occurs (in $)"
       },
-      "workedExample": "Factory fire: Low probability (5%) × High impact ($10M loss) = $500K risk exposure"
+      "workedExample": "Factory fire: Low probability (5%) × High impact ($10M loss) = **$500K risk exposure**"
     },
     {
       "name": "Safety Stock",
-      "formula": "Safety Stock = f(avg lead time demand, variability, service level)",
+      "formula": "$$\\text{Safety Stock} = f(\\text{avg lead time demand}, \\text{variability}, \\text{service level})$$",
       "variables": {
         "avg lead time demand": "Expected demand during replenishment lead time",
         "variability": "Standard deviation of lead time demand",
-        "service level": "Target in-stock probability"
+        "service level": "Target in-stock probability (e.g., 95%)"
       },
-      "workedExample": "Higher variability or higher service level targets both increase required safety stock"
+      "workedExample": "Higher variability or higher service level targets both increase required safety stock. Connects to Newsvendor model for precise calculation."
     }
   ],
   "practiceProblems": [
     {
       "id": "p1",
-      "question": "A furniture company manufactures in China (two factories) and North Carolina. They face potential risks: Heavy snows in Siberia shut highways and rail lines (4-day closure expected), tensions between Taiwan and Mainland China, new Avian influenza outbreak in southwest China near Kunming factory. As Operations Manager, what actions would you take for each risk?",
-      "solution": "Siberia closure: Monitor container availability, consider air freight for critical shipments, communicate delays to customers. Taiwan tensions: Assess currency hedge positions, evaluate alternative shipping routes, prepare contingency production plans. Avian flu: Monitor WHO classifications, assess employee safety protocols at Kunming factory, prepare to shift production to Guangzhou factory if needed. Each requires balancing cost vs. risk mitigation.",
+      "question": "### Furniture Company Risk Scenario — Phase 1\n\nA furniture company manufactures in **China (two factories: Kunming & Guangzhou)** and **North Carolina**.\n\nThree risks emerge simultaneously:\n1. **Heavy snows in Siberia** shut highways and rail lines (4-day closure expected)\n2. **Tensions between Taiwan and Mainland China** escalating\n3. **New Avian influenza outbreak** in southwest China near the Kunming factory\n\nAs Operations Manager, **what actions would you take for each risk?**",
+      "solution": "### Solution: Phase 1 Response\n\n#### Risk 1: Siberia Snow Closure (4 days)\n- **Assess:** Monitor container availability at ports; determine which shipments are in transit\n- **React:** Consider **air freight** for critical/time-sensitive shipments\n- **Communicate:** Notify customers of potential 4-7 day delays\n- **Severity:** Low-moderate — temporary disruption with known timeline\n\n#### Risk 2: Taiwan-China Tensions\n- **Assess:** Review **currency hedge positions** and exposure\n- **React:** Evaluate **alternative shipping routes** (avoid Taiwan Strait if needed)\n- **Prepare:** Develop contingency production plans for non-China facilities\n- **Severity:** Medium — monitor closely, prepare but don't overreact yet\n\n#### Risk 3: Avian Influenza near Kunming\n- **Assess:** Monitor **WHO classifications** for pandemic risk escalation\n- **React:** Review employee safety protocols at Kunming factory\n- **Prepare:** Plan to **shift production to Guangzhou** factory if Kunming must close\n- **Severity:** Medium-high — direct threat to one facility\n\n> **Key principle:** Each risk requires balancing **cost of action vs. risk mitigation**. Don't overreact to low-probability events, but have plans ready for escalation.",
       "source": "Supply Chain Risk Management After Class Handouts Haas 2026.json",
       "conceptIds": ["C46", "C47"],
       "type": "conceptual"
     },
     {
       "id": "p2",
-      "question": "The WHO classifies the Avian flu outbreak as Phase 4 (human-to-human transmission), and 125% tariffs on Chinese imports begin in 3 days. Schools and universities are closed near your Kunming factory. What integrated risk management decisions should the company make across functions?",
-      "solution": "Operations: Shut down Kunming factory, shift all production to Guangzhou and North Carolina, expedite shipments before tariffs hit. Finance: Accelerate payments on in-transit goods, hedge currency exposure, assess working capital impact. HR: Evacuate ex-pats from affected region, provide employee support. Marketing: Communicate potential product shortages and price increases to customers. CEO: Consider emergency production outside China (Turkey?) to avoid tariffs long-term.",
+      "question": "### Furniture Company Risk Scenario — Phase 2 (Escalation!)\n\nThe situation escalates:\n- **WHO classifies Avian flu as Phase 4** (confirmed human-to-human transmission)\n- **125% tariffs on Chinese imports** begin in 3 days\n- Schools and universities closed near Kunming factory\n\n**What integrated risk management decisions should the company make across functions?**",
+      "solution": "### Solution: Phase 2 — Cross-Functional Crisis Response\n\n| Function | Immediate Actions |\n|----------|-------------------|\n| **Operations** | 1. **Shut down Kunming factory** (employee safety first) 2. **Shift all production** to Guangzhou + North Carolina 3. **Expedite all in-transit shipments** before tariffs hit |\n| **Finance** | 1. **Accelerate payments** on goods in transit (lock in pre-tariff costs) 2. **Hedge currency exposure** 3. Assess working capital impact of production shift |\n| **HR** | 1. **Evacuate expatriates** from affected region 2. Provide employee support and safety guidance 3. Activate cross-training at remaining facilities |\n| **Marketing** | 1. **Communicate potential shortages** to key customers 2. Prepare for price increase conversations 3. Prioritize allocation to top-tier customers |\n| **CEO / Strategy** | 1. Evaluate **emergency production outside China** (Turkey? Mexico?) to avoid tariffs long-term 2. Accelerate China+1 diversification strategy 3. Board communication on risk exposure |\n\n> **This is why anticipatory strategies matter.** A company with pre-qualified backup suppliers and geographic diversification can execute this in days. One without? Months of scrambling.",
       "source": "Supply Chain Risk Management After Class Handouts Haas 2026.json",
       "conceptIds": ["C46", "C47"],
       "type": "conceptual"
     },
     {
       "id": "p3",
-      "question": "Compare anticipatory vs. reactive strategies for managing the risk of a key supplier factory being destroyed by fire. What options should a company 'buy' in advance, and how would they 'exercise' those options?",
-      "solution": "Anticipatory (buy options): Qualify backup suppliers in different regions, negotiate contingency capacity agreements, maintain strategic inventory of critical components, implement supplier financial monitoring. Reactive (exercise options): Activate pre-qualified backup suppliers, invoke contingency capacity agreements, allocate available inventory across most critical products, expedite shipments from alternative suppliers. Key: anticipatory investments create future flexibility.",
+      "question": "### Anticipatory vs. Reactive: Supplier Factory Fire\n\nCompare **anticipatory** vs. **reactive** strategies for managing the risk of a key supplier's factory being **destroyed by fire**.\n\nWhat options should a company \"buy\" in advance, and how would they \"exercise\" those options?",
+      "solution": "### Solution: Two-Stage Approach to Supplier Fire Risk\n\n#### Stage 1: Anticipatory — \"Buy Options\"\n\n| Option | Cost | What It Buys You |\n|--------|------|------------------|\n| **Qualify backup suppliers** in different regions | Qualification time + testing costs | Ready-to-activate alternatives |\n| **Negotiate contingency capacity agreements** | Small retainer fees | Guaranteed capacity when needed |\n| **Maintain strategic inventory** of critical components | Holding costs | Time to react without production stops |\n| **Implement supplier financial monitoring** | IT/analytics investment | Early warning of supplier distress |\n\n#### Stage 2: Reactive — \"Exercise Options\"\n\n| When Fire Happens... | Action |\n|---------------------|--------|\n| Day 1 | Activate **pre-qualified backup suppliers** |\n| Day 1 | Invoke **contingency capacity agreements** |\n| Day 1-7 | **Allocate available inventory** across most critical products |\n| Week 1-4 | **Expedite shipments** from alternative suppliers |\n| Ongoing | Redirect logistics, substitute materials where possible |\n\n> **Key:** Anticipatory investments create **future flexibility**. Without them, every reactive option takes 10× longer and costs 10× more.",
       "source": "Supply Chain Risk Management After Class Handouts Haas 2026.json",
       "conceptIds": ["C46", "C47"],
       "type": "conceptual"
     },
     {
       "id": "p4",
-      "question": "A company currently sources 80% of components from China. Design a 'China+1' strategy that reduces geopolitical risk while managing costs. What are the tradeoffs?",
-      "solution": "China+1 approach: Develop suppliers in Vietnam, Mexico, India for 30-40% of volume. Keep China for remaining 60-70% to maintain scale economics. Tradeoffs: Higher costs (new suppliers lack scale), complexity (managing multiple regions), longer qualification time vs. reduced geopolitical risk, supply disruption risk, potential tariff avoidance. Gradual transition over 2-3 years allows supplier development and cost optimization.",
+      "question": "### Designing a China+1 Strategy\n\nA company currently sources **80% of components from China**. Design a **\"China+1\" strategy** that reduces geopolitical risk while managing costs.\n\n**What are the tradeoffs?**",
+      "solution": "### Solution: China+1 Strategy Design\n\n#### Proposed Structure\n\n| Region | Volume Share | Role |\n|--------|:---:|---|\n| **China** | 60-70% | Primary — maintain scale economics |\n| **Vietnam** | 15-20% | Secondary — labor cost advantage |\n| **Mexico** | 10-15% | Nearshore — fast delivery to US market |\n| **India** | 5-10% | Emerging — long-term diversification |\n\n#### Implementation Timeline: 2-3 Years\n\n1. **Year 1:** Qualify new suppliers, pilot small orders\n2. **Year 2:** Ramp to target volumes, build relationships\n3. **Year 3:** Full diversification, optimize logistics\n\n#### Tradeoffs\n\n| Benefit | Cost |\n|---------|------|\n| ✅ Reduced geopolitical risk | ❌ Higher unit costs (new suppliers lack scale) |\n| ✅ Reduced tariff exposure | ❌ Management complexity (multiple regions) |\n| ✅ Supply continuity if one region disrupted | ❌ Longer qualification time |\n| ✅ Potential nearshoring speed advantage | ❌ Quality consistency challenges initially |\n\n> **Critical insight:** Gradual transition over 2-3 years allows supplier development and cost optimization. Don't try to shift overnight — that's a different kind of disruption.",
       "source": "Supply Chain Risk Management After Class Handouts Haas 2026.json",
       "conceptIds": ["C47"],
       "type": "conceptual"
     }
   ],
   "keyInsights": [
-    "Scenario Planning: 'Buy options' by investing in resilience, 'Exercise options' when negative events occur",
-    "Understand risk management (event, likelihood, impact, mitigation, reaction, recovery)",
-    "Understand the interrelationships among risks and manage integrated risks for the entire enterprise", 
-    "Footprint restructuring, multi-region sourcing, China+1, strategic partnerships, vertical integration reduce regional risks",
-    "Anticipatory strategies create options. Reactive adaptations exercise options.",
-    "Real-time risk monitoring enables dynamic response across regions and suppliers",
-    "Supply Chain Risk Management requires coordination across functions - Operations, Finance, HR, Marketing"
+    "**Scenario Planning:** \"Buy options\" by investing in resilience, \"Exercise options\" when negative events occur",
+    "Understand risk management: **event → likelihood → impact → mitigation → reaction → recovery**",
+    "Understand the **interrelationships among risks** and manage integrated risks for the entire enterprise",
+    "**Footprint restructuring**, multi-region sourcing, China+1, strategic partnerships, vertical integration reduce regional risks",
+    "**Anticipatory strategies create options. Reactive adaptations exercise options.**",
+    "Real-time risk monitoring enables **dynamic response** across regions and suppliers",
+    "Supply Chain Risk Management requires **coordination across functions** — Operations, Finance, HR, Marketing"
   ],
   "connections": {
     "relatedLectures": ["beer-game-bullwhip", "supply-chain-strategy"],

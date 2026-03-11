@@ -13,32 +13,70 @@
     {
       "title": "The Fisher Matrix: Matching Products with Supply Chains",
       "conceptIds": ["C70"],
-      "content": "Matching Products with Supply Chains\n | Functional / Replenishment Products | Innovative / Style  Products\nEfficient Supply Chain | Match | Mismatch\nResponsive Supply Chain | Mismatch | Match\nExcess capacity & inventory\nLong lead times",
-      "keyInsight": "Align your supply chain strategy with the type of products you are selling. Functional / Replenishment products => Efficient supply chain. Innovative / style goods => Responsive supply chain."
+      "content": "## The Fisher Matrix\n\nThe Fisher Matrix is the **core framework** for matching supply chain strategy to product type:\n\n| | **Functional / Replenishment Products** | **Innovative / Style Products** |\n|---|---|---|\n| **Efficient Supply Chain** | ✅ **Match** | ❌ Mismatch |\n| **Responsive Supply Chain** | ❌ Mismatch | ✅ **Match** |\n\n### Key Characteristics\n\n**Functional Products** (Barilla pasta, eBeer, toilet paper):\n- **Predictable** demand patterns\n- Long product life cycles\n- Low profit margins\n- Low stockout costs\n\n**Innovative Products** (Sport Obermeyer, fashion, new electronics):\n- **Unpredictable** demand\n- Short product life cycles\n- High profit margins\n- High stockout costs (lost sales + lost trends)\n\n> **The cardinal sin:** Pairing an innovative product with an efficient supply chain (slow to react) or a functional product with a responsive supply chain (unnecessarily expensive).",
+      "keyInsight": "Align your supply chain strategy with the type of products you are selling. Functional / Replenishment products => Efficient supply chain. Innovative / style goods => Responsive supply chain.",
+      "crossRefs": {
+        "prerequisiteConcepts": [],
+        "buildsInto": ["C71", "C72", "C73"],
+        "examAppearances": [
+          "Final Review S2: Classify beer as functional product and ski parkas as innovative product, then prescribe appropriate SC strategies"
+        ]
+      }
     },
     {
       "title": "Efficient vs. Responsive Supply Chains",
       "conceptIds": ["C71"],
-      "content": "Efficient Supply Chain: Match with Functional Products (Barilla Pasta, eBeer). Coordinate internally (S&OP) and with supply chain partners (CPFR and VMI).\n\nResponsive Supply Chain: Match with Innovative Products (Sport Obermeyer). Use of information: Quantify risk (Newsvendor model), Reduce risk (Early order information). Use of flexibility / redundancy: Avoid risk (Reactive capacity), Hedge against residual risk (Common components and postponement).",
-      "keyInsight": "Different product/supply characteristics require different supply chain strategies"
+      "content": "## Efficient vs. Responsive Supply Chains\n\n### Efficient Supply Chain\n> **Match with Functional Products** (Barilla Pasta, eBeer)\n\n- **Goal:** Minimize cost, maximize throughput\n- **Strategy:** Coordinate internally and with partners\n- **Tools:**\n  - **S&OP** (Sales & Operations Planning) — internal info sharing\n  - **CPFR** (Coordinated Planning, Forecasting & Replenishment) — external info sharing\n  - **VMI** (Vendor Managed Inventory) — share decision rights\n\n### Responsive Supply Chain\n> **Match with Innovative Products** (Sport Obermeyer ski jackets)\n\n- **Goal:** React quickly to demand signals, minimize stockouts\n- **Strategy:** Use information + flexibility/redundancy\n\n**Four-part framework:**\n\n| Strategy | Approach | Tools |\n|---|---|---|\n| **Quantify risk** | Forecast distributions, not just means | Newsvendor model |\n| **Reduce risk** | Improve forecast accuracy | Early order information |\n| **Avoid risk** | Build reactive capacity | Flexible manufacturing |\n| **Hedge residual risk** | Diversify | Common components, postponement |\n\n> **Key insight:** Different product/supply characteristics require fundamentally different supply chain strategies — there is no one-size-fits-all.",
+      "keyInsight": "Different product/supply characteristics require different supply chain strategies",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C70"],
+        "buildsInto": ["C72"],
+        "examAppearances": [
+          "Final Review S2a: Describe strategies for functional products (beer) — S&OP, CPFR, VMI",
+          "Final Review S2b: Describe strategies for innovative products (ski parkas) — information + flexibility"
+        ]
+      }
     },
     {
       "title": "Dual Response Strategy",
       "conceptIds": ["C72"],
-      "content": "Dual Response: Risk-based Deployment\nStable Factory. Tuned for stable production — ultra-low cost, but inflexible.\nVariable Factory. Tuned for variable production — highly flexible, but at a premium price.\nSource: Dr. Hau Lee, Stanford University",
-      "keyInsight": "Dual response supply chains can achieve both efficiency and responsiveness. Mixed strategies can provide both efficiency and flexibility (LL Bean)"
+      "content": "## Dual Response Strategy\n\n> *Source: Dr. Hau Lee, Stanford University*\n\nThe **dual response** approach combines efficiency AND responsiveness through **risk-based deployment** of two types of capacity:\n\n### Two Factory Model\n\n| Factory Type | Characteristics | Purpose |\n|---|---|---|\n| **Stable Factory** | Ultra-low cost, inflexible | Handles **predictable** base demand |\n| **Variable Factory** | Highly flexible, premium price | Handles **uncertain** demand spikes |\n\n### How It Works\n\n1. **Before season:** Produce predictable demand at the **stable factory** (low cost)\n2. **During season:** React to actual demand signals using the **variable factory** (fast response)\n3. **Result:** Get both cost efficiency AND demand responsiveness\n\n### Real-World Examples\n\n- **L.L. Bean:** Uses offshore (efficient) for base production + domestic (responsive) for reactive orders\n- **Sport Obermeyer:** Hong Kong factory (stable, 6-month lead) + Chinese subcontractors (variable, short lead)\n- **Zara:** Spain factories (responsive) for fashion items + outsourced (efficient) for basics\n\n> **Key insight:** You don't have to choose between efficient and responsive — mixed strategies can achieve both, at the cost of managing two supply chain modes.",
+      "keyInsight": "Dual response supply chains can achieve both efficiency and responsiveness. Mixed strategies can provide both efficiency and flexibility (LL Bean)",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C70", "C71"],
+        "buildsInto": [],
+        "examAppearances": [
+          "Final Review S2b: Flexibility/redundancy strategies include reactive capacity — dual response is a key example"
+        ]
+      }
     },
     {
       "title": "Sport Obermeyer Strategies",
       "conceptIds": ["C73"],
-      "content": "Obermeyer: Reduce Risk – Increase Return\nForecast distribution of demand\nAssess overage and underage costs\nDetermine appropriate initial production quantities\nRead early demand indicators\nUpdate demand forecast\nDetermine final production quantities\n\nObermeyer Forecasting\nPrevious Method: Wally Obermeyer drives the point forecast\nCurrent Method: Forecast independently → variance information\nAverage the individuals' forecasts to get the mean for the newsvendor model\nStandard deviation of individual forecasts * 2 to get σ for the newsvendor model",
-      "keyInsight": "Improve forecast accuracy using early order information and independent forecasting to reduce demand uncertainty"
+      "content": "## Sport Obermeyer: Reduce Risk, Increase Return\n\nSport Obermeyer sells fashionable ski apparel with **highly uncertain demand** and **long production lead times**. Their strategy is a masterclass in applying operations tools to real uncertainty.\n\n### The Obermeyer Playbook\n\n1. **Forecast** the distribution of demand (not just a point estimate)\n2. **Assess** overage ($C_o$) and underage ($C_u$) costs\n3. **Determine** initial production quantities using the **Newsvendor model**\n4. **Read** early demand indicators (trade shows, early orders)\n5. **Update** demand forecast with new information\n6. **Determine** final production quantities\n\n### Improved Forecasting Method\n\n| Aspect | Previous Method | Current Method |\n|---|---|---|\n| **Who forecasts** | Wally Obermeyer alone | Committee of experts independently |\n| **Mean ($\\mu$)** | Single point estimate | **Average** of individual forecasts |\n| **Std Dev ($\\sigma$)** | Gut feel | **2× standard deviation** of individual forecasts |\n\n> **Why independent forecasting works:** Each expert captures different information. Averaging reduces individual bias (wisdom of crowds). The spread between forecasts captures genuine uncertainty about demand.\n\n### Connecting to Newsvendor\n\nFor each SKU:\n$$Q^* = \\text{NORM.INV}\\left(\\frac{C_u}{C_u + C_o}, \\mu, \\sigma\\right)$$\n\nWhere:\n- $C_u = \\text{Price} - \\text{Cost}$ (lost profit from understocking)\n- $C_o = \\text{Cost} - \\text{Salvage}$ (loss from overstocking)\n- $\\mu$ = average of committee forecasts\n- $\\sigma$ = 2 × std dev of committee forecasts",
+      "keyInsight": "Improve forecast accuracy using early order information and independent forecasting to reduce demand uncertainty",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C60", "C61", "C65", "C70"],
+        "buildsInto": [],
+        "examAppearances": [
+          "Final Review S2b: Describe strategies for innovative products — forecast distributions, newsvendor, early order info, reactive capacity",
+          "CC4: Newsvendor calculations (same framework applied to BrightSide)"
+        ]
+      }
     },
     {
       "title": "Coping with Supply Chain Risk",
       "conceptIds": ["C73"],
-      "content": "Coping with Supply Chain Risk\nUse of information\nQuantify risk\nForecast distributions, not just means\nMake intelligent gambles with Newsvendor model\nReduce risk\nImprove forecast accuracy – use early order information\nUse of flexibility / redundancy\nAvoid risk\nIncrease reactive capacity\nHedge against residual risk\nCommon components and pre-positioned inventories",
-      "keyInsight": "Use information to quantify and reduce risk, while building flexibility to avoid and hedge against residual risk"
+      "content": "## Framework: Coping with Supply Chain Risk\n\nA comprehensive two-pronged approach for innovative/style products:\n\n### 1. Use of Information\n\n**Quantify Risk:**\n- Forecast **distributions**, not just means\n- Understand the shape of demand uncertainty ($\\mu$ and $\\sigma$)\n- Make intelligent gambles with the **Newsvendor model**\n\n**Reduce Risk:**\n- Improve forecast accuracy with **early order information**\n- Use retailer input, trade show data, and committee forecasting\n- Update forecasts as new data arrives\n\n### 2. Use of Flexibility / Redundancy\n\n**Avoid Risk:**\n- Increase **reactive capacity** (ability to produce after demand is known)\n- Dual response strategy: stable factory + variable factory\n\n**Hedge Against Residual Risk:**\n- **Common components** reduce variety-driven uncertainty\n- **Pre-positioned inventories** enable fast response\n- **Postponement** — delay final customization until demand is revealed\n\n> **The complete toolkit for uncertain demand:**\n> 1. Quantify it (distributions + newsvendor)\n> 2. Reduce it (better forecasting)\n> 3. Avoid it (reactive capacity)\n> 4. Hedge what remains (common components + postponement)",
+      "keyInsight": "Use information to quantify and reduce risk, while building flexibility to avoid and hedge against residual risk",
+      "crossRefs": {
+        "prerequisiteConcepts": ["C60", "C70", "C71"],
+        "buildsInto": ["C46", "C47"],
+        "examAppearances": [
+          "Final Review S2b: Complete framework for innovative product supply chains",
+          "Final Review S3: Supply chain risk management — anticipatory strategies and reactive adaptations"
+        ]
+      }
     }
   ],
   "formulas": [],
@@ -47,7 +85,7 @@
     "Three things that hurt you in operations: Setups, Bottlenecks, Uncertainty & Variability …but proper actions mitigate this pain",
     "Align your supply chain strategy with the type of products you are selling",
     "Functional / Replenishment products => Efficient supply chain",
-    "Innovative / style goods => Responsive supply chain", 
+    "Innovative / style goods => Responsive supply chain",
     "Dual response supply chains can achieve both efficiency and responsiveness",
     "Different product/supply characteristics require different supply chain strategies",
     "Forecast distributions, not just means",
