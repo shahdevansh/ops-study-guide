@@ -9,6 +9,7 @@ import { FormulaBlock } from '@/components/content/FormulaBlock'
 import { InsightBox } from '@/components/content/InsightBox'
 import { PracticeToggle } from '@/components/content/PracticeToggle'
 import { ConceptTag } from '@/components/content/ConceptTag'
+import { FormattedContent } from '@/components/content/FormattedContent'
 
 import { use } from 'react'
 
@@ -173,9 +174,7 @@ export default function LecturePage({ params: paramsPromise }: Props) {
                 </div>
 
                 <div className="prose prose-sm max-w-none dark:prose-invert mb-4">
-                  <div className="whitespace-pre-wrap text-gray-700 dark:text-gray-300">
-                    {section.content}
-                  </div>
+                  <FormattedContent text={section.content} />
                 </div>
 
                 <InsightBox type="principle">

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { FormattedContent } from './FormattedContent'
 
 interface PracticeToggleProps {
   question: string
@@ -54,9 +55,7 @@ export function PracticeToggle({
         </div>
         
         <div className="prose prose-sm max-w-none dark:prose-invert">
-          <div className="whitespace-pre-wrap text-gray-700 dark:text-gray-300">
-            {question}
-          </div>
+          <FormattedContent text={question} />
         </div>
       </div>
 
@@ -95,9 +94,7 @@ export function PracticeToggle({
                     </h4>
                   </div>
                   <div className="prose prose-sm max-w-none dark:prose-invert">
-                    <div className="whitespace-pre-wrap text-green-800 dark:text-green-200">
-                      {solution}
-                    </div>
+                    <FormattedContent text={solution} />
                   </div>
                 </div>
               </div>
